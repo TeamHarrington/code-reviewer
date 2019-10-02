@@ -5,6 +5,7 @@
 - **Typescript**
 - **GraphQL**
 - **Jest?** - Testing Framework
+- **Lerna** - Managing monorepo
 
 ### Frontend
 
