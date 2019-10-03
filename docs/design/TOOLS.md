@@ -13,7 +13,7 @@
 - **NextJS** - React Framework for SSR (Server side rendering)
 - **React Bootstrap** - CSS library
 - **Styled components** - for styling components
-- **Axios** - making API calls
+- **Axios** - making API calls (we may not need this because of GraphQL)
 - **Storybook?** - developing components
 - May add later on if needed
 	- **Redux, Saga** - state management
@@ -23,7 +23,7 @@
 ### Backend
 - **Koa**
 - **Typescript**
-- **Joi?** - json validation
+- **Joi?** - json validation (we may not need this because of GraphQL)
 - **Passport?** - authentication
 - **mongoose** - Mongo ODM
 - **MongoDB** - Database
