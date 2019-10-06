@@ -5,7 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "ts-node --project tsconfig.json index.ts"
+    "start": "ts-node --project tsconfig.json index.ts",
+    "lint": "gulp lint"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,11 @@
     "yarn": ">=1.19.0 <=1.19"
   },
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "gulp": "^4.0.2",
+    "gulp-tslint": "^8.1.4",
+    "lerna": "^3.16.4",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
   },
   "dependencies": {}
 }
