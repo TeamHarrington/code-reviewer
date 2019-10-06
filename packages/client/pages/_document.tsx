@@ -2,7 +2,7 @@ import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
-  public render() {
+  public render = () => {
     return (
       <html>
         <Head>

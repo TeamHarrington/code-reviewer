@@ -1,7 +1,7 @@
-import ExpressApolloServer from './server'
+import ExpressApolloApp from './server'
 
-async function main() {
-  const app = ExpressApolloServer()
+function main() {
+  const app = ExpressApolloApp()
   app.listen({ port: 3000 }, () => {
     console.log(
       `Server ready at http://localhost:4000${app.apolloServer.graphqlPath}`

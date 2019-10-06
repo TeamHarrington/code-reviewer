@@ -10,11 +10,13 @@
     "url": "git+https://github.com/TeamHarrington/code-reviewer.git"
   },
   "scripts": {
-    "start": "next -p 3001"
+    "start": "next -p 3001",
+    "lint": "gulp lint"
   },
   "dependencies": {
     "express": "^4.17.1",
     "graphql": "^14.5.8",
+    "gulp-tslint": "^8.1.4",
     "lodash": "^4.17.15",
     "next": "^9.0.8",
     "react": "^16.10.2",
@@ -25,6 +27,8 @@
     "@types/lodash": "^4.14.141",
     "@types/node": "^12.7.11",
     "@types/react": "^16.9.5",
+    "gulp": "^4.0.2",
+    "tslint": "^5.20.0",
     "typescript": "^3.6.3"
   }
 }
