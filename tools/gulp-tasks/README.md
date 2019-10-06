@@ -16,7 +16,8 @@ module.exports = gulp => done => {
 
 ## Loading Task
 
-To load a task, use the `loadTask` function. Usually the task format goes as follows
+To load a task, use the `loadTask` function. Usually the task format goes as follows:
+
 `gulp.task(taskName, loadTask(fileName))`.
 
 Example:
