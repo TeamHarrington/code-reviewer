@@ -1,0 +1,36 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/packages/*/node_modules
+
+# logging
+*.log
+*.cache
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+npm-debug.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Using yarn
+package-lock.json
+npm-shrinkwrap.json
