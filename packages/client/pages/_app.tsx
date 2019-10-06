@@ -2,7 +2,7 @@ import App, { AppContext } from 'next/app'
 import React from 'react'
 
 class MyApp extends App<AppContext> {
-  public render() {
+  public render = () => {
     const { Component, pageProps } = this.props
     return (
       <>
