@@ -1,32 +1,23 @@
 
-# Tools & Technology (Tentative)
+# Tools & Technology
 
-  ### In General
+### In General
 - **Typescript**
 - **GraphQL**
 - **Jest?** - Testing Framework
 - **Lerna** - Managing monorepo
 
 ### Frontend
-
-- **React**
-- **NextJS** - React Framework for SSR (Server side rendering)
-- **React Bootstrap** - CSS library
-- **Styled components** - for styling components
-- **Axios** - making API calls (we may not need this because of GraphQL)
-- **Storybook?** - developing components
+- **React with NextJS**
+- **Styled components**
 - May add later on if needed
 	- **Redux, Saga** - state management
 
-  
-
 ### Backend
-- **Koa**
-- **Typescript**
-- **Joi?** - json validation (we may not need this because of GraphQL)
-- **Passport?** - authentication
+- **Express**
 - **mongoose** - Mongo ODM
 - **MongoDB** - Database
+	
 
 Things we may also need:
 - Syntax highlighter for front-end
