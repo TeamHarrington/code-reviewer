@@ -27,7 +27,6 @@
     "no-bitwise": true,
     "no-conditional-assignment": true,
     "no-dynamic-delete": true,
-    "no-floating-promises": true,
     "no-invalid-template-strings": true,
     "no-invalid-this": true,
     "no-null-keyword": true,
