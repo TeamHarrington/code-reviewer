@@ -10,7 +10,8 @@ Code Reviewer Application
 yarn start
 ```
 
-This will deploy the `@code-reviewer/api` server and have it also serve `@code-reviewer/client`.
+This will deploy the `@code-reviewer/api` server and have it also serve `@code-reviewer/client`. Navigate to
+`http://localhost:3000` for the webpage and `http://localhost:3000/graphql` for the GraphQL playground.
 
 ### Linting Code
 

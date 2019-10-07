@@ -10,7 +10,8 @@ The API Back-end for the Code-Reviewer application done with Express + GraphQL.
 yarn start
 ```
 
-This will start the server on port `${process.env.PORT} || 3000`.
+This will start the server on port `${process.env.PORT} || 3000`. Visit `http://localhost:${PORT}/graphql` for GraphQL playground.
+
 
 Note: This will start the server standalone (without `@code-reviewer/client`). For information on how start the server with `@code-reviewer/client`, refer to the root README.
 
