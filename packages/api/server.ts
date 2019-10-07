@@ -14,6 +14,7 @@ const ExpressApolloApp = (
   configs?: ExpressAppConfig,
   apolloConfigs?: ApolloServerExpressConfig
 ): ExpressApolloServer => {
+  // TODO: delete console.log
   console.log('Unused server params for now:', configs, apolloConfigs)
 
   const app = ExpressServer() as ExpressApolloServer

@@ -10,7 +10,7 @@
     "url": "git+https://github.com/TeamHarrington/code-reviewer.git"
   },
   "scripts": {
-    "start": "next -p 3001"
+    "start": "next"
   },
   "dependencies": {
     "express": "^4.17.1",
