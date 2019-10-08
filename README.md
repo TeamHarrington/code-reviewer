@@ -27,10 +27,10 @@ All the project is written in Typescript. However, some build tasks, such as `gu
 
 ```
 code-reviewer/
-├─ packages        # Contains all repos for this monorepo
+├─ packages          # Contains all repos for this monorepo
 	├─ api           # Backend API
 	├─ client        # Frontend Application
-├─ docs            # General documentation
-├─ tools           # General tools used by main application
+├─ docs              # General documentation
+├─ tools             # General tools used by main application
 	├─ gulp-tasks    # List all tasks related to gulpfile.js
 ```
