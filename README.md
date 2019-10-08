@@ -19,7 +19,7 @@ This will deploy the `@code-reviewer/api` server and have it also serve `@code-r
 yarn lint
 ```
 
-This will lint all `.ts` and `.tsx` files in the codebase. We may add linting for `.js` & `.jsx` files later if necessary. It will also attempt to fix any fixable lints.
+This will lint all `.ts` and `.tsx` files in the codebase. We may add linting for `.js` & `.jsx` files later if necessary.
 
 ## Code Structure
 
