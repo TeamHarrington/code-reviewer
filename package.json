@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "start": "ts-node --project tsconfig.json index.ts",
-    "lint": "gulp lint --silent"
+    "lint": "gulp lint"
   },
   "repository": {
     "type": "git",

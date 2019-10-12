@@ -14,7 +14,10 @@ function checkLint(gulp) {
 
     // client
     'packages/client/**/*.tsx',
-    'packages/client/**/*.ts'
+    'packages/client/**/*.ts',
+
+    '!./node_modules/**',
+    '!./packages/**/node_modules/**'
   ]
 
   return gulp
