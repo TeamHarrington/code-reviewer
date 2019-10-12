@@ -12,8 +12,21 @@ yarn start
 
 This will start the server on port `${process.env.PORT} || 3000`. Visit `http://localhost:${PORT}/graphql` for GraphQL playground.
 
+You may also start the server with nodemon by running the following command.
+
+```
+yarn dev
+```
 
 Note: This will start the server standalone (without `@code-reviewer/client`). For information on how start the server with `@code-reviewer/client`, refer to the root README.
+
+### Running Tests
+
+```
+yarn test
+```
+
+Runs all the `*.test.ts` test files.
 
 ## Code Structure
 

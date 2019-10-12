@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<a
+  _target="blank"
+  className="TestComponent__StyledButton-sc-1bv19hd-0 leVzQg"
+  href="https://google.com"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  Hello World
+</a>
+`;
+
+exports[`Link changes the class when hovered 2`] = `
+<a
+  _target="blank"
+  className="TestComponent__StyledButton-sc-1bv19hd-0 leVzQg"
+  href="https://google.com"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  Hello World
+</a>
+`;
+
+exports[`Link changes the class when hovered 3`] = `
+<a
+  _target="blank"
+  className="TestComponent__StyledButton-sc-1bv19hd-0 leVzQg"
+  href="https://google.com"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  Hello World
+</a>
+`;

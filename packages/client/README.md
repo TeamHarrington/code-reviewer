@@ -12,6 +12,34 @@ yarn start
 
 This will start the application on port 3000. You can change the port with `-p` argument (e.g. `yarn start -p 3001`). For more information refer to [Nextjs](https://nextjs.org/docs).
 
+### Build the Application
+
+```
+yarn build
+```
+
+Builds the Next Application into `.next` directory.
+
+### Open storybook
+
+```
+yarn storybook
+```
+
+### Build storybook
+
+```
+yarn storybook:build
+```
+
+### Running Tests
+
+```
+yarn test
+```
+
+Runs all the `*.test.tsx` test files.
+
 ## Code Structure
 
 We are utilizing [Nextjs](https://nextjs.org) as our React framework as it provides SSR options as well as going server-less if we decide to later on. We will be using Functional components instead of Class components unless there is a special need for a Class component

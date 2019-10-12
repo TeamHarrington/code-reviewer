@@ -21,6 +21,14 @@ yarn lint
 
 This will lint all `.ts` and `.tsx` files in the codebase. We may add linting for `.js` & `.jsx` files later if necessary.
 
+### Linting Code
+
+```
+yarn test
+```
+
+Runs all the test files in all the sub-repositories.
+
 ## Code Structure
 
 All the project is written in Typescript. However, some build tasks, such as `gulpfile.js`, will be written in Javscript.
