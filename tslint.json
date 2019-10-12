@@ -56,7 +56,6 @@
     "no-unnecessary-callback-wrapper": true,
     "no-unnecessary-initializer": true,
     "object-literal-key-quotes": [true, "consistent"],
-    "prefer-function-over-method": true,
     "space-before-function-paren": false,
     "space-within-parens": false,
     "arrow-parens": [true, "ban-single-arg-parens"],

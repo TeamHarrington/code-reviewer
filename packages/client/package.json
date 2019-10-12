@@ -19,7 +19,8 @@
     "lodash": "^4.17.15",
     "next": "^9.0.8",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -28,7 +29,9 @@
     "@types/lodash": "^4.14.141",
     "@types/node": "^12.7.11",
     "@types/react": "^16.9.5",
+    "@types/styled-components": "^4.1.19",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
     "typescript": "^3.6.3",
     "webpack": "^4.41.1"
   }
