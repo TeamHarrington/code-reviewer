@@ -1,2 +1,4 @@
 # nextjs
-/.next
+.next
+# storybook
+.storybook.build

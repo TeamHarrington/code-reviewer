@@ -6,6 +6,7 @@
   ],
   "scripts": {
     "start": "ts-node --project tsconfig.json index.ts",
+    "test": "lerna run test",
     "lint": "gulp lint"
   },
   "repository": {

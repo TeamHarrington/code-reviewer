@@ -11,7 +11,10 @@
   },
   "scripts": {
     "start": "next",
-    "storybook": "start-storybook"
+    "build": "next build",
+    "storybook": "start-storybook",
+    "storybook:build": "build-storybook -c .storybook -o .storybook.build",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -24,14 +27,22 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "@storybook/react": "^5.2.3",
     "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.141",
     "@types/node": "^12.7.11",
     "@types/react": "^16.9.5",
+    "@types/react-test-renderer": "^16.9.0",
     "@types/styled-components": "^4.1.19",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.6",
+    "jest": "^24.9.0",
+    "react-test-renderer": "^16.10.2",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.3",
     "webpack": "^4.41.1"
   }
