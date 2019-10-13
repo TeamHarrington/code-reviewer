@@ -11,19 +11,3 @@ jobs:
       # Fetch the github repo. Subsequent commands will be run within the root
       # directory of the repo.
       - checkout
-
-       # AMPLIFY-SPECIFIC: we need to install the amplify cli globally
-       # because the beta amplify multi-env package we are using will otherwise
-       # explode. To avoid permissions issues we set it so that global node
-       # modules are located within $HOME.
-      - run: yarn config set prefix ~/.yarn
-
-      # If we have already run this job with the exact same package.json and
-      # yarn.lock and cached its results, fetch those node modules from the cache. 
-      # This way when we do `yarn` below, nothing will happen; stuff is already 
-      # up to date. Why not just yarn.lock? I added package.json too so I can 
-      # increment a number in that file to bust the cache while building the 
-      # pipeline.
-      - restore_cache:
-          keys:
-            - node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
