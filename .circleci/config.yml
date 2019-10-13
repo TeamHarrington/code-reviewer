@@ -35,5 +35,5 @@ jobs:
 
       # Run build on packages/client
       - run:
-          name: lint
+          name: build:client
           command: yarn build:client
