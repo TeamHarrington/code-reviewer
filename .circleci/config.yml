@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  test:
     working_directory: ~/code-reviewer
     docker:
       - image: circleci/node:10.16.3
@@ -27,6 +27,28 @@ jobs:
       - run:
           name: test
           command: yarn test
+  lint:
+    working_directory: ~/code-reviewer
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - code-reviewer-{{ checksum "yarn.lock" }}
+
+      - run: yarn --frozen-lockfile
+
+      - run: 
+          command: yarn autoclean --force
+
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.yarn 
+            - ~/.config/yarn
+          key: code-reviewer-{{ checksum "yarn.lock" }}
 
       # Run Lints
       - run:
