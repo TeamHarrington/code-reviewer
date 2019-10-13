@@ -12,3 +12,13 @@ jobs: # a collection of steps
             - node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
 
       - run: yarn --frozen-lockfile
+
+      - run: 
+          command: yarn autoclean --force
+
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.yarn 
+            - ~/.config/yarn
+          key: node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
