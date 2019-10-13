@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - code-reviewer-{{ checksum "yarn.lock" }}
 
       - run: yarn --frozen-lockfile
 
@@ -21,7 +21,7 @@ jobs:
             - node_modules
             - ~/.yarn 
             - ~/.config/yarn
-          key: node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: code-reviewer-{{ checksum "yarn.lock" }}
 
       # Run tests
       - run:
