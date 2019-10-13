@@ -22,3 +22,8 @@ jobs: # a collection of steps
             - ~/.yarn 
             - ~/.config/yarn
           key: node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+
+
+      - run: # run tests
+          name: test
+          command: yarn test
