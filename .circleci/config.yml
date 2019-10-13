@@ -9,6 +9,7 @@ jobs: # a collection of steps
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
-      - run:
-          name: update-npm
-          command: 'sudo rm -rf ~/.yarn && npm install -g yarn'
+      - restore_cache:
+        name: Restore Yarn package cache
+        keys:
+          - yarn-packages-{{ checksum "yarn.lock" }}
