@@ -2,26 +2,13 @@ import ExpressServer, { Express } from 'express'
 import { ApolloServer, ApolloServerExpressConfig } from 'apollo-server-express'
 import GraphQLServer from './apollo-server'
 import Mongoose from 'mongoose'
-import { Student } from './models/student.model'
 
 const startMongoConnection = async () => {
-  Mongoose.connect('mongodb://localhost/test', {
+  return Mongoose.connect('mongodb://localhost/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
 }
-
-// const db = Mongoose.connection
-// db.on('error', console.error.bind(console, 'connection error:'))
-// db.once('open', function() {
-//   const newStudent = new Student({ name: 'a new student1' })
-//   newStudent.save((err, _) => {
-//     if (err) {
-//       return console.error(err)
-//     }
-//     console.log('successfully added a new student')
-//   })
-// })
 
 export interface ExpressAppConfig {
   routeDirectory?: string
