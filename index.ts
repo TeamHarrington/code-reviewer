@@ -7,7 +7,7 @@ async function main() {
     dev: true,
     dir: './packages/client'
   })
-  const app = ExpressApolloServer({ routeDirectory: '/api' })
+  const app = await ExpressApolloServer({ routeDirectory: '/api' })
 
   /** Setup Next */
   await nextApp.prepare()

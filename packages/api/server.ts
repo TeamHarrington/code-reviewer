@@ -4,10 +4,12 @@ import GraphQLServer from './apollo-server'
 import Mongoose from 'mongoose'
 import { Student } from './models/student.model'
 
-Mongoose.connect('mongodb://localhost/test', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+const startMongoConnection = async () => {
+  Mongoose.connect('mongodb://localhost/test', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+}
 
 // const db = Mongoose.connection
 // db.on('error', console.error.bind(console, 'connection error:'))
@@ -29,12 +31,13 @@ export interface ExpressApolloServer extends Express {
   apolloServer: ApolloServer
 }
 
-const ExpressApolloApp = (
+const ExpressApolloApp = async (
   configs?: ExpressAppConfig,
   apolloConfigs?: ApolloServerExpressConfig
-): ExpressApolloServer => {
+): Promise<ExpressApolloServer> => {
   // TODO: delete console.log
   console.log('Unused server params for now:', configs, apolloConfigs)
+  await startMongoConnection()
 
   const app = ExpressServer() as ExpressApolloServer
   const apolloServer = GraphQLServer(apolloConfigs)
