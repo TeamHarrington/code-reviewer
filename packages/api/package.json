@@ -15,7 +15,6 @@
     "dev": "nodemon"
   },
   "dependencies": {
-    "@types/mongoose": "^5.5.20",
     "apollo-server-express": "^2.9.5",
     "express": "^4.17.1",
     "graphql": "^14.5.8",
@@ -27,6 +26,7 @@
     "@types/express": "^4.17.1",
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.141",
+    "@types/mongoose": "^5.5.20",
     "@types/node": "^12.7.11",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
