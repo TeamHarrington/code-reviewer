@@ -15,10 +15,12 @@
     "dev": "nodemon"
   },
   "dependencies": {
+    "@types/mongoose": "^5.5.20",
     "apollo-server-express": "^2.9.5",
     "express": "^4.17.1",
     "graphql": "^14.5.8",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.4"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
