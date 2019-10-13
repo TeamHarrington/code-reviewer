@@ -8,7 +8,7 @@
     "start": "ts-node --project tsconfig.json index.ts",
     "test": "lerna run test",
     "lint": "gulp lint",
-    "build:client": "lerna run build --scope=packages/client"
+    "build:client": "lerna run build --scope @code-reviewer/client"
   },
   "repository": {
     "type": "git",
