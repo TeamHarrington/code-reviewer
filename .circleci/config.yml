@@ -9,6 +9,3 @@ jobs: # a collection of steps
       - restore_cache:
         keys:
         - node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-      - run:
-        name: install-npm-wee
-        command: yarn
