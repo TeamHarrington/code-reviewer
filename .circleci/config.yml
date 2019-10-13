@@ -6,10 +6,9 @@ jobs:
       - image: circleci/node:12.11
     steps:
       - checkout
-      - restore_cache:
-        name: Restore Yarn Package Cache
-        keys:
-          - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
+        name: update-npm
+        command: 'sudo npm install -g npm@latest'
+      - run:
+        name: update-npm
+        command: 'sudo rm -rf ~/.yarn && npm install -g yarn'
