@@ -55,6 +55,28 @@ jobs:
           name: lint
           command: yarn lint
 
+  build:
+    working_directory: ~/code-reviewer
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - code-reviewer-{{ checksum "yarn.lock" }}
+
+      - run: yarn --frozen-lockfile
+
+      - run: 
+          command: yarn autoclean --force
+
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.yarn 
+            - ~/.config/yarn
+          key: code-reviewer-{{ checksum "yarn.lock" }}
       # Run build on packages/client
       - run:
           name: build:client
