@@ -1,0 +1,49 @@
+{
+  "name": "@code-reviewer/client",
+  "version": "0.0.0",
+  "description": "Code Reviewer Front-end",
+  "homepage": "https://github.com/TeamHarrington/code-reviewer/tree/master/packages/client#readme",
+  "license": "ISC",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamHarrington/code-reviewer.git"
+  },
+  "scripts": {
+    "start": "next",
+    "build": "next build",
+    "storybook": "start-storybook",
+    "storybook:build": "build-storybook -c .storybook -o .storybook.build",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "lodash": "^4.17.15",
+    "next": "^9.0.8",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@storybook/react": "^5.2.3",
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.141",
+    "@types/node": "^12.7.11",
+    "@types/react": "^16.9.5",
+    "@types/react-test-renderer": "^16.9.0",
+    "@types/styled-components": "^4.1.19",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
+    "jest": "^24.9.0",
+    "react-test-renderer": "^16.10.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.1"
+  }
+}

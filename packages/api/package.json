@@ -1,0 +1,36 @@
+{
+  "name": "@code-reviewer/api",
+  "version": "0.0.0",
+  "description": "Code Reviewer backend API",
+  "homepage": "https://github.com/TeamHarrington/code-reviewer/tree/master/packages/api#readme",
+  "license": "ISC",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamHarrington/code-reviewer.git"
+  },
+  "scripts": {
+    "start": "ts-node --project tsconfig.json index.ts",
+    "test": "jest",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.9.5",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.141",
+    "@types/node": "^12.7.11",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.3",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  }
+}
