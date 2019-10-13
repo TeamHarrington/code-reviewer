@@ -9,6 +9,3 @@ jobs:
       - run:
         name: update-npm
         command: 'sudo npm install -g npm@latest'
-      - run:
-        name: update-npm
-        command: 'sudo rm -rf ~/.yarn && npm install -g yarn'
