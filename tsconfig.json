@@ -4,7 +4,6 @@
     "allowSyntheticDefaultImports": true,
     "module": "commonjs",
     "lib": ["dom", "es2019"],
-    "baseUrl": ".",
     "jsx": "preserve",
     "moduleResolution": "node",
     "target": "esnext",

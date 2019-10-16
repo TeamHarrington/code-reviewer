@@ -1,5 +1,5 @@
 import App, { AppContext } from 'next/app'
-import withApollo from '../lib/withApollo'
+import withApollo from '@code-reviewer/client/lib/withApollo'
 import { ApolloProvider } from '@apollo/react-hooks'
 
 class MyApp extends App<AppContext> {

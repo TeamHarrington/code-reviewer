@@ -18,6 +18,7 @@ async function main() {
       req.url.startsWith(app.apolloServer.graphqlPath) ||
       req.method !== 'GET'
     ) {
+      console.log(req.url)
       return nextFunc()
     }
     return handle(req, res)
