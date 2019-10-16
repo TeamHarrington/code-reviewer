@@ -12,7 +12,7 @@ async function main() {
   /** Setup Next */
   await nextApp.prepare()
   const handle = nextApp.getRequestHandler()
-  app.use('*', (req, res, nextFunc) => {
+  app.all('*', (req, res, nextFunc) => {
     if (
       req.url.startsWith('/api') ||
       req.url.startsWith(app.apolloServer.graphqlPath) ||
