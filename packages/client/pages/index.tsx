@@ -7,7 +7,7 @@ const HomePage: FunctionComponent = () => {
   return (
     <Query<TestQuery> query={testQuery}>
       {({ loading, error, data }) => {
-        console.log({ loading, error, data })
+        // console.log({ loading, error, data })
         if (loading) {
           return <div>Loading...</div>
         } else if (error) {

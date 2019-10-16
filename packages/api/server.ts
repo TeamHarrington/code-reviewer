@@ -24,7 +24,7 @@ const ExpressApolloApp = async (
 ): Promise<ExpressApolloServer> => {
   // TODO: delete console.log
   console.log('Unused server params for now:', configs, apolloConfigs)
-  //await startMongoConnection()
+  // await startMongoConnection()
   console.log(startMongoConnection)
   const app = ExpressServer() as ExpressApolloServer
   const apolloServer = GraphQLServer(apolloConfigs)
