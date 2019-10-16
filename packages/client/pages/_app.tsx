@@ -1,14 +1,19 @@
 import App, { AppContext } from 'next/app'
+import withApollo from '@code-reviewer/client/lib/withApollo'
+import { ApolloProvider } from '@apollo/react-hooks'
 
 class MyApp extends App<AppContext> {
   public render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, apollo } = this.props as any
+
     return (
       <>
-        <Component {...pageProps} />
+        <ApolloProvider client={apollo}>
+          <Component {...pageProps} />
+        </ApolloProvider>
       </>
     )
   }
 }
 
-export default MyApp
+export default withApollo(MyApp)
