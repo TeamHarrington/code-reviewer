@@ -10,28 +10,28 @@ const startMongoConnection = async () => {
   })
 }
 
-export interface ExpressAppConfig {
-  routeDirectory?: string
+export interface ExpressAppConfig extends ApolloServerExpressConfig {
+  graphqlEndpoint: string
 }
 
 export interface ExpressApolloServer extends Express {
   apolloServer: ApolloServer
 }
 
-const ExpressApolloApp = async (
-  configs?: ExpressAppConfig,
-  apolloConfigs?: ApolloServerExpressConfig
-): Promise<ExpressApolloServer> => {
-  // TODO: delete console.log
-  console.log('Unused server params for now:', configs, apolloConfigs)
+const ExpressApolloApp = async ({
+  graphqlEndpoint,
+  ...apolloConfigs
+}: ExpressAppConfig): Promise<ExpressApolloServer> => {
   // await startMongoConnection()
   console.log(startMongoConnection)
+
   const app = ExpressServer() as ExpressApolloServer
   const apolloServer = GraphQLServer(apolloConfigs)
   app.apolloServer = apolloServer
 
   apolloServer.applyMiddleware({
-    app
+    app,
+    path: graphqlEndpoint
   })
   return app
 }
