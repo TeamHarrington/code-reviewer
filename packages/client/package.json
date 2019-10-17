@@ -10,7 +10,7 @@
     "url": "git+https://github.com/TeamHarrington/code-reviewer.git"
   },
   "scripts": {
-    "start": "next",
+    "dev": "next",
     "build": "next build",
     "storybook": "start-storybook",
     "storybook:build": "build-storybook -c .storybook -o .storybook.build",
