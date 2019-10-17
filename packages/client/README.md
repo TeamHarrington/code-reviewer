@@ -20,13 +20,13 @@ yarn build
 
 Builds the Next Application into `.next` directory.
 
-### Open storybook
+### Open Storybook
 
 ```
 yarn storybook
 ```
 
-### Build storybook
+### Build Storybook
 
 ```
 yarn storybook:build
