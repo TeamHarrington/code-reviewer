@@ -11,7 +11,7 @@ async function main() {
     graphqlEndpoint: GRAPHQL_ENDPOINT
   })
   app.listen({ port: PORT }, () => {
-    console.log(`Server ready at http://localhost:${PORT}/${GRAPHQL_ENDPOINT}`)
+    console.log(`Server ready at http://localhost:${PORT}`)
   })
 }
 

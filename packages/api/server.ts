@@ -31,7 +31,7 @@ const ExpressApolloApp = async ({
 
   apolloServer.applyMiddleware({
     app,
-    path: graphqlEndpoint
+    path: `/${graphqlEndpoint}`
   })
   return app
 }
