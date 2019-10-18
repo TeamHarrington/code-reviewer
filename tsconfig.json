@@ -23,8 +23,7 @@
     "noImplicitAny": false,
     "paths": {
       "@code-reviewer*": ["package*"]
-    },
-    "typeRoots": ["./node_modules/@types/", "./@types/config/index.d.ts"]
+    }
   },
   "include": ["./index.ts", "./packages/**/*.ts", "./packages/**/*.tsx"],
   "exclude": ["./node_modules", "/packages/**/node_modules"]
