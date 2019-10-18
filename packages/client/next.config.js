@@ -1,8 +1,12 @@
-require('dotenv').config()
+const env = require('../../env')
+
+const SERVER_DOMAIN =
+  env.ENV === 'production' ? env.DOMAIN : `${env.DOMAIN}:${env.PORT}`
 
 module.exports = {
   publicRuntimeConfig: {
-    SERVER_API: (process.env.SERVER_API = 'http://localhost:3000'),
-    GRAPHQL_ENDPOINT: (process.env.GRAPHQL_ENDPOINT = 'graphql')
+    SERVER_DOMAIN,
+    GRAPHQL_ENDPOINT: env.GRAPHQL_ENDPOINT,
+    ENV: env.ENV
   }
 }
