@@ -20,13 +20,13 @@ yarn build
 
 Builds the Next Application into `.next` directory.
 
-### Open storybook
+### Open Storybook
 
 ```
 yarn storybook
 ```
 
-### Build storybook
+### Build Storybook
 
 ```
 yarn storybook:build
@@ -40,7 +40,7 @@ yarn test
 
 Runs all the `*.test.tsx` test files.
 
-### Updating graphql schemas
+### Updating GraphQL Schemas
 
 ```
 yarn schema:download [ENDPOINT]
@@ -48,7 +48,7 @@ yarn schema:download [ENDPOINT]
 
 Params: ENDPOINT - the endpoint of the graphql server. In development this is likely `http://localhost:3000/graphql`. Whenever the server's graphql schema updates, please run this command to update the front-end's schemas. This command is usually followed by `yarn codegen:generate`.
 
-### Updating graphql types
+### Updating GraphQL Types
 
 ```
 yarn codegen:generate
