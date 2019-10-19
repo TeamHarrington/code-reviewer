@@ -1,6 +1,17 @@
 # code-reviewer
 
-Code Reviewer Application
+Anonymous online peer code review made easy.
+
+## Requirements
+
+MongoDB v4.2+ https://docs.mongodb.com/manual/installation/
+Node v10.16.3+ https://nodejs.org/en/download/
+Yarn v1.19.0+ https://yarnpkg.com/lang/en/docs/install
+
+## Getting Started (first time)
+
+run `mongod` to start MongoDB server at default port 27017
+run `yarn` in project root to install all node dependencies
 
 ## Commands
 
@@ -16,6 +27,7 @@ This will deploy the `@code-reviewer/api` server and have it also serve `@code-r
 ### Starting in development mode
 
 #### @code-reviewer/api
+
 ```
 yarn dev:api
 ```
@@ -23,6 +35,7 @@ yarn dev:api
 Starts `@code-reviewer/api` standalone (without `@code-reviewer/client`) in development mode with nodemon.
 
 #### @code-reviewer/client
+
 ```
 yarn dev:client
 ```
@@ -48,6 +61,7 @@ yarn storybook:build
 ```
 
 ### Download GraphQL Schemas
+
 ```
 yarn schema:download
 ```
@@ -55,6 +69,7 @@ yarn schema:download
 Please refer [here](https://github.com/TeamHarrington/code-reviewer/tree/master/packages/client#updating-graphql-schemas) for more information
 
 ### Generate Client GraphQL types
+
 ```
 yarn codegen:generate
 ```
@@ -90,3 +105,7 @@ code-reviewer/
 ├─ tools             # General tools used by main application
 	├─ gulp-tasks    # List all tasks related to gulpfile.js
 ```
+
+## Contact Us
+
+Please send emails to code.reviewer.utsc@gmail.com
