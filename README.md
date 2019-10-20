@@ -4,21 +4,21 @@ Anonymous online peer code review made easy.
 
 ## Requirements
 
-MongoDB v4.2+ https://docs.mongodb.com/manual/installation/
-Node v10.16.3+ https://nodejs.org/en/download/
-Yarn v1.19.0+ https://yarnpkg.com/lang/en/docs/install
+- MongoDB v4.2 https://docs.mongodb.com/manual/installation/
+- Node v10.16.3 https://nodejs.org/en/download/
+- Yarn v1.19.0 https://yarnpkg.com/lang/en/docs/install
 
 ## Getting Started (first time)
 
-run `mongod` to start MongoDB server at default port 27017
-run `yarn` in project root to install all node dependencies
-
-## Commands
+```bash
+$ mongod	# Start MongoDB server at default port
+$ yarn 		# Run in project root to install all node dependencies
+```
 
 ### Starting Application
 
-```
-yarn start
+```bash
+yarn start	# Run in project root
 ```
 
 This will deploy the `@code-reviewer/api` server and have it also serve `@code-reviewer/client`. Navigate to
