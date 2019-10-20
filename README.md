@@ -84,7 +84,7 @@ yarn lint
 
 This will lint all `.ts` and `.tsx` files in the codebase. We may add linting for `.js` & `.jsx` files later if necessary.
 
-### Linting Code
+### Testing Code
 
 ```
 yarn test
