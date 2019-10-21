@@ -1,5 +1,8 @@
 # @code-reviewer/client
 
+[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client)
+[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client&type=dev)
+
 The main front-end application made using React.
 
 ## Commands

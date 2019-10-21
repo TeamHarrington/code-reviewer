@@ -1,5 +1,8 @@
 # code-reviewer
 
+[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg)](https://david-dm.org/TeamHarrington/code-reviewer)
+[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg)](https://david-dm.org/TeamHarrington/code-reviewer?type=dev)
+
 Code Reviewer Application
 
 ## Commands
