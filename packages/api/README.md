@@ -1,5 +1,8 @@
 # @code-reviewer/api
 
+[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api)
+[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api&type=dev)
+
 The API Back-end for the Code-Reviewer application done with Express + GraphQL.
 
 ## Commands
