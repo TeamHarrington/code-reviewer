@@ -54,12 +54,6 @@ yarn build:client
 yarn storybook
 ```
 
-### Build storybook for client
-
-```
-yarn storybook:build
-```
-
 ### Download GraphQL Schemas
 
 ```
