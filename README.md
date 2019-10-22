@@ -21,14 +21,14 @@ Anonymous online peer code review made easy.
 ## Getting Started (first time)
 
 ```bash
-$ mongod	# Start MongoDB server at default port
-$ yarn 		# Run in project root to install all node dependencies
+$ yarn 				# Run in project root to install all node dependencies
 ```
 
 ### Starting Application
 
 ```bash
-yarn start	# Run in project root
+$ mongod			# Start MongoDB server at default port
+$ yarn start	# Run in project root to start code reviewer app
 ```
 
 This will deploy the `@code-reviewer/api` server and have it also serve `@code-reviewer/client`. Navigate to
@@ -39,7 +39,7 @@ This will deploy the `@code-reviewer/api` server and have it also serve `@code-r
 #### @code-reviewer/api
 
 ```
-yarn dev:api
+$ yarn dev:api
 ```
 
 Starts `@code-reviewer/api` standalone (without `@code-reviewer/client`) in development mode with nodemon.
@@ -47,7 +47,7 @@ Starts `@code-reviewer/api` standalone (without `@code-reviewer/client`) in deve
 #### @code-reviewer/client
 
 ```
-yarn dev:client
+$ yarn dev:client
 ```
 
 Starts `@code-reviewer/client` standalone (without `@code-reviewer/api`) in development mode with nodemon.
@@ -55,19 +55,19 @@ Starts `@code-reviewer/client` standalone (without `@code-reviewer/api`) in deve
 ### Building client
 
 ```
-yarn build:client
+$ yarn build:client
 ```
 
 ### Open storybook for client
 
 ```
-yarn storybook
+$ yarn storybook
 ```
 
 ### Download GraphQL Schemas
 
 ```
-yarn schema:download
+$ yarn schema:download
 ```
 
 Please refer [here](https://github.com/TeamHarrington/code-reviewer/tree/master/packages/client#updating-graphql-schemas) for more information
@@ -75,7 +75,7 @@ Please refer [here](https://github.com/TeamHarrington/code-reviewer/tree/master/
 ### Generate Client GraphQL types
 
 ```
-yarn codegen:generate
+$ yarn codegen:generate
 ```
 
 Please refer [here](https://github.com/TeamHarrington/code-reviewer/tree/master/packages/client#updating-graphql-types) for more information
@@ -83,7 +83,7 @@ Please refer [here](https://github.com/TeamHarrington/code-reviewer/tree/master/
 ### Linting Code
 
 ```
-yarn lint
+$ yarn lint
 ```
 
 This will lint all `.ts` and `.tsx` files in the codebase. We may add linting for `.js` & `.jsx` files later if necessary.
@@ -91,7 +91,7 @@ This will lint all `.ts` and `.tsx` files in the codebase. We may add linting fo
 ### Testing Code
 
 ```
-yarn test
+$ yarn test
 ```
 
 Runs all the test files in all the sub-repositories.
