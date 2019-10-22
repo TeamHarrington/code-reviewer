@@ -1,5 +1,15 @@
 # code-reviewer
 
+[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg)](https://david-dm.org/TeamHarrington/code-reviewer)
+[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg)](https://david-dm.org/TeamHarrington/code-reviewer?type=dev)
+
+- `@code-reviewer/api`
+[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api)
+[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api&type=dev)
+- `@code-reviewer/client`
+[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client)
+[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client&type=dev)
+
 Code Reviewer Application
 
 ## Commands
