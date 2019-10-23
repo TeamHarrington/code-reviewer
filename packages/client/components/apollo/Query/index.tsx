@@ -32,11 +32,11 @@ function Query<D = any, V = OperationVariables>({
     }
     return <div>Error</div>
   }
-  const grapqlProps: QueryComponentOptions<D, V> = {
+  const graphqlProps: QueryComponentOptions<D, V> = {
     children,
     ...props
   }
-  return GraphQLQuery(grapqlProps)
+  return GraphQLQuery(graphqlProps)
 }
 
 export default Query
