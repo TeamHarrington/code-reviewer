@@ -4,20 +4,31 @@
 [![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg)](https://david-dm.org/TeamHarrington/code-reviewer?type=dev)
 
 - `@code-reviewer/api`
-[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api)
-[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api&type=dev)
+  [![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api)
+  [![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/api)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/api&type=dev)
 - `@code-reviewer/client`
-[![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client)
-[![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client&type=dev)
+  [![dependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client)
+  [![devDependencies Status](https://david-dm.org/TeamHarrington/code-reviewer/dev-status.svg?path=packages/client)](https://david-dm.org/TeamHarrington/code-reviewer?path=packages/client&type=dev)
 
-Code Reviewer Application
+Anonymous online peer code review made easy.
 
-## Commands
+## Requirements
+
+- MongoDB v4.2 https://docs.mongodb.com/manual/installation/
+- Node v10.16.3 https://nodejs.org/en/download/
+- Yarn v1.19.0 https://yarnpkg.com/lang/en/docs/install
+
+## Getting Started (first time)
+
+```bash
+yarn 				# Run in project root to install all node dependencies
+```
 
 ### Starting Application
 
-```
-yarn start
+```bash
+mongod			# Start MongoDB server at default port
+yarn start	# Run in project root to start code reviewer app
 ```
 
 This will deploy the `@code-reviewer/api` server and have it also serve `@code-reviewer/client`. Navigate to
@@ -26,6 +37,7 @@ This will deploy the `@code-reviewer/api` server and have it also serve `@code-r
 ### Starting in development mode
 
 #### @code-reviewer/api
+
 ```
 yarn dev:api
 ```
@@ -33,6 +45,7 @@ yarn dev:api
 Starts `@code-reviewer/api` standalone (without `@code-reviewer/client`) in development mode with nodemon.
 
 #### @code-reviewer/client
+
 ```
 yarn dev:client
 ```
@@ -51,13 +64,8 @@ yarn build:client
 yarn storybook
 ```
 
-### Build storybook for client
-
-```
-yarn storybook:build
-```
-
 ### Download GraphQL Schemas
+
 ```
 yarn schema:download
 ```
@@ -65,6 +73,7 @@ yarn schema:download
 Please refer [here](https://github.com/TeamHarrington/code-reviewer/tree/master/packages/client#updating-graphql-schemas) for more information
 
 ### Generate Client GraphQL types
+
 ```
 yarn codegen:generate
 ```
@@ -79,7 +88,7 @@ yarn lint
 
 This will lint all `.ts` and `.tsx` files in the codebase. We may add linting for `.js` & `.jsx` files later if necessary.
 
-### Linting Code
+### Testing Code
 
 ```
 yarn test
@@ -100,3 +109,7 @@ code-reviewer/
 ├─ tools             # General tools used by main application
 	├─ gulp-tasks    # List all tasks related to gulpfile.js
 ```
+
+## Contact Us
+
+Please send emails to code.reviewer.utsc@gmail.com
