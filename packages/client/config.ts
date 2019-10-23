@@ -1,13 +1,15 @@
-import getConfig from 'next/config'
+export type Environment = 'development' | 'production'
+
 export interface NextConfig {
   SERVER_DOMAIN: string
   GRAPHQL_ENDPOINT: string
-  ENV: 'development' | 'production'
+  ENV: Environment
 }
 
-const nextConfigs = getConfig()
 const config: Readonly<NextConfig> = Object.freeze({
-  ...nextConfigs.publicRuntimeConfig
+  SERVER_DOMAIN: process.env.SERVER_DOMAIN as string,
+  GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT as string,
+  ENV: process.env.ENV as Environment
 })
 
 export default config
