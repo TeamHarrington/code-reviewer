@@ -9,7 +9,7 @@ const {
 
 const SERVER_DOMAIN = ENV === 'production' ? DOMAIN : `${DOMAIN}:${PORT}`
 
-async function main() {
+const main = async () => {
   const nextApp = next({
     dev: true,
     dir: './packages/client'
