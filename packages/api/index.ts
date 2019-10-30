@@ -4,7 +4,7 @@ import config from './config'
 const { DOMAIN, PORT, GRAPHQL_ENDPOINT } = config.API
 const SERVER_DOMAIN = config.ENV === 'production' ? DOMAIN : `${DOMAIN}:${PORT}`
 
-async function main() {
+const main = async () => {
   const app = await ExpressApolloApp({
     graphqlEndpoint: GRAPHQL_ENDPOINT
   })

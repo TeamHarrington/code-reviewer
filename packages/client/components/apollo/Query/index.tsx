@@ -12,12 +12,14 @@ export interface QueryProps<D = any, V = OperationVariables>
   error?: (err: ApolloError) => JSX.Element
 }
 
-function Query<D = any, V = OperationVariables>({
+const Query: <D = any, V = OperationVariables>(
+  props: QueryProps<D, V>
+) => JSX.Element | null = <D, V>({
   loading: loadingElement,
   children: childrenElement,
   error: errorElement,
   ...props
-}: QueryProps<D, V>) {
+}) => {
   const children: (result: QueryResult<D, V>) => JSX.Element = ({
     data,
     loading,
