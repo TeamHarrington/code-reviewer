@@ -19,7 +19,7 @@ const Query: <D = any, V = OperationVariables>(
   children: childrenElement,
   error: errorElement,
   ...props
-}) => {
+}: QueryProps<D, V>) => {
   const children: (result: QueryResult<D, V>) => JSX.Element = ({
     data,
     loading,
