@@ -1,6 +1,6 @@
 {
   "watch": ["./"],
-  "exec": "ts-node --project tsconfig.json index.ts",
+  "exec": "ts-node --project tsconfig.json server.ts",
   "ext": "ts",
   "ignore": [".git", "node_modules"],
   "env": {

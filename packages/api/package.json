@@ -10,7 +10,7 @@
     "url": "git+https://github.com/TeamHarrington/code-reviewer.git"
   },
   "scripts": {
-    "start": "ts-node --project tsconfig.json index.ts",
+    "start": "ts-node --project tsconfig.json server.ts",
     "test": "jest",
     "dev": "nodemon"
   },
