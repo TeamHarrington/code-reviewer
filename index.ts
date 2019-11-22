@@ -1,6 +1,5 @@
 import next from 'next'
-import ExpressApolloServer from '@code-reviewer/api/server'
-import config from '@code-reviewer/api/config'
+import ExpressApolloServer, { config } from '@code-reviewer/api'
 
 const {
   API: { DOMAIN, PORT, GRAPHQL_ENDPOINT },

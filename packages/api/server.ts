@@ -1,39 +1,16 @@
-import ExpressServer, { Express } from 'express'
-import { ApolloServer, ApolloServerExpressConfig } from 'apollo-server-express'
-import GraphQLServer from './apollo-server'
-import Mongoose from 'mongoose'
+import ExpressApolloApp from '.'
+import config from './config'
 
-const startMongoConnection = async () => {
-  return Mongoose.connect('mongodb://localhost/test', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+const { DOMAIN, PORT, GRAPHQL_ENDPOINT } = config.API
+const SERVER_DOMAIN = config.ENV === 'production' ? DOMAIN : `${DOMAIN}:${PORT}`
+
+const main = async () => {
+  const app = await ExpressApolloApp({
+    graphqlEndpoint: GRAPHQL_ENDPOINT
+  })
+  app.listen({ port: PORT }, () => {
+    console.log(`Server ready at ${SERVER_DOMAIN}`)
   })
 }
 
-export interface ExpressAppConfig extends ApolloServerExpressConfig {
-  graphqlEndpoint: string
-}
-
-export interface ExpressApolloServer extends Express {
-  apolloServer: ApolloServer
-}
-
-const ExpressApolloApp = async ({
-  graphqlEndpoint,
-  ...apolloConfigs
-}: ExpressAppConfig): Promise<ExpressApolloServer> => {
-  // await startMongoConnection()
-  console.log(startMongoConnection)
-
-  const app = ExpressServer() as ExpressApolloServer
-  const apolloServer = GraphQLServer(apolloConfigs)
-  app.apolloServer = apolloServer
-
-  apolloServer.applyMiddleware({
-    app,
-    path: `/${graphqlEndpoint}`
-  })
-  return app
-}
-
-export default ExpressApolloApp
+main()
