@@ -13,27 +13,27 @@
 ## As a Admin
 ### I must be able to:
 - Create a student with
-	- First Name
-	- Last Name
-	- UtorID
-	- Student Number
-	- Email
+  - First Name
+  - Last Name
+  - UtorID
+  - Student Number
+  - Email
 - Create a TA with
-	- First Name
-	- Last Name
-	- UtorID
-	- Email
-	- Contract Number - # of contracts this TA has for this course
+  - First Name
+  - Last Name
+  - UtorID
+  - Email
+  - Contract Number - # of contracts this TA has for this course
 - Create Assignments with
-	- Name
-	- Required Files (Folder Structure?)
-	- a list of feedback questions - these are questions students answer when they review someone's code
-	- Number of peer reviewers
-	- Peer Review
-	- Self Review
-	- Mark Review?
-	- Deadlines
-		- Peer Review Deadline
+  - Name
+  - Required Files (Folder Structure?)
+  - a list of feedback questions - these are questions students answer when they review someone's code
+  - Number of peer reviewers
+  - Peer Review
+  - Self Review
+  - Mark Review?
+  - Deadlines
+    - Peer Review Deadline
 - View list of TA
 - View list of Students
 - Remove a student
@@ -43,9 +43,9 @@
 
 ### I should be able to:
 - Create a course with
-	- Course ID
-	- Name
-	- Start/End Date?
+  - Course ID
+  - Name
+  - Start/End Date?
 - Add a student to a course
 - Add a TA to a course
 - Add an assignment to a course

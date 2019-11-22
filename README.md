@@ -21,14 +21,14 @@ Anonymous online peer code review made easy.
 ## Getting Started (first time)
 
 ```bash
-yarn 				# Run in project root to install all node dependencies
+yarn        # Run in project root to install all node dependencies
 ```
 
 ### Starting Application
 
 ```bash
-mongod			# Start MongoDB server at default port
-yarn start	# Run in project root to start code reviewer app
+mongod      # Start MongoDB server at default port
+yarn start  # Run in project root to start code reviewer app
 ```
 
 This will deploy the `@code-reviewer/api` server and have it also serve `@code-reviewer/client`. Navigate to
@@ -102,12 +102,12 @@ All the project is written in Typescript. However, some build tasks, such as `gu
 
 ```
 code-reviewer/
-├─ packages          # Contains all repos for this monorepo
-	├─ api           # Backend API
-	├─ client        # Frontend Application
-├─ docs              # General documentation
-├─ tools             # General tools used by main application
-	├─ gulp-tasks    # List all tasks related to gulpfile.js
+├─ packages        # Contains all repos for this monorepo
+  ├─ api           # Backend API
+  ├─ client        # Frontend Application
+├─ docs            # General documentation
+├─ tools           # General tools used by main application
+  ├─ gulp-tasks    # List all tasks related to gulpfile.js
 ```
 
 ## Contact Us
