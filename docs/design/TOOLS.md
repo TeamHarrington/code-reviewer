@@ -11,13 +11,13 @@
 - **React with NextJS**
 - **Styled components**
 - May add later on if needed
-	- **Redux, Saga** - state management
+  - **Redux, Saga** - state management
 
 ### Backend
 - **Express**
 - **mongoose** - Mongo ODM
 - **MongoDB** - Database
-	
+
 
 Things we may also need:
 - Syntax highlighter for front-end
