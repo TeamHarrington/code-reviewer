@@ -4,6 +4,9 @@ import { TestQuery } from '@code-reviewer/client/graphql/types'
 import { testQuery } from '@code-reviewer/client/graphql/queries/testQuery'
 
 const HomePage: FunctionComponent = () => {
+  const b: { a?: number } = {}
+  const a = b?.a
+  console.log(a)
   return (
     <Query<TestQuery> query={testQuery}>
       {data => {

@@ -9,7 +9,9 @@ module.exports = api => {
         ssr: true,
         displayName: true
       }
-    ]
+    ],
+    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-nullish-coalescing-operator'
   ]
 
   return {
