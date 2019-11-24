@@ -1,6 +1,6 @@
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 const ADDED = [1]
 const REMOVED = [2]
@@ -14,9 +14,9 @@ export const SyntaxHighlight = () => {
   return (
     <div>
       <SyntaxHighlighter
-        style={atomDark}
+        style={vs2015}
         wrapLines={true}
-        linestyle={(lineNumber: number) => {
+        lineProps={(lineNumber: number) => {
           const style: any = { display: 'block' }
           if (ADDED.includes(lineNumber)) {
             style.backgroundColor = '#dbffdb'
@@ -24,7 +24,7 @@ export const SyntaxHighlight = () => {
             style.backgroundColor = '#dbffdb'
           }
           console.log(style)
-          return style
+          return { style } as React.DOMAttributes<HTMLElement>
         }}>
         {codeString}
       </SyntaxHighlighter>
