@@ -1,13 +1,34 @@
 import { storiesOf } from '@storybook/react'
 import { SyntaxHighlight } from '.'
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
-
+import { withKnobs, text, select, files } from '@storybook/addon-knobs'
+import { ColorTheme } from '.'
 const stories = storiesOf('Components', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
-stories.add('new comp', () => (
-  <div>
-    <SyntaxHighlight />
-  </div>
-))
+stories.add('new comp', () => {
+  const codeString = `def myfunc():
+  result = ["str", True, 1, []]
+  return result`
+
+  const colorThemeOptions = {
+    Dark: ColorTheme.DARK,
+    Light: ColorTheme.LIGHT
+  }
+
+  const colorTheme = select('color theme', colorThemeOptions, ColorTheme.DARK)
+
+  return (
+    <div>
+      <div>
+        <SyntaxHighlight
+          language={text('language', 'python')}
+          colorTheme={colorTheme}
+          codeString={codeString}
+          highlightedLines={[1]}
+        />
+      </div>
+      <div></div>
+    </div>
+  )
+})
