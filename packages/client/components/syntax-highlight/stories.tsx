@@ -1,7 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import { SyntaxHighlight } from '.'
-import { withKnobs, text, select, files } from '@storybook/addon-knobs'
+import { withKnobs, text, select } from '@storybook/addon-knobs'
 import { ColorTheme } from '.'
+
 const stories = storiesOf('Components', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
