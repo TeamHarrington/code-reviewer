@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "storybook": "start-storybook",
+    "storybook": "start-storybook --port 2000",
     "storybook:build": "build-storybook -c .storybook -o .storybook.build",
     "test": "jest",
     "schema:download": "apollo schema:download ./graphql/schema.json --endpoint",
@@ -41,6 +41,7 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-knobs": "^5.2.5",
     "@storybook/react": "^5.2.3",
     "@types/express": "^4.17.1",
