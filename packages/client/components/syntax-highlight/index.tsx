@@ -1,25 +1,17 @@
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import {
-  vs2015,
-  a11yLight
-} from 'react-syntax-highlighter/dist/cjs/styles/hljs'
-
-export enum ColorTheme {
-  DARK = vs2015,
-  LIGHT = a11yLight
-}
+import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 export interface Props {
   codeString: string
   highlightedLines?: [number?]
-  colorTheme?: ColorTheme
+  colorTheme?: object
   language?: string
 }
 
 export const SyntaxHighlight = ({
   codeString,
-  colorTheme = ColorTheme.DARK,
+  colorTheme = vs2015,
   highlightedLines = [],
   language = 'python'
 }: Props) => {
@@ -33,9 +25,7 @@ export const SyntaxHighlight = ({
       lineProps={(lineNumber: number) => {
         const style: any = {}
         if (highlightedLines.includes(lineNumber)) {
-          style.backgroundColor =
-            colorTheme === ColorTheme.DARK ? 'blue' : 'yellow'
-          style.opacity = '50%'
+          style.backgroundColor = '#144212'
         }
         return { style } as React.DOMAttributes<HTMLElement>
       }}>

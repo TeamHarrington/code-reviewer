@@ -8,7 +8,7 @@ module.exports = {
       diagnostics: false
     }
   },
-  testMatch: ['<rootDir>/components/**/*.test.tsx'],
+  testMatch: ['<rootDir>/components/**/*test.tsx'],
   preset: 'ts-jest',
   testEnvironment: 'node'
 }

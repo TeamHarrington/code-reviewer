@@ -1,23 +1,26 @@
 import { storiesOf } from '@storybook/react'
 import { SyntaxHighlight } from '.'
 import { withKnobs, text, select } from '@storybook/addon-knobs'
-import { ColorTheme } from '.'
+import * as colorThemes from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
-const stories = storiesOf('Components', module)
+const stories = storiesOf('Syntax Highlight', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
-stories.add('new comp', () => {
+stories.add('default', () => {
   const codeString = `def myfunc():
   result = ["str", True, 1, []]
   return result`
 
   const colorThemeOptions = {
-    Dark: ColorTheme.DARK,
-    Light: ColorTheme.LIGHT
+    ...colorThemes
   }
 
-  const colorTheme = select('color theme', colorThemeOptions, ColorTheme.DARK)
+  const colorTheme = select(
+    'color theme',
+    colorThemeOptions,
+    colorThemes.vs2015
+  )
 
   return (
     <div>
