@@ -1,7 +1,8 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "esnext"
+    "module": "esnext",
+    "typeRoots": ["./node_modules/@types", "packages/client/@types"]
   },
   "include": ["./*.ts", "./**/*.ts", "./**/*.tsx"],
   "exclude": ["./node_modules"]

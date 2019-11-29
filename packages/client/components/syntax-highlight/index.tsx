@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import {
   vs2015,
   a11yLight
-} from 'react-syntax-highlighter/dist/esm/styles/hljs'
+} from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 export enum ColorTheme {
   DARK = vs2015,
