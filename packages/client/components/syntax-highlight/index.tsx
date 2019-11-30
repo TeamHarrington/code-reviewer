@@ -4,8 +4,8 @@ import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 export interface Props {
   codeString: string
-  highlightedLines?: [number?]
-  colorTheme?: object
+  highlightedLines?: number[]
+  colorTheme?: any
   language?: string
 }
 
@@ -25,7 +25,8 @@ export const SyntaxHighlight = ({
       lineProps={(lineNumber: number) => {
         const style: any = {}
         if (highlightedLines.includes(lineNumber)) {
-          style.backgroundColor = '#144212'
+          style['backgroundColor'] =
+            colorTheme['hljs-addition'].backgroundColor || 'yellow'
         }
         return { style } as React.DOMAttributes<HTMLElement>
       }}>
