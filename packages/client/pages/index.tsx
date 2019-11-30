@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import Query from '../components/apollo/Query'
+import { Query } from '../components/apollo/query'
 import { TestQuery } from '@code-reviewer/client/graphql/types'
 import { testQuery } from '@code-reviewer/client/graphql/queries/testQuery'
 

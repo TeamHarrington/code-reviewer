@@ -38,9 +38,9 @@ Most of the back-end will be using GraphQL. There will be some logic that may ma
 ```
 api/
 ├─ apollo-server   # Manages the Apollo GraphQL server
-	├─ mutations   # Mutation resolvers
-	├─ queries     # Query resolvers
-	├─ types       # typeDefs
+  ├─ mutations   # Mutation resolvers
+  ├─ queries     # Query resolvers
+  ├─ types       # typeDefs
 ├─ routes          # handles any RESTful routes
 ├─ models          # handles communication with Database
 ├─ migrations      # handles database changes

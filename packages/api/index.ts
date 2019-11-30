@@ -1,16 +1,30 @@
-import ExpressApolloApp from './server'
+import ExpressServer, { Express } from 'express'
+import { ApolloServer, ApolloServerExpressConfig } from 'apollo-server-express'
+import GraphQLServer from './apollo-server'
 import config from './config'
 
-const { DOMAIN, PORT, GRAPHQL_ENDPOINT } = config.API
-const SERVER_DOMAIN = config.ENV === 'production' ? DOMAIN : `${DOMAIN}:${PORT}`
-
-async function main() {
-  const app = await ExpressApolloApp({
-    graphqlEndpoint: GRAPHQL_ENDPOINT
-  })
-  app.listen({ port: PORT }, () => {
-    console.log(`Server ready at ${SERVER_DOMAIN}`)
-  })
+export interface ExpressAppConfig extends ApolloServerExpressConfig {
+  graphqlEndpoint: string
 }
 
-main()
+export interface ExpressApolloServer extends Express {
+  apolloServer: ApolloServer
+}
+
+const ExpressApolloApp = async ({
+  graphqlEndpoint,
+  ...apolloConfigs
+}: ExpressAppConfig): Promise<ExpressApolloServer> => {
+  const app = ExpressServer() as ExpressApolloServer
+  const apolloServer = GraphQLServer(apolloConfigs)
+  app.apolloServer = apolloServer
+
+  apolloServer.applyMiddleware({
+    app,
+    path: `/${graphqlEndpoint}`
+  })
+  return app
+}
+
+export { config }
+export default ExpressApolloApp

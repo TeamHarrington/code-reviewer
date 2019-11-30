@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Syntax Highlight Component 1`] = `
+<pre
+  style={
+    Object {
+      "background": "#1E1E1E",
+      "color": "#DCDCDC",
+      "display": "block",
+      "fontSize": "20px",
+      "overflowX": "auto",
+      "padding": "0.5em",
+    }
+  }
+>
+  <code
+    style={
+      Object {
+        "float": "left",
+        "paddingRight": "10px",
+      }
+    }
+  >
+    <span
+      className="react-syntax-highlighter-line-number"
+      style={Object {}}
+    >
+      1
+
+    </span>
+  </code>
+  <code />
+</pre>
+`;
