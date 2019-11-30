@@ -12,7 +12,7 @@ export interface QueryProps<D = any, V = OperationVariables>
   error?: (err: ApolloError) => JSX.Element
 }
 
-const Query: <D = any, V = OperationVariables>(
+export const Query: <D = any, V = OperationVariables>(
   props: QueryProps<D, V>
 ) => JSX.Element | null = <D, V>({
   loading: loadingElement,
@@ -40,5 +40,3 @@ const Query: <D = any, V = OperationVariables>(
   }
   return GraphQLQuery(graphqlProps)
 }
-
-export default Query
