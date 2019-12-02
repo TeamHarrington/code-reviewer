@@ -37,17 +37,17 @@
 - Get all assignments that are created by me
 
 ### I should be able to:
-- Add a student to a course
-- Add a TA to a course
-- Add an assignment to a course
-- Remove a student from a course
-- Remove a TA from a course
-- Remove an assignment from a course
-- Batch upload students into courses (uploading file)
-- Batch upload TAs into a course (upload file)
-- Query list of Students (eg. by course)
-- Query list of TAs (eg. by course)
-- Query list of assignments (eg. by date created)
+- Add a student to this course
+- Add a TA to this course
+- Add an assignment to this course
+- Remove a student from this course
+- Remove a TA from this course
+- Remove an assignment from this course
+- Batch upload students into this courses (uploading file)
+- Batch upload TAs into this course (upload file)
+- Query list of Students in this course
+- Query list of TAs in this course
+- Query list of assignments in this course
 
 ### It would be nice to be able to:
 -
