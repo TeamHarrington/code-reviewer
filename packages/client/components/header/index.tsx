@@ -5,6 +5,9 @@ import styled from 'styled-components'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Popper from '@material-ui/core/Popper'
 import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 const Container = styled.div`
   height: 48px;
@@ -44,25 +47,26 @@ const UserContainer = styled.div`
 `
 
 export const Header = ({ backButtonOnClick, title, userName }: any) => {
-  const [open, setOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isAlertOpen, setIsAlertOpen] = useState(false)
   const anchorRef = React.useRef<HTMLDivElement>(null)
   const handleSignOutButtonOnClick = () => {
-    setOpen(false)
+    setIsMenuOpen(false)
+    setIsAlertOpen(true)
   }
 
-  const handleToggle = () => {
-    setOpen(prevOpen => !prevOpen)
+  const handleMenuToggle = () => {
+    setIsMenuOpen(prevOpen => !prevOpen)
   }
 
-  const handleClose = (event: React.MouseEvent<Document, MouseEvent>) => {
+  const handleMenuClose = (event: React.MouseEvent<Document, MouseEvent>) => {
     if (
       anchorRef.current &&
       anchorRef.current.contains(event.target as HTMLElement)
     ) {
       return
     }
-
-    setOpen(false)
+    setIsMenuOpen(false)
   }
 
   return (
@@ -84,21 +88,42 @@ export const Header = ({ backButtonOnClick, title, userName }: any) => {
       <>
         <UserContainer
           role="button"
-          onClick={handleToggle}
+          onClick={handleMenuToggle}
           ref={anchorRef}
           tabIndex={0}
           aria-haspopup="menu"
-          aria-label={`Hello ${userName}. Click to open sign out .`}>
+          aria-label={`Hello ${userName}. Click to open user menu.`}>
           <UserNameContainer>{userName}</UserNameContainer>
           <KeyboardArrowDownIcon />
         </UserContainer>
-        <Popper open={open} anchorEl={anchorRef.current} placement="bottom-end">
-          <ClickAwayListener onClickAway={handleClose}>
+
+        {/* user menu */}
+        <Popper
+          open={isMenuOpen}
+          anchorEl={anchorRef.current}
+          placement="bottom-end">
+          <ClickAwayListener onClickAway={handleMenuClose}>
             <Button onClick={handleSignOutButtonOnClick} variant="outlined">
               {'Sign Out'}
             </Button>
           </ClickAwayListener>
         </Popper>
+
+        {/* sign out alert box */}
+        <Dialog
+          open={isAlertOpen}
+          onClose={() => setIsAlertOpen(false)}
+          aria-labelledby="alert-dialog-title">
+          <DialogTitle id="alert-dialog-title">
+            Log out of Code Reviewer?
+          </DialogTitle>
+          <DialogActions>
+            <Button onClick={() => setIsAlertOpen(false)}>Cancel</Button>
+            <Button onClick={() => setIsAlertOpen(false)} autoFocus>
+              Log Out
+            </Button>
+          </DialogActions>
+        </Dialog>
       </>
     </Container>
   )
