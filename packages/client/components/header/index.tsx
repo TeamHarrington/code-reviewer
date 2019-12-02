@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
+import { PeerTabs } from '../peer-tabs'
 
 const Container = styled.div`
   height: 48px;
@@ -70,61 +71,64 @@ export const Header = ({ backButtonOnClick, title, userName }: any) => {
   }
 
   return (
-    <Container>
-      {/* back button / logo container - left */}
-      {backButtonOnClick && (
-        <BackArrowContainer
-          role="button"
-          onClick={backButtonOnClick}
-          tabIndex={0}>
-          <KeyboardArrowLeftIcon />
-        </BackArrowContainer>
-      )}
+    <div>
+      <Container>
+        {/* back button / logo container - left */}
+        {backButtonOnClick && (
+          <BackArrowContainer
+            role="button"
+            onClick={backButtonOnClick}
+            tabIndex={0}>
+            <KeyboardArrowLeftIcon />
+          </BackArrowContainer>
+        )}
 
-      {/* title container - middle */}
-      <Title>{title}</Title>
+        {/* title container - middle */}
+        <Title>{title}</Title>
 
-      {/* sign out container - right */}
-      <>
-        <UserContainer
-          role="button"
-          onClick={handleMenuToggle}
-          ref={anchorRef}
-          tabIndex={0}
-          aria-haspopup="menu"
-          aria-label={`Hello ${userName}. Click to open user menu.`}>
-          <UserNameContainer>{userName}</UserNameContainer>
-          <KeyboardArrowDownIcon />
-        </UserContainer>
+        {/* sign out container - right */}
+        <>
+          <UserContainer
+            role="button"
+            onClick={handleMenuToggle}
+            ref={anchorRef}
+            tabIndex={0}
+            aria-haspopup="menu"
+            aria-label={`Hello ${userName}. Click to open user menu.`}>
+            <UserNameContainer>{userName}</UserNameContainer>
+            <KeyboardArrowDownIcon />
+          </UserContainer>
 
-        {/* user menu */}
-        <Popper
-          open={isMenuOpen}
-          anchorEl={anchorRef.current}
-          placement="bottom-end">
-          <ClickAwayListener onClickAway={handleMenuClose}>
-            <Button onClick={handleSignOutButtonOnClick} variant="outlined">
-              {'Sign Out'}
-            </Button>
-          </ClickAwayListener>
-        </Popper>
+          {/* user menu */}
+          <Popper
+            open={isMenuOpen}
+            anchorEl={anchorRef.current}
+            placement="bottom-end">
+            <ClickAwayListener onClickAway={handleMenuClose}>
+              <Button onClick={handleSignOutButtonOnClick} variant="outlined">
+                {'Sign Out'}
+              </Button>
+            </ClickAwayListener>
+          </Popper>
 
-        {/* sign out alert box */}
-        <Dialog
-          open={isAlertOpen}
-          onClose={() => setIsAlertOpen(false)}
-          aria-labelledby="alert-dialog-title">
-          <DialogTitle id="alert-dialog-title">
-            Log out of Code Reviewer?
-          </DialogTitle>
-          <DialogActions>
-            <Button onClick={() => setIsAlertOpen(false)}>Cancel</Button>
-            <Button onClick={() => setIsAlertOpen(false)} autoFocus>
-              Log Out
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </>
-    </Container>
+          {/* sign out alert box */}
+          <Dialog
+            open={isAlertOpen}
+            onClose={() => setIsAlertOpen(false)}
+            aria-labelledby="alert-dialog-title">
+            <DialogTitle id="alert-dialog-title">
+              Log out of Code Reviewer?
+            </DialogTitle>
+            <DialogActions>
+              <Button onClick={() => setIsAlertOpen(false)}>Cancel</Button>
+              <Button onClick={() => setIsAlertOpen(false)} autoFocus>
+                Log Out
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </>
+      </Container>
+      <PeerTabs />
+    </div>
   )
 }
