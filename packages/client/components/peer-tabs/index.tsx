@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -15,22 +14,20 @@ const Container = styled.div`
 
 interface TabPanelProps {
   children?: React.ReactNode
-  index: any
-  value: any
+  index: number
+  selectedTabIndex: number
 }
 
 function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props
+  const { children, selectedTabIndex, index } = props
 
   return (
     <Typography
-      component="div"
       role="tabpanel"
-      hidden={value !== index}
+      hidden={selectedTabIndex !== index}
       id={`action-tabpanel-${index}`}
-      aria-labelledby={`action-tab-${index}`}
-      {...other}>
-      <Box p={3}>{children}</Box>
+      aria-labelledby={`action-tab-${index}`}>
+      {children}
     </Typography>
   )
 }
@@ -43,44 +40,45 @@ function a11yProps(index: any) {
 }
 
 export function PeerTabs() {
-  const [value, setValue] = React.useState(0)
+  const [selectedTabIndex, setSelectedTabIndex] = React.useState(0)
 
   const handleChange = (_: unknown, newValue: number) => {
-    setValue(newValue)
+    setSelectedTabIndex(newValue)
   }
 
   const handleChangeIndex = (index: number) => {
-    setValue(index)
+    setSelectedTabIndex(index)
   }
 
   return (
     <Container>
       <AppBar position="static" color="default">
         <Tabs
-          value={value}
+          value={selectedTabIndex}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          variant="fullWidth"
-          aria-label="action tabs example">
+          variant="fullWidth">
           <Tab label="Peer 1" {...a11yProps(0)} />
           <Tab label="Peer 2" {...a11yProps(1)} />
           <Tab label="Peer 3" {...a11yProps(2)} />
-          <Tab label="Summary" {...a11yProps(3)} />
+          <Tab label="All" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
-      <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
-        <TabPanel value={value} index={0}>
+      <SwipeableViews
+        index={selectedTabIndex}
+        onChangeIndex={handleChangeIndex}>
+        <TabPanel selectedTabIndex={selectedTabIndex} index={0}>
           Peer 1
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel selectedTabIndex={selectedTabIndex} index={1}>
           Peer 2
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel selectedTabIndex={selectedTabIndex} index={2}>
           Peer 3
         </TabPanel>
-        <TabPanel value={value} index={3}>
-          Summary
+        <TabPanel selectedTabIndex={selectedTabIndex} index={3}>
+          All
         </TabPanel>
       </SwipeableViews>
     </Container>

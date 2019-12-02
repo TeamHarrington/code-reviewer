@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import { PeerTabs } from '.'
-import { withKnobs, text } from '@storybook/addon-knobs'
-import { action } from '@storybook/addon-actions'
+import { withKnobs } from '@storybook/addon-knobs'
 
 const stories = storiesOf('Peer Tabs', module)
 
