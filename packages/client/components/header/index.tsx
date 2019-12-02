@@ -4,6 +4,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
 import styled from 'styled-components'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Popper from '@material-ui/core/Popper'
+import Button from '@material-ui/core/Button'
 
 const Container = styled.div`
   height: 48px;
@@ -36,41 +37,16 @@ const Title = styled.div`
 
 const UserContainer = styled.div`
   max-width: 30%;
-  // outline: 1px solid black;
   margin-right: 0;
   display: flex;
   align-items: center;
   height: 100%;
 `
 
-export const Header = ({
-  backButtonOnClick,
-  userButtonOnClick,
-  title,
-  userName
-}: any) => {
-  return (
-    <Container>
-      {backButtonOnClick && (
-        <BackArrowContainer
-          role="button"
-          onClick={backButtonOnClick}
-          tabIndex={0}>
-          <KeyboardArrowLeftIcon />
-        </BackArrowContainer>
-      )}
-      <Title>{title}</Title>
-      <UserContainer tabIndex={0} role="button" onClick={userButtonOnClick}>
-        <SplitButton></SplitButton>
-      </UserContainer>
-    </Container>
-  )
-}
-
-export default function SplitButton() {
+export const Header = ({ backButtonOnClick, title, userName }: any) => {
   const [open, setOpen] = useState(false)
   const anchorRef = React.useRef<HTMLDivElement>(null)
-  const handleMenuItemClick = () => {
+  const handleSignOutButtonOnClick = () => {
     setOpen(false)
   }
 
@@ -90,20 +66,40 @@ export default function SplitButton() {
   }
 
   return (
-    <>
-      <div
-        onClick={handleToggle}
-        ref={anchorRef}
-        aria-haspopup="menu"
-        aria-label={`Hello ${'brian'}. Click to signout.`}>
-        <UserNameContainer>{'brian'}</UserNameContainer>
-        <KeyboardArrowDownIcon />
-      </div>
-      <Popper open={open} anchorEl={anchorRef.current} placement="bottom-end">
-        <ClickAwayListener onClickAway={handleClose}>
-          <div>logoasdfsdafdsafasut</div>
-        </ClickAwayListener>
-      </Popper>
-    </>
+    <Container>
+      {/* back button / logo container - left */}
+      {backButtonOnClick && (
+        <BackArrowContainer
+          role="button"
+          onClick={backButtonOnClick}
+          tabIndex={0}>
+          <KeyboardArrowLeftIcon />
+        </BackArrowContainer>
+      )}
+
+      {/* title container - middle */}
+      <Title>{title}</Title>
+
+      {/* sign out container - right */}
+      <>
+        <UserContainer
+          role="button"
+          onClick={handleToggle}
+          ref={anchorRef}
+          tabIndex={0}
+          aria-haspopup="menu"
+          aria-label={`Hello ${userName}. Click to open sign out .`}>
+          <UserNameContainer>{userName}</UserNameContainer>
+          <KeyboardArrowDownIcon />
+        </UserContainer>
+        <Popper open={open} anchorEl={anchorRef.current} placement="bottom-end">
+          <ClickAwayListener onClickAway={handleClose}>
+            <Button onClick={handleSignOutButtonOnClick} variant="outlined">
+              {'Sign Out'}
+            </Button>
+          </ClickAwayListener>
+        </Popper>
+      </>
+    </Container>
   )
 }

@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import { Header } from '.'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 const stories = storiesOf('Header', module)
@@ -11,9 +11,8 @@ stories.add('default', () => {
   return (
     <Header
       backButtonOnClick={action('back button clicked')}
-      userButtonOnClick={action('user button clicked')}
-      title="CSCA08"
-      userName="Brian Harrington"
+      title={text('course title', 'CSCA08')}
+      userName={text('user name', 'Trent-Alexander')}
     />
   )
 })
