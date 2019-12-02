@@ -12,6 +12,7 @@
 - Log out
 ## As an INSTRUCTOR
 ### I must be able to:
+- Update the course details, e.g. course title, website, etc.
 - Create a student with
   - First Name
   - Last Name
@@ -64,7 +65,6 @@
 
 ### I should be able to:
 - Add a grade to an assignment
-- Select a theme of syntax highlighter
 
 ## As a student
 
