@@ -9,6 +9,7 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { PeerTabs } from '../peer-tabs'
+import { FileChips } from '../file-chips'
 
 const Container = styled.div`
   height: 48px;
@@ -129,6 +130,13 @@ export const Header = ({ backButtonOnClick, title, userName }: any) => {
         </>
       </Container>
       <PeerTabs />
+      <FileChips
+        files={[
+          { index: 0, fileName: 'a1-main.py' },
+          { index: 1, fileName: 'a1-functions.py' },
+          { index: 2, fileName: 'a1-class.py' }
+        ]}
+      />
     </div>
   )
 }
