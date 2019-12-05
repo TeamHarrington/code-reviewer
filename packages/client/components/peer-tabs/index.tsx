@@ -1,15 +1,19 @@
 import React from 'react'
 import SwipeableViews from 'react-swipeable-views'
-import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
+import { FileChips } from '../file-chips'
 
 const Container = styled.div`
   width: 100%;
   position: relative;
   min-height: 200px;
+`
+
+const TabsContainer = styled.div`
+  background-color: #f9f9f9;
 `
 
 interface TabPanelProps {
@@ -52,7 +56,7 @@ export function PeerTabs() {
 
   return (
     <Container>
-      <AppBar position="static" color="default">
+      <TabsContainer>
         <Tabs
           value={selectedTabIndex}
           onChange={handleChange}
@@ -64,12 +68,18 @@ export function PeerTabs() {
           <Tab label="Peer 3" {...a11yProps(2)} />
           <Tab label="All" {...a11yProps(3)} />
         </Tabs>
-      </AppBar>
+      </TabsContainer>
       <SwipeableViews
         index={selectedTabIndex}
         onChangeIndex={handleChangeIndex}>
         <TabPanel selectedTabIndex={selectedTabIndex} index={0}>
-          Peer 1
+          <FileChips
+            files={[
+              { index: 0, fileName: 'a1-main.py' },
+              { index: 1, fileName: 'a1-functions.py' },
+              { index: 2, fileName: 'a1-class.py' }
+            ]}
+          />
         </TabPanel>
         <TabPanel selectedTabIndex={selectedTabIndex} index={1}>
           Peer 2

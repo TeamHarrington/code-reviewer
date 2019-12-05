@@ -16,3 +16,12 @@ stories.add('default', () => {
     />
   )
 })
+
+stories.add('show logo', () => {
+  return (
+    <Header
+      title={text('course title', 'CSCA08')}
+      userName={text('user name', 'Trent-Alexander')}
+    />
+  )
+})

@@ -8,15 +8,15 @@ import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import { PeerTabs } from '../peer-tabs'
-import { FileChips } from '../file-chips'
+import { Logo } from '../icons/logo'
 
 const Container = styled.div`
   height: 48px;
-  background-color: #e6e8eb;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 4px;
+  box-sizing: border-box;
 `
 
 const UserNameContainer = styled.div`
@@ -34,6 +34,14 @@ const BackArrowContainer = styled.div`
   padding-left: 2px;
 `
 
+const LogoContainer = styled.div`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const Title = styled.div`
   font-size: 16px;
   position: absolute;
@@ -48,7 +56,17 @@ const UserContainer = styled.div`
   height: 100%;
 `
 
-export const Header = ({ backButtonOnClick, title, userName }: any) => {
+interface HeaderProps {
+  backButtonOnClick?: () => null
+  title?: string
+  userName?: string
+}
+
+export const Header = ({
+  backButtonOnClick,
+  title = '',
+  userName = ''
+}: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAlertOpen, setIsAlertOpen] = useState(false)
   const anchorRef = React.useRef<HTMLDivElement>(null)
@@ -72,71 +90,68 @@ export const Header = ({ backButtonOnClick, title, userName }: any) => {
   }
 
   return (
-    <div>
-      <Container>
-        {/* back button / logo container - left */}
-        {backButtonOnClick && (
-          <BackArrowContainer
-            role="button"
-            onClick={backButtonOnClick}
-            tabIndex={0}>
-            <KeyboardArrowLeftIcon />
-          </BackArrowContainer>
-        )}
+    <Container>
+      {/* back button / logo container - left */}
+      {backButtonOnClick && (
+        <BackArrowContainer
+          role="button"
+          onClick={backButtonOnClick}
+          tabIndex={0}>
+          <KeyboardArrowLeftIcon />
+        </BackArrowContainer>
+      )}
+      {!backButtonOnClick && (
+        <a href="app url, TBD">
+          <LogoContainer>
+            <Logo height={24} width={24} />
+          </LogoContainer>
+        </a>
+      )}
 
-        {/* title container - middle */}
-        <Title>{title}</Title>
+      {/* title container - middle */}
+      <Title>{title}</Title>
 
-        {/* sign out container - right */}
-        <>
-          <UserContainer
-            role="button"
-            onClick={handleMenuToggle}
-            ref={anchorRef}
-            tabIndex={0}
-            aria-haspopup="menu"
-            aria-label={`Hello ${userName}. Click to open user menu.`}>
-            <UserNameContainer>{userName}</UserNameContainer>
-            <KeyboardArrowDownIcon />
-          </UserContainer>
+      {/* sign out container - right */}
+      <>
+        <UserContainer
+          role="button"
+          onClick={handleMenuToggle}
+          ref={anchorRef}
+          tabIndex={0}
+          aria-haspopup="menu"
+          aria-label={`Hello ${userName}. Click to open user menu.`}>
+          <UserNameContainer>{userName}</UserNameContainer>
+          <KeyboardArrowDownIcon />
+        </UserContainer>
 
-          {/* user menu */}
-          <Popper
-            open={isMenuOpen}
-            anchorEl={anchorRef.current}
-            placement="bottom-end">
-            <ClickAwayListener onClickAway={handleMenuClose}>
-              <Button onClick={handleSignOutButtonOnClick} variant="outlined">
-                {'Sign Out'}
-              </Button>
-            </ClickAwayListener>
-          </Popper>
+        {/* user menu */}
+        <Popper
+          open={isMenuOpen}
+          anchorEl={anchorRef.current}
+          placement="bottom-end">
+          <ClickAwayListener onClickAway={handleMenuClose}>
+            <Button onClick={handleSignOutButtonOnClick} variant="contained">
+              {'Sign Out'}
+            </Button>
+          </ClickAwayListener>
+        </Popper>
 
-          {/* sign out alert box */}
-          <Dialog
-            open={isAlertOpen}
-            onClose={() => setIsAlertOpen(false)}
-            aria-labelledby="alert-dialog-title">
-            <DialogTitle id="alert-dialog-title">
-              Log out of Code Reviewer?
-            </DialogTitle>
-            <DialogActions>
-              <Button onClick={() => setIsAlertOpen(false)}>Cancel</Button>
-              <Button onClick={() => setIsAlertOpen(false)} autoFocus>
-                Log Out
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </>
-      </Container>
-      <PeerTabs />
-      <FileChips
-        files={[
-          { index: 0, fileName: 'a1-main.py' },
-          { index: 1, fileName: 'a1-functions.py' },
-          { index: 2, fileName: 'a1-class.py' }
-        ]}
-      />
-    </div>
+        {/* sign out alert box */}
+        <Dialog
+          open={isAlertOpen}
+          onClose={() => setIsAlertOpen(false)}
+          aria-labelledby="alert-dialog-title">
+          <DialogTitle id="alert-dialog-title">
+            Log out of Code Reviewer?
+          </DialogTitle>
+          <DialogActions>
+            <Button onClick={() => setIsAlertOpen(false)}>Cancel</Button>
+            <Button onClick={() => setIsAlertOpen(false)} autoFocus>
+              Log Out
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </>
+    </Container>
   )
 }
