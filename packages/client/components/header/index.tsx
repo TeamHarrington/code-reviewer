@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
 import styled from 'styled-components'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-import Popper from '@material-ui/core/Popper'
-import Button from '@material-ui/core/Button'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogTitle from '@material-ui/core/DialogTitle'
+import {
+  Popper,
+  Button,
+  ClickAwayListener,
+  Dialog,
+  DialogActions,
+  DialogTitle
+} from '@material-ui/core'
+
 import { Logo } from '../icons/logo'
 
 const Container = styled.div`
@@ -57,7 +60,7 @@ const UserContainer = styled.div`
 `
 
 interface HeaderProps {
-  backButtonOnClick?: () => null
+  backButtonOnClick?: () => void
   title?: string
   userName?: string
 }
@@ -69,7 +72,7 @@ export const Header = ({
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAlertOpen, setIsAlertOpen] = useState(false)
-  const anchorRef = React.useRef<HTMLDivElement>(null)
+  const anchorRef = React.useRef<HTMLDivElement>(undefined)
   const handleSignOutButtonOnClick = () => {
     setIsMenuOpen(false)
     setIsAlertOpen(true)

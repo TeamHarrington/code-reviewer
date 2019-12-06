@@ -1,6 +1,11 @@
 import React from 'react'
 
-export function Logo({ height, width }: any) {
+interface LogoProps {
+  height: number
+  width: number
+}
+
+export const Logo = ({ height, width }: LogoProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
