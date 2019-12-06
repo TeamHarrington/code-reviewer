@@ -9,6 +9,7 @@
     "dev:api": "lerna run dev --scope @code-reviewer/api --stream",
     "dev:client": "lerna run dev --scope @code-reviewer/client --stream",
     "build:client": "lerna run build --scope @code-reviewer/client --stream",
+    "sb": "lerna run storybook --scope @code-reviewer/client --stream -- --quiet",
     "storybook": "lerna run storybook --scope @code-reviewer/client --stream -- --quiet",
     "storybook:build": "lerna run storybook:build --scope @code-reviewer/client --stream -- --quiet",
     "schema:download": "lerna run schema:download --scope @code-reviewer/client --stream",
