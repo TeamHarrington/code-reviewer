@@ -72,7 +72,7 @@ export const Header = ({
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAlertOpen, setIsAlertOpen] = useState(false)
-  const anchorRef = React.useRef<HTMLDivElement>(undefined)
+  const anchorRef = React.useRef<HTMLDivElement>(null)
   const handleSignOutButtonOnClick = () => {
     setIsMenuOpen(false)
     setIsAlertOpen(true)
