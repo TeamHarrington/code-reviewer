@@ -3,35 +3,31 @@
 
 ##### There are three types of users
 - TA
-- Admin
+- INSTRUCTOR
 - Student
 
 ## As a User
 ### I must be able to:
 - Login and authenticate myself
 - Log out
-## As a Admin
+## As an INSTRUCTOR
 ### I must be able to:
+- Update the course details, e.g. course title, website, etc.
 - Create a student with
   - First Name
   - Last Name
   - UtorID
-  - Student Number
   - Email
 - Create a TA with
   - First Name
   - Last Name
   - UtorID
   - Email
-  - Contract Number - # of contracts this TA has for this course
 - Create Assignments with
   - Name
   - Required Files (Folder Structure?)
   - a list of feedback questions - these are questions students answer when they review someone's code
   - Number of peer reviewers
-  - Peer Review
-  - Self Review
-  - Mark Review?
   - Deadlines
     - Peer Review Deadline
 - View list of TA
@@ -42,27 +38,20 @@
 - Get all assignments that are created by me
 
 ### I should be able to:
-- Create a course with
-  - Course ID
-  - Name
-  - Start/End Date?
-- Add a student to a course
-- Add a TA to a course
-- Add an assignment to a course
-- Remove a student from a course
-- Remove a TA from a course
-- Remove an assignment from a course
-- Batch upload students into courses (uploading file)
-- Batch upload TAs into a course (upload file)
-- Query list of Students (eg. by course)
-- Query list of TAs (eg. by course)
-- Query list of assignments (eg. by date created)
-- Remove a student from a course
-- Batch create TAs (upload file)
-- Batch create students (uploading file)
+- Add a student to this course
+- Add a TA to this course
+- Add an assignment to this course
+- Remove a student from this course
+- Remove a TA from this course
+- Remove an assignment from this course
+- Batch upload students into this courses (uploading file)
+- Batch upload TAs into this course (upload file)
+- Query list of Students in this course
+- Query list of TAs in this course
+- Query list of assignments in this course
 
 ### It would be nice to be able to:
-- 
+-
 
 ## As a TA
 
@@ -71,24 +60,21 @@
 - Get a list of all the assignments that I have access to
 - Get a list of all students that I have access to
 - Review assignments that I am assigned to
-- Review designated review submission  
-- Add annotation to a review  
+- Review designated review submission
+- Add annotation to a review
 
 ### I should be able to:
-- Add a grade to an assignment?
-- Get a list of all the courses?  
-- Enroll in a course?
+- Add a grade to an assignment
 
 ## As a student
 
 ### I must be able to:
-- Get a list of all the assignments  
-- Submit a submission to an assignments  
-- Resubmit a submission to an assignment  
-- View submission mark  
-- Review designated review submission  
-- Add annotation to a review  
+- Get a list of all the assignments
+- View submission mark
+- Review designated review submission
+- Add annotation to a review
+- Delete an annotation
+- Edit an annotation
 
 ### I should be able to:
-- Get a list of all the courses?  
-- Enroll in a course?
+-

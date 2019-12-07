@@ -28,7 +28,7 @@
     "no-dynamic-delete": true,
     "no-invalid-template-strings": true,
     "no-invalid-this": true,
-    "no-null-keyword": true,
+    "no-null-keyword": false,
     "no-return-await": true,
     "no-shadowed-variable": true,
     "no-sparse-arrays": true,
