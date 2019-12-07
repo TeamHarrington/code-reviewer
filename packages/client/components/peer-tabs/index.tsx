@@ -13,13 +13,13 @@ const TabsContainer = styled.div`
   background-color: #f9f9f9;
 `
 
-interface TabPanelProps {
+export interface TabPanelProps {
   children?: React.ReactNode
   index: number
   selectedTabIndex: number
 }
 
-function TabPanel(props: TabPanelProps) {
+const TabPanel = (props: TabPanelProps) => {
   const { children, selectedTabIndex, index } = props
 
   return (
@@ -33,7 +33,7 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
-interface PeerTabsProps {
+export interface PeerTabsProps {
   content: any[]
 }
 

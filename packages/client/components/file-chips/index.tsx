@@ -8,6 +8,12 @@ const Container = styled.div`
   background-color: #f9f9f9;
 `
 
+const StyledChip = styled(Chip)`
+  && {
+    margin: 4px;
+  }
+`
+
 interface FileChip {
   fileName: string
 }
@@ -29,13 +35,12 @@ export const FileChips = ({ files = [] }: FileChips) => {
         const isSelected = selectedChipIndex === index
 
         return (
-          <Chip
-            color={isSelected ? 'default' : 'default'}
+          <StyledChip
+            color={'default'}
             variant="outlined"
             disabled={isSelected}
             label={file.fileName}
             onClick={handChipOnClick(file, index)}
-            style={{ margin: 4 }}
           />
         )
       })}
