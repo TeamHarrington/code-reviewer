@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Peer Tabs Component 1`] = `
+<div
+  className="peer-tabs__Container-sc-1q6zzvg-0 ijyjab"
+>
+  <div
+    className="peer-tabs__TabsContainer-sc-1q6zzvg-1 iohMMv"
+  >
+    <div
+      className="MuiTabs-root"
+    >
+      <div
+        className="MuiTabs-scroller MuiTabs-fixed"
+        onScroll={[Function]}
+        style={
+          Object {
+            "marginBottom": null,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <div
+          className="MuiTabs-flexContainer"
+          role="tablist"
+        >
+          <button
+            aria-controls="action-tabpanel-0"
+            aria-selected={true}
+            className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected MuiTab-fullWidth"
+            disabled={false}
+            id="action-tab-0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              All
+            </span>
+            <span
+              className="PrivateTabIndicator-root-25 PrivateTabIndicator-colorPrimary-26 MuiTabs-indicator"
+              style={Object {}}
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    onScroll={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "overflowX": "hidden",
+      }
+    }
+  >
+    <div
+      className="react-swipeable-view-container"
+      style={
+        Object {
+          "WebkitFlexDirection": "row",
+          "WebkitTransition": "all 0s ease 0s",
+          "direction": "ltr",
+          "display": "flex",
+          "flexDirection": "row",
+          "height": null,
+          "transition": "all 0s ease 0s",
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        aria-hidden={false}
+        data-swipeable="true"
+        style={
+          Object {
+            "WebkitFlexShrink": 0,
+            "flexShrink": 0,
+            "overflow": "auto",
+            "width": "100%",
+          }
+        }
+      >
+        <p
+          aria-labelledby="action-tab-0"
+          className="MuiTypography-root MuiTypography-body1"
+          hidden={false}
+          id="action-tabpanel-0"
+          role="tabpanel"
+        >
+          All
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

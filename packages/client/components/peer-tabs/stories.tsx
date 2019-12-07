@@ -7,5 +7,11 @@ const stories = storiesOf('Peer Tabs', module)
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
 stories.add('default', () => {
-  return <PeerTabs />
+  return <PeerTabs content={
+    [
+      "Peer 1",
+      "Peer 2",
+      "Peer 3"
+    ]
+  }/>
 })
