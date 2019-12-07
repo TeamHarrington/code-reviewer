@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "sb": "yarn storyboook",
+    "sb": "yarn storybook",
     "storybook": "start-storybook --port 2000",
     "storybook:build": "build-storybook -c .storybook -o .storybook.build",
     "test": "jest",

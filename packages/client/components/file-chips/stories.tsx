@@ -10,9 +10,9 @@ stories.add('default', () => {
   return (
     <FileChips
       files={[
-        { index: 0, fileName: 'a1-main.py' },
-        { index: 1, fileName: 'a1-functions.py' },
-        { index: 2, fileName: 'a1-class.py' }
+        { fileName: 'a1-main.py' },
+        { fileName: 'a1-functions.py' },
+        { fileName: 'a1-class.py' }
       ]}
     />
   )

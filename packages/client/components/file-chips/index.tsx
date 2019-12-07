@@ -30,7 +30,8 @@ export const FileChips = ({ files = [] }: FileChips) => {
 
         return (
           <Chip
-            color={'default'}
+            color={isSelected ? 'default' : 'default'}
+            variant="outlined"
             disabled={isSelected}
             label={file.fileName}
             onClick={handChipOnClick(file, index)}
