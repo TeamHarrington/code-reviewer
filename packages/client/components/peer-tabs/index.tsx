@@ -33,11 +33,6 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
-const a11yProps = (index: number) => ({
-  id: `action-tab-${index}`,
-  'aria-controls': `action-tabpanel-${index}`
-})
-
 interface PeerTabsProps {
   content: any[]
 }
@@ -63,21 +58,30 @@ export const PeerTabs = ({ content = [] }: PeerTabsProps) => {
           textColor="primary"
           variant="fullWidth">
           {content.map((_, index) => (
-            <Tab key={index} label={`Peer ${index}`} {...a11yProps(index)} />
+            <Tab
+              key={index}
+              label={`Peer ${index}`}
+              id={`action-tab-${index}`}
+              aria-controls={`action-tabpanel-${index}`}
+            />
           ))}
-          <Tab label="All" {...a11yProps(content.length)} />
+          <Tab
+            label="All"
+            id={`action-tab-${content.length}`}
+            aria-controls={`action-tabpanel-${content.length}`}
+          />
         </Tabs>
       </TabsContainer>
       <SwipeableViews
         index={selectedTabIndex}
         onChangeIndex={handleChangeIndex}>
         {/* individual student tab */}
-        {content.map((element, index) => (
+        {content.map((_, index) => (
           <TabPanel
             selectedTabIndex={selectedTabIndex}
             index={index}
             key={index}>
-            {element}
+            {`Peer ${index + 1}`}
           </TabPanel>
         ))}
 
