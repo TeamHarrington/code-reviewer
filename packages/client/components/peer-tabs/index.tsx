@@ -33,12 +33,10 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
-function a11yProps(index: any) {
-  return {
-    id: `action-tab-${index}`,
-    'aria-controls': `action-tabpanel-${index}`
-  }
-}
+const a11yProps = (index: number) => ({
+  id: `action-tab-${index}`,
+  'aria-controls': `action-tabpanel-${index}`
+})
 
 interface PeerTabsProps {
   content: any[]
