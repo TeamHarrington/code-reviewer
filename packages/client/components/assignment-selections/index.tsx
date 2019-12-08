@@ -9,13 +9,6 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import styled from 'styled-components'
 
-const DetailContainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-`
-
 const TitleText = styled.div`
   font-size: 20px;
 `
@@ -58,10 +51,10 @@ export const AssignmentPanel = ({
       <TitleText>{`Review: ${name}`}</TitleText>
     </ExpansionPanelSummary>
     <ExpansionPanelDetails>
-      <DetailContainer>
+      <Grid container direction="column">
         <AssignmentButton title={'Review Given'} date={reviewDueDate} />
         <AssignmentButton title={'Review Received'} date={feedbackDueDate} />
-      </DetailContainer>
+      </Grid>
     </ExpansionPanelDetails>
   </ExpansionPanel>
 )
