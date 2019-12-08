@@ -24,6 +24,12 @@ const TitleText = styled.div`
   font-size: 20px;
 `
 
+const StyledButton = styled(Button)`
+  && {
+    text-transform: none;
+  }
+`
+
 interface AssignmentButtonProps {
   main: string
   date: string
@@ -31,12 +37,12 @@ interface AssignmentButtonProps {
 
 const AssignmentButton = ({ main = '', date = '' }: AssignmentButtonProps) => {
   return (
-    <Button>
+    <StyledButton>
       <ButtonContent>
         <div>{`Review ${main}`}</div>
         <div>{`Due date: ${date}`}</div>
       </ButtonContent>
-    </Button>
+    </StyledButton>
   )
 }
 
