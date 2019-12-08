@@ -3,7 +3,8 @@ import {
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
-  Button
+  Button,
+  Grid
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import styled from 'styled-components'
@@ -13,13 +14,6 @@ const DetailContainer = styled.div`
   width: 100%;
   flex-direction: column;
   justify-content: space-between;
-`
-
-const ButtonContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: flex-start;
 `
 
 const TitleText = styled.div`
@@ -33,17 +27,17 @@ const StyledButton = styled(Button)`
 `
 
 interface AssignmentButtonProps {
-  main: string
+  title: string
   date: string
 }
 
-const AssignmentButton = ({ main = '', date = '' }: AssignmentButtonProps) => {
+const AssignmentButton = ({ title = '', date = '' }: AssignmentButtonProps) => {
   return (
     <StyledButton>
-      <ButtonContent>
-        <div>{`Review ${main}`}</div>
+      <Grid container direction="column" alignItems="flex-start">
+        <div>{title}</div>
         <div>{`Due date: ${date}`}</div>
-      </ButtonContent>
+      </Grid>
     </StyledButton>
   )
 }
@@ -65,8 +59,8 @@ export const AssignmentPanel = ({
     </ExpansionPanelSummary>
     <ExpansionPanelDetails>
       <DetailContainer>
-        <AssignmentButton main={'Given'} date={reviewDueDate} />
-        <AssignmentButton main={'Received'} date={feedbackDueDate} />
+        <AssignmentButton title={'Review Given'} date={reviewDueDate} />
+        <AssignmentButton title={'Review Received'} date={feedbackDueDate} />
       </DetailContainer>
     </ExpansionPanelDetails>
   </ExpansionPanel>
@@ -78,15 +72,10 @@ export interface AssignmentSelectionProps {
 
 export const AssignmentSelection = ({
   assignments
-}: AssignmentSelectionProps) => {
-  if (assignments.length === 0) {
-    return null
-  }
-  return (
-    <>
-      {assignments.map(assignment => (
-        <AssignmentPanel {...assignment} />
-      ))}
-    </>
-  )
-}
+}: AssignmentSelectionProps) => (
+  <>
+    {assignments.map(assignment => (
+      <AssignmentPanel {...assignment} />
+    ))}
+  </>
+)
