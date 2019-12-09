@@ -1,40 +1,34 @@
 import React from 'react'
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import Button from '@material-ui/core/Button'
+import Drawer from '@material-ui/core/Drawer'
+import MenuIcon from '@material-ui/icons/Menu'
 
-export function SwipeableTemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false
-  })
+export function PersistentDrawerLeft() {
+  const [open, setOpen] = React.useState(false)
 
-  const toggleDrawer = (open: boolean) => (
-    event: React.KeyboardEvent | React.MouseEvent
-  ) => {
-    if (
-      event &&
-      event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' ||
-        (event as React.KeyboardEvent).key === 'Shift')
-    ) {
-      return
-    }
+  const handleDrawerOpen = () => {
+    setOpen(true)
+  }
 
-    setState({ ...state, ['bottom']: open })
+  const handleDrawerClose = () => {
+    setOpen(false)
   }
 
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)}>Open Bottom</Button>
-      <SwipeableDrawer
-        anchor="bottom"
-        open={state.bottom}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}>
-        {'draw content'}
-      </SwipeableDrawer>
-    </div>
+    <>
+      <button onClick={handleDrawerOpen}>
+        <MenuIcon />
+      </button>
+      <Drawer variant="persistent" anchor="bottom" open={open}>
+        <button onClick={handleDrawerClose}>
+          <MenuIcon />
+        </button>
+
+        <div>drawer content</div>
+        <div>drawer content</div>
+        <div>drawer content</div>
+        <div>drawer content</div>
+        <div>drawer content</div>
+      </Drawer>
+    </>
   )
 }
