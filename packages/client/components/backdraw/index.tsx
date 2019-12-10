@@ -1,34 +1,44 @@
 import React from 'react'
-import Drawer from '@material-ui/core/Drawer'
-import MenuIcon from '@material-ui/icons/Menu'
+import { Drawer, Grid, Typography, Button } from '@material-ui/core'
+import styled from 'styled-components'
 
-export function PersistentDrawerLeft() {
-  const [open, setOpen] = React.useState(false)
+const Container = styled.div`
+  display: relative;
+`
 
-  const handleDrawerOpen = () => {
-    setOpen(true)
-  }
+const DrawerTitle = styled(Typography)`
+  padding: 14px;
+`
 
-  const handleDrawerClose = () => {
-    setOpen(false)
+const DrawerContent = styled(Grid)`
+  height: ${(props: any) => props.height || '100px'};
+`
+
+export const BottomDrawer = ({ title = 'Questions' }) => {
+  const [drawerHeight, setDrawerHeight] = React.useState('50px')
+
+  const handleSaveOnClick = () => {
+    if (drawerHeight === '50px') {
+      setDrawerHeight('200px')
+    } else {
+      setDrawerHeight('50px')
+    }
   }
 
   return (
-    <>
-      <button onClick={handleDrawerOpen}>
-        <MenuIcon />
-      </button>
-      <Drawer variant="persistent" anchor="bottom" open={open}>
-        <button onClick={handleDrawerClose}>
-          <MenuIcon />
-        </button>
+    <Container>
+      <Drawer variant="persistent" anchor="bottom" open>
+        <Grid container justify="space-between">
+          <DrawerTitle>{title}</DrawerTitle>
+          <Button color="primary" onClick={handleSaveOnClick}>
+            save
+          </Button>
+        </Grid>
 
-        <div>drawer content</div>
-        <div>drawer content</div>
-        <div>drawer content</div>
-        <div>drawer content</div>
-        <div>drawer content</div>
+        <>
+          <DrawerContent height={drawerHeight}></DrawerContent>
+        </>
       </Drawer>
-    </>
+    </Container>
   )
 }
