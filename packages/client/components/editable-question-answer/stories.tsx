@@ -1,19 +1,91 @@
 import { storiesOf } from '@storybook/react'
-import { EditableQuestionAnswer } from '.'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { TextQuestionAnswer } from '.'
+import { withKnobs, text } from '@storybook/addon-knobs'
+import styled from 'styled-components'
 
-const stories = storiesOf('Question Answer', module)
+const stories = storiesOf('Text Question Answer', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
-stories.add('default', () => {
+const StoryContainer = styled.div``
+
+stories.add('non-editable Q/A from single user', () => {
   return (
-    <div>
-      <EditableQuestionAnswer
+    <StoryContainer>
+      <TextQuestionAnswer
         index={1}
         question={
           'Did the author use meaningful and descriptive variable names?'
-        }></EditableQuestionAnswer>
-    </div>
+        }
+        answers={[
+          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
+        ]}
+      />
+      <TextQuestionAnswer
+        index={2}
+        question={'Is the algorithm in function xxx efficient?'}
+        answers={[
+          'I think so. An alternative (equally efficient) way would be to xxx.'
+        ]}
+      />
+    </StoryContainer>
+  )
+})
+
+stories.add('non-editable Q/A from multiple users', () => {
+  return (
+    <StoryContainer>
+      <TextQuestionAnswer
+        index={1}
+        question={
+          'Did the author use meaningful and descriptive variable names?'
+        }
+        answers={[
+          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.',
+          '',
+          'No'
+        ]}
+      />
+      <TextQuestionAnswer
+        index={2}
+        question={'Is the algorithm in function xxx efficient?'}
+        answers={[
+          'I think so. An alternative (equally efficient) way would be to xxx.',
+          '',
+          ''
+        ]}
+      />
+    </StoryContainer>
+  )
+})
+
+stories.add('editable', () => {
+  return (
+    <StoryContainer>
+      <TextQuestionAnswer
+        editable
+        index={1}
+        question={
+          'Did the author use meaningful and descriptive variable names?'
+        }
+        answers={[
+          text(
+            'answer 1',
+            'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
+          )
+        ]}
+      />
+      <TextQuestionAnswer
+        editable
+        index={2}
+        question={'Is the algorithm in function xxx efficient?'}
+        answers={[
+          text(
+            'answer 2',
+            'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
+          )
+        ]}
+      />
+    </StoryContainer>
   )
 })
