@@ -12,7 +12,7 @@ const AnswerField = styled(TextField)`
 
 interface SingleAnswerProps {
   editable: boolean
-  answer: string | null
+  answer: string
   from: string
 }
 
