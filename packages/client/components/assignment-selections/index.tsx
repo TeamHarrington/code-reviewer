@@ -68,7 +68,7 @@ export const AssignmentSelection = ({
 }: AssignmentSelectionProps) => (
   <>
     {assignments.map(assignment => (
-      <AssignmentPanel {...assignment} />
+      <AssignmentPanel key={assignment.name} {...assignment} />
     ))}
   </>
 )
