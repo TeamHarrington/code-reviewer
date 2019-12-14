@@ -21,13 +21,12 @@ export const useAsync: <T>(
 
   useEffect(() => {
     let mounted = true
-    ;(async () => {
-      const res = await promise
+    promise.then(res => {
       if (mounted) {
         setResult(res)
       }
       setLoading(false)
-    })()
+    })
     return () => {
       mounted = false
     }
