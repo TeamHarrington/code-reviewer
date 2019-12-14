@@ -13,7 +13,7 @@ const AnswerField = styled(TextField)`
 interface SingleAnswerProps {
   editable: boolean
   answer: string | null
-  from: string | false
+  from: string
 }
 
 const SingleAnswer = ({ editable, answer, from }: SingleAnswerProps) => {
@@ -24,7 +24,7 @@ const SingleAnswer = ({ editable, answer, from }: SingleAnswerProps) => {
   return <Typography>{`${author}${answer || '[No response]'}`}</Typography>
 }
 
-interface QuestionAnswerProps {
+export interface QuestionAnswerProps {
   index: number // index of this question
   question: string
   answers: string[]
@@ -48,7 +48,7 @@ export const TextQuestionAnswer = ({
           key={i}
           editable={editable}
           answer={answer}
-          from={answers.length > 1 && `Peer ${i + 1}`}
+          from={answers.length > 1 ? `Peer ${i + 1}` : ''}
         />
       ))}
     </Container>
