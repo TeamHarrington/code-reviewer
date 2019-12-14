@@ -21,9 +21,7 @@ const SingleAnswer = ({ editable, answer, from }: SingleAnswerProps) => {
     return <AnswerField multiline variant="outlined" value={answer} />
   }
   const author = from ? `${from}: ` : ''
-  return (
-    <Typography>{`${author}${answer || 'no available answer'}`}</Typography>
-  )
+  return <Typography>{`${author}${answer || '[No response]'}`}</Typography>
 }
 
 interface QuestionAnswerProps {
