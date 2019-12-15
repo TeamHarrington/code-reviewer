@@ -28,7 +28,7 @@ const Types = gql`
 
   type Assignment {
     id: ID!
-    name: String
+    name: String!
     requiredFiles: [String!]
     peerReviewDeadline: String
     feedbackQuestions: [String!]
@@ -46,8 +46,8 @@ const Types = gql`
   type Submission {
     id: ID!
     author: User!
-    assignment: Assignment
-    files: [File]
+    assignment: Assignment!
+    files: [File!]!
     reviewBy: [User!]!
   }
 
@@ -55,8 +55,8 @@ const Types = gql`
     id: ID!
     givenBy: User!
     line: Int!
-    content: String
-    isDeleted: Boolean
+    content: String!
+    isDeleted: Boolean!
   }
 `
 
