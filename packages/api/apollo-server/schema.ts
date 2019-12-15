@@ -5,7 +5,7 @@ import { makeExecutableSchema, IResolvers } from 'graphql-tools'
 import queries from './queries'
 
 /** Mutations */
-import testMutation from './mutations/test'
+import mutations from './mutations'
 
 /** Types */
 import Types from './types'
@@ -15,7 +15,7 @@ const resolvers: IResolvers = merge(
   queries,
 
   /** Mutations */
-  testMutation
+  mutations
 )
 
 const typeDefs = [Types]

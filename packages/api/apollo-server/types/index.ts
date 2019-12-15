@@ -6,7 +6,7 @@ const Types = gql`
   }
 
   type Mutation {
-    testMutation: String
+    userMutation: [User]
   }
 
   enum UserType {
