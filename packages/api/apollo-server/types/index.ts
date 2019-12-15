@@ -6,7 +6,7 @@ const Types = gql`
   }
 
   type Mutation {
-    userMutation: [User]
+    userMutation: [User!]!
   }
 
   enum UserType {
@@ -23,7 +23,7 @@ const Types = gql`
     email: String
     userType: UserType!
     lastLogin: String
-    isActive: Boolean
+    isActive: Boolean!
   }
 
   type Assignment {
@@ -33,14 +33,14 @@ const Types = gql`
     peerReviewDeadline: String
     feedbackQuestions: [String!]
     groupSize: Int!
-    isActive: Boolean
+    isActive: Boolean!
   }
 
   type File {
     id: ID!
     name: String!
     path: String!
-    annotations: [Annotation]
+    annotations: [Annotation!]!
   }
 
   type Submission {
@@ -48,7 +48,7 @@ const Types = gql`
     author: User!
     assignment: Assignment
     files: [File]
-    reviewBy: [User!]
+    reviewBy: [User!]!
   }
 
   type Annotation {
