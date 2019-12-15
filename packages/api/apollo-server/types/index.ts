@@ -2,7 +2,6 @@ import { gql } from 'apollo-server-core'
 
 const Types = gql`
   type Query {
-    testQuery: String
     users: [User]
   }
 

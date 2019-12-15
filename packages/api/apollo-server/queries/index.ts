@@ -1,17 +1,7 @@
-import testQuery from './test/testQuery'
+import users from './users'
 
 export default {
   Query: {
-    testQuery,
-    users() {
-      return [
-        {
-          firstName: 'Alice',
-          lastName: 'A',
-          utorID: 'alice01',
-          userType: 'STUDENT'
-        }
-      ]
-    }
+    users
   }
 }
