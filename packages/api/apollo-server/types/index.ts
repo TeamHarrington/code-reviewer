@@ -1,8 +1,9 @@
 import { gql } from 'apollo-server-core'
 
-const Test = gql`
+const Types = gql`
   type Query {
     testQuery: String
+    users: [User]
   }
 
   type Mutation {
@@ -16,39 +17,48 @@ const Test = gql`
   }
 
   type User {
+    id: ID!
     firstName: String
     lastName: String
     utorID: String!
     email: String
     userType: UserType!
+    lastLogin: String
     isActive: Boolean
   }
 
   type Assignment {
+    id: ID!
     name: String
-    requiredFiles: [String]
+    requiredFiles: [String!]
     peerReviewDeadline: String
-    feedbackQuestions: [String]
-    numPeers: Int
+    feedbackQuestions: [String!]
+    groupSize: Int!
+    isActive: Boolean
   }
 
   type File {
-    name: String
-    path: String
-    annotations: Annotation
+    id: ID!
+    name: String!
+    path: String!
+    annotations: [Annotation]
   }
 
   type Submission {
-    author: User
+    id: ID!
+    author: User!
     assignment: Assignment
     files: [File]
+    reviewBy: [User!]
   }
 
   type Annotation {
-    givenBy: User
-    line: Int
+    id: ID!
+    givenBy: User!
+    line: Int!
     content: String
+    isDeleted: Boolean
   }
 `
 
-export default Test
+export default Types
