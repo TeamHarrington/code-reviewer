@@ -2,11 +2,13 @@ import { gql } from 'apollo-server-core'
 
 const Types = gql`
   type Query {
-    users: [User]
+    getUser: User
+    getUsers: [User]
   }
 
   type Mutation {
-    userMutation: [User!]!
+    addUser: User
+    editUser: User
   }
 
   enum UserType {
@@ -22,7 +24,7 @@ const Types = gql`
     utorID: String!
     email: String
     userType: UserType!
-    lastLogin: String
+    lastLogin: String!
     isActive: Boolean!
   }
 

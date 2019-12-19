@@ -1,7 +1,8 @@
-import users from './users'
+import { getUser, getUsers } from './users'
 
 export default {
   Query: {
-    users
+    getUser,
+    getUsers
   }
 }
