@@ -7,7 +7,6 @@ const Types = gql`
   }
 
   type Mutation {
-    addUser: User
     editUser(firstName: String, lastName: String): User
   }
 
