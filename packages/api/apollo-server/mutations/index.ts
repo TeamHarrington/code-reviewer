@@ -1,3 +1,7 @@
+import { editUser } from './users'
+
 export default {
-  Mutation: {}
+  Mutation: {
+    editUser
+  }
 }

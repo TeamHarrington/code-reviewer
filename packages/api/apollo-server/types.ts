@@ -8,7 +8,7 @@ const Types = gql`
 
   type Mutation {
     addUser: User
-    editUser: User
+    editUser(firstName: String, lastName: String): User
   }
 
   enum UserType {

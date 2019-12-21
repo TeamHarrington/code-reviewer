@@ -1,3 +1,10 @@
-export default async () => {
-  return 'This is a test user mutation - it does not actually mutate anything.'
+interface User {
+  firstName?: String
+  lastName?: string
+}
+
+export const editUser = async (_: any, props: User) => {
+  return {
+    ...props
+  }
 }
