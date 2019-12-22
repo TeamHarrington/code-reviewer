@@ -1,9 +1,9 @@
-interface User {
+interface EditUserData {
   firstName?: String
   lastName?: string
 }
 
-export const editUser = async (_: any, props: User) => {
+export const editUser = async (_: any, props: EditUserData): User => {
   return {
     ...props
   }
