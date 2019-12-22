@@ -30,7 +30,7 @@ const SingleAnnotation = ({ lineNum, content }: SingleAnnotationProp) => {
 }
 
 export interface AnnotationsProps {
-  annotations: [SingleAnnotationProp]
+  annotations: SingleAnnotationProp[]
 }
 
 export const Annotations = (props: AnnotationsProps) => {
