@@ -5,9 +5,6 @@ import styled from 'styled-components'
 const Container = styled(Grid)`
   height: ${props => (props.isMinimized ? '100px' : '400px')};
   background-color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0px;
   border-radius: 20px 20px 0px 0px;
   padding-top: 6px;
   padding-left: 16px;
@@ -33,15 +30,15 @@ const ExtendButton = styled.div`
 
 export interface BackdropProps {
   title: String
-  children: any
-  saveButtonOnClick: () => void
+  children: React.ReactNode
+  saveButtonOnClick: (() => void) | false
   isButtonDisabled?: boolean
 }
 
 export const Backdrop = ({
   title,
   children,
-  saveButtonOnClick,
+  saveButtonOnClick = false,
   isButtonDisabled = false
 }: BackdropProps) => {
   const [isMinimized, setIsMinimized] = useState(true)
