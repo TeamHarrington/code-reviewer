@@ -40,6 +40,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-swipeable": "^5.5.0",
     "react-swipeable-views": "^0.13.3",
     "react-syntax-highlighter": "^11.0.2",
     "styled-components": "^4.4.0"

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { action } from '@storybook/addon-actions'
 import { TextQuestionAnswer } from '../text-question-answer'
 
-const stories = storiesOf('BottomDrawer', module)
+const stories = storiesOf('Bottom Drawer', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 

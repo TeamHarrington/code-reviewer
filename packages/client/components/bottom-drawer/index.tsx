@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, Button } from '@material-ui/core'
 import styled from 'styled-components'
+import { useSwipeable } from 'react-swipeable'
 
 const Container = styled(Grid)`
   height: ${props => (props.isMinimized ? '100px' : '400px')};
@@ -26,6 +27,15 @@ const ExtendButton = styled.div`
   background-color: #8f8f8f;
   border-radius: 5px;
   margin: auto;
+  // enlarged touchable area for a11y
+  &:before {
+    content: '';
+    height: 22px;
+    width: 48px;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 24px);
+  }
 `
 
 export interface BottomDrawerProps {
@@ -43,9 +53,22 @@ export const BottomDrawer = ({
 }: BottomDrawerProps) => {
   const [isMinimized, setIsMinimized] = useState(true)
 
+  const handlers = useSwipeable({
+    onSwipedUp: () => setIsMinimized(false),
+    onSwipedDown: () => setIsMinimized(true),
+    trackMouse: true
+  })
+
   return (
     <Container isMinimized={isMinimized}>
-      <ExtendButton onClick={() => setIsMinimized(prev => !prev)} />
+      {/* <ExtendTouchableArea
+        onClick={() => setIsMinimized(prev => !prev)}
+        {...handlers}> */}
+      <ExtendButton
+        onClick={() => setIsMinimized(prev => !prev)}
+        {...handlers}
+      />
+      {/* </ExtendTouchableArea> */}
       <TitleContainer justify="space-between">
         {title}
         {saveButtonOnClick && (
