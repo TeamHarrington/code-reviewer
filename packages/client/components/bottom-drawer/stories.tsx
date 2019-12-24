@@ -1,11 +1,11 @@
 import { storiesOf } from '@storybook/react'
-import { Backdrop } from '.'
+import { BottomDrawer } from '.'
 import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { action } from '@storybook/addon-actions'
 import { TextQuestionAnswer } from '../text-question-answer'
 
-const stories = storiesOf('Backdrop', module)
+const stories = storiesOf('BottomDrawer', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
@@ -30,11 +30,11 @@ stories.add('default', () => {
   return (
     <Background>
       <StoryContainer>
-        <Backdrop
+        <BottomDrawer
           title={text('title', 'Questions')}
           saveButtonOnClick={showSaveButton && action('save button clicked')}>
-          backdrop content
-        </Backdrop>
+          drawer content
+        </BottomDrawer>
       </StoryContainer>
     </Background>
   )
@@ -46,7 +46,7 @@ stories.add('with questions and answer', () => {
   return (
     <Background>
       <StoryContainer>
-        <Backdrop
+        <BottomDrawer
           title={text('title', 'Questions')}
           saveButtonOnClick={showSaveButton && action('save button clicked')}>
           <>
@@ -69,7 +69,7 @@ stories.add('with questions and answer', () => {
               ]}
             />
           </>
-        </Backdrop>
+        </BottomDrawer>
       </StoryContainer>
     </Background>
   )

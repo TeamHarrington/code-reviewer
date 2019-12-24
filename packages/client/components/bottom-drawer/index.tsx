@@ -28,19 +28,19 @@ const ExtendButton = styled.div`
   margin: auto;
 `
 
-export interface BackdropProps {
+export interface BottomDrawerProps {
   title: String
   children: React.ReactNode
   saveButtonOnClick: (() => void) | false
   isButtonDisabled?: boolean
 }
 
-export const Backdrop = ({
+export const BottomDrawer = ({
   title,
   children,
   saveButtonOnClick = false,
   isButtonDisabled = false
-}: BackdropProps) => {
+}: BottomDrawerProps) => {
   const [isMinimized, setIsMinimized] = useState(true)
 
   return (
