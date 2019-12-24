@@ -78,3 +78,24 @@ stories.add('with questions and answer', () => {
     </Background>
   )
 })
+
+stories.add('with annotations', () => {
+  return (
+    <Background>
+      <StoryContainer>
+        <BottomDrawer
+          title={text('title', 'Annotations')}
+          actionButton={
+            <Button
+              onClick={action('button clicked')}
+              disabled={boolean('disable save button', false)}
+              color="primary">
+              Save
+            </Button>
+          }>
+          <></>
+        </BottomDrawer>
+      </StoryContainer>
+    </Background>
+  )
+})
