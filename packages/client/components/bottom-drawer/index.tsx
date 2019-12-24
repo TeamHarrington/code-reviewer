@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Grid, Button } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 
@@ -41,15 +41,13 @@ const ExtendButton = styled.div`
 export interface BottomDrawerProps {
   title: String
   children: React.ReactNode
-  saveButtonOnClick: (() => void) | false
-  isButtonDisabled?: boolean
+  actionButton?: React.ReactNode
 }
 
 export const BottomDrawer = ({
   title,
   children,
-  saveButtonOnClick = false,
-  isButtonDisabled = false
+  actionButton
 }: BottomDrawerProps) => {
   const [isMinimized, setIsMinimized] = useState(true)
 
@@ -71,11 +69,7 @@ export const BottomDrawer = ({
       {/* </ExtendTouchableArea> */}
       <TitleContainer justify="space-between">
         {title}
-        {saveButtonOnClick && (
-          <Button disabled={!!isButtonDisabled} color="primary">
-            Save
-          </Button>
-        )}
+        {actionButton}
       </TitleContainer>
       {children}
     </Container>

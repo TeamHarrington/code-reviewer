@@ -4,6 +4,7 @@ import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { action } from '@storybook/addon-actions'
 import { TextQuestionAnswer } from '../text-question-answer'
+import { Button } from '@material-ui/core'
 
 const stories = storiesOf('Bottom Drawer', module)
 
@@ -25,14 +26,12 @@ const Background = styled.div`
 `
 
 stories.add('default', () => {
-  const showSaveButton = boolean('show save button', true)
-
   return (
     <Background>
       <StoryContainer>
         <BottomDrawer
           title={text('title', 'Questions')}
-          saveButtonOnClick={showSaveButton && action('save button clicked')}>
+          actionButton={<Button color="primary">Save</Button>}>
           drawer content
         </BottomDrawer>
       </StoryContainer>
@@ -41,14 +40,19 @@ stories.add('default', () => {
 })
 
 stories.add('with questions and answer', () => {
-  const showSaveButton = boolean('show save button', true)
-
   return (
     <Background>
       <StoryContainer>
         <BottomDrawer
           title={text('title', 'Questions')}
-          saveButtonOnClick={showSaveButton && action('save button clicked')}>
+          actionButton={
+            <Button
+              onClick={action('button clicked')}
+              disabled={boolean('disable save button', false)}
+              color="primary">
+              Save
+            </Button>
+          }>
           <>
             <TextQuestionAnswer
               editable
