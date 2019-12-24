@@ -2,23 +2,23 @@ import { merge } from 'lodash'
 import { makeExecutableSchema, IResolvers } from 'graphql-tools'
 
 /** Queries */
-import testQueries from './queries/test'
+import queries from './queries'
 
 /** Mutations */
-import testMutation from './mutations/test'
+import mutations from './mutations'
 
 /** Types */
-import Test from './types/Test'
+import Types from './types'
 
 const resolvers: IResolvers = merge(
   /** Queries */
-  testQueries,
+  queries,
 
   /** Mutations */
-  testMutation
+  mutations
 )
 
-const typeDefs = [Test]
+const typeDefs = [Types]
 
 const schema = makeExecutableSchema({
   resolvers,
