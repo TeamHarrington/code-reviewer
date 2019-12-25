@@ -32,9 +32,9 @@ stories.add('default', () => {
     <Background>
       <StoryContainer>
         <BottomDrawer
-          title={text('title', 'Questions')}
-          actionButton={<Button color="primary">Save</Button>}>
-          drawer content
+          title={text('title', 'Drawer Title')}
+          actionButton={<Button color="primary">Button</Button>}>
+          some drawer content
         </BottomDrawer>
       </StoryContainer>
     </Background>
