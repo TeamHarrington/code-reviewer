@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 
-const BottomDrawerContainer = styled(Grid)`
+const Container = styled.div`
   height: ${(props: { drawerHeight: string }) => props.drawerHeight};
   background-color: white;
   border-radius: 20px 20px 0px 0px;
@@ -78,14 +78,16 @@ export const BottomDrawer = ({
   }
 
   return (
-    <BottomDrawerContainer drawerHeight={drawerHeight}>
-      {!fixedHeight && <ExtendButton onClick={toggleHeight} {...handlers} />}
+    <Container drawerHeight={drawerHeight}>
+      <Grid>
+        {!fixedHeight && <ExtendButton onClick={toggleHeight} {...handlers} />}
 
-      <Grid container justify="space-between" alignItems="center">
-        {title}
-        {actionButton}
+        <Grid container justify="space-between" alignItems="center">
+          {title}
+          {actionButton}
+        </Grid>
+        <ChildContent>{children}</ChildContent>
       </Grid>
-      <ChildContent>{children}</ChildContent>
-    </BottomDrawerContainer>
+    </Container>
   )
 }
