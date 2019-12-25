@@ -69,10 +69,7 @@ export const BottomDrawer = ({
 
   const toggleHeight = () => {
     setDrawerHeight(prev => {
-      if (prev === minimizedHeight) {
-        return expandedHeight
-      }
-      return minimizedHeight
+      return prev === minimizedHeight ? expandedHeight : minimizedHeight
     })
   }
 
