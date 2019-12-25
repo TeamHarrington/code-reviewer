@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 
 const Container = styled(Grid)`
-  height: ${props => (props.isMinimized ? '100px' : '400px')};
+  height: ${props => props.drawerHeight};
   background-color: white;
   border-radius: 20px 20px 0px 0px;
   padding-top: 6px;
@@ -39,34 +39,45 @@ const ExtendButton = styled.div`
 `
 
 export interface BottomDrawerProps {
-  title: String
+  title: string
   children: React.ReactNode
   actionButton?: React.ReactNode
+  isClosed?: boolean
+  fixedHeight?: string
 }
 
 export const BottomDrawer = ({
   title,
   children,
-  actionButton
+  actionButton,
+  isClosed = false,
+  fixedHeight
 }: BottomDrawerProps) => {
-  const [isMinimized, setIsMinimized] = useState(true)
+  const [drawerHeight, setDrawerHeight] = useState('100px')
 
   const handlers = useSwipeable({
-    onSwipedUp: () => setIsMinimized(false),
-    onSwipedDown: () => setIsMinimized(true),
+    onSwipedUp: () => setDrawerHeight('400px'),
+    onSwipedDown: () => setDrawerHeight('100px'),
     trackMouse: true
   })
 
+  const toggleHeight = () => {
+    setDrawerHeight(prev => {
+      if (prev === '100px') {
+        return '400px'
+      }
+      return '100px'
+    })
+  }
+
+  if (isClosed) {
+    return null
+  }
+
   return (
-    <Container isMinimized={isMinimized}>
-      {/* <ExtendTouchableArea
-        onClick={() => setIsMinimized(prev => !prev)}
-        {...handlers}> */}
-      <ExtendButton
-        onClick={() => setIsMinimized(prev => !prev)}
-        {...handlers}
-      />
-      {/* </ExtendTouchableArea> */}
+    <Container drawerHeight={fixedHeight || drawerHeight}>
+      {!fixedHeight && <ExtendButton onClick={toggleHeight} {...handlers} />}
+
       <TitleContainer justify="space-between">
         {title}
         {actionButton}
