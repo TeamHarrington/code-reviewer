@@ -59,20 +59,24 @@ export const BottomDrawer = ({
   isClosed = false,
   fixedHeight
 }: BottomDrawerProps) => {
-  const [drawerHeight, setDrawerHeight] = useState('100px')
+  const minimizedHeight = '52px'
+  const expandedHeight = '400px'
+  const [drawerHeight, setDrawerHeight] = useState(
+    fixedHeight || minimizedHeight
+  )
 
   const handlers = useSwipeable({
-    onSwipedUp: () => setDrawerHeight('400px'),
-    onSwipedDown: () => setDrawerHeight('100px'),
+    onSwipedUp: () => setDrawerHeight(expandedHeight),
+    onSwipedDown: () => setDrawerHeight(minimizedHeight),
     trackMouse: true
   })
 
   const toggleHeight = () => {
     setDrawerHeight(prev => {
-      if (prev === '100px') {
-        return '400px'
+      if (prev === minimizedHeight) {
+        return expandedHeight
       }
-      return '100px'
+      return minimizedHeight
     })
   }
 
@@ -81,7 +85,7 @@ export const BottomDrawer = ({
   }
 
   return (
-    <BottomDrawerContainer drawerHeight={fixedHeight || drawerHeight}>
+    <BottomDrawerContainer drawerHeight={drawerHeight}>
       {!fixedHeight && <ExtendButton onClick={toggleHeight} {...handlers} />}
 
       <TitleContainer justify="space-between">
