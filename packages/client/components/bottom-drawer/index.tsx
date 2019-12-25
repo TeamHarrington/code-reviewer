@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 
 const BottomDrawerContainer = styled(Grid)`
-  height: ${props => props.drawerHeight};
+  height: ${(props: { drawerHeight: string }) => props.drawerHeight};
   background-color: white;
   border-radius: 20px 20px 0px 0px;
   padding-top: 6px;
@@ -12,13 +12,6 @@ const BottomDrawerContainer = styled(Grid)`
   padding-right: 16px;
   box-sizing: border-box;
   transition: height 0.3s;
-`
-
-const TitleContainer = styled(Grid)`
-  direction: row;
-  justify: space-between;
-  align-items: center;
-  display: flex;
 `
 
 const ExtendButton = styled.div`
@@ -52,6 +45,9 @@ export interface BottomDrawerProps {
   fixedHeight?: string
 }
 
+// this components has 2 modes: adjustable height and fixed height
+// e.g. passing fixedHeight: '200px' will hide the button to adjust
+// hegith, so the drawer's height always stay the same
 export const BottomDrawer = ({
   title,
   children,
@@ -88,10 +84,10 @@ export const BottomDrawer = ({
     <BottomDrawerContainer drawerHeight={drawerHeight}>
       {!fixedHeight && <ExtendButton onClick={toggleHeight} {...handlers} />}
 
-      <TitleContainer justify="space-between">
+      <Grid container justify="space-between" alignItems="center">
         {title}
         {actionButton}
-      </TitleContainer>
+      </Grid>
       <ChildContent>{children}</ChildContent>
     </BottomDrawerContainer>
   )
