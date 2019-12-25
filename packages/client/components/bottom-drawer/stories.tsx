@@ -74,6 +74,22 @@ stories.add('with questions and answer', () => {
                 'I think so. An alternative (equally efficient) way would be to xxx.'
               ]}
             />
+            <TextQuestionAnswer
+              editable
+              index={3}
+              question={'Is the algorithm in function xxx efficient?'}
+              answers={[
+                'I think so. An alternative (equally efficient) way would be to xxx.'
+              ]}
+            />
+            <TextQuestionAnswer
+              editable
+              index={4}
+              question={'Is the algorithm in function xxx efficient?'}
+              answers={[
+                'I think so. An alternative (equally efficient) way would be to xxx.'
+              ]}
+            />
           </>
         </BottomDrawer>
       </StoryContainer>
