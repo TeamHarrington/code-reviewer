@@ -36,5 +36,23 @@
       "lastLogin": "2019-12-16",
       "isActive": true
     }
+  ],
+  "assignments": [
+    {
+      "id": "001",
+      "name": "Assignment 1",
+      "requiredFiles": [],
+      "feedbackQuestions": [],
+      "groupSize": 4,
+      "isActive": true
+    },
+    {
+      "id": "002",
+      "name": "Assignment 2",
+      "requiredFiles": [],
+      "feedbackQuestions": [],
+      "groupSize": 4,
+      "isActive": true
+    }
   ]
 }

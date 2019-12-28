@@ -12,6 +12,8 @@ const Types = gql`
   type Query {
     getUser(id: String, utorID: String, email: String): User
     getUsers(users: [UserInput!]!): [User!]!
+    getAssignment(id: String): Assignment
+    getAssignments: [Assignment!]!
   }
 
   type Mutation {
@@ -38,9 +40,9 @@ const Types = gql`
   type Assignment {
     id: ID!
     name: String!
-    requiredFiles: [String!]
+    requiredFiles: [String!]!
     peerReviewDeadline: String
-    feedbackQuestions: [String!]
+    feedbackQuestions: [String!]!
     groupSize: Int!
     isActive: Boolean!
   }

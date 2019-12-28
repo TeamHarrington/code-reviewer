@@ -1,6 +1,6 @@
-import data from '../../test-data.json'
+import data from '../mock-data.json'
 
-interface IGetUser {
+export interface IGetUser {
   id?: String
   utorID?: String
   email?: String
@@ -11,7 +11,7 @@ export const getUser = async (_: any, args: IGetUser) => {
   return resultUser
 }
 
-interface IGetUsers {
+export interface IGetUsers {
   users?: {
     id?: String
     firstName?: String

@@ -1,4 +1,4 @@
-import data from '../../test-data.json'
+import data from '../mock-data.json'
 
 interface EditUserData {
   id: string
