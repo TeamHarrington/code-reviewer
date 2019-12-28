@@ -6,6 +6,7 @@ const Types = gql`
     firstName: String
     lastName: String
     utorID: String
+    userType: UserType
   }
 
   type Query {

@@ -18,6 +18,7 @@ interface IGetUsers {
     lastName?: String
     utorID?: String
     email?: String
+    userType?: String
     isActive?: Boolean
   }[]
 }
@@ -31,7 +32,8 @@ export const getUsers = async (_: any, args: IGetUsers) => {
         user.firstName === userCri.firstName ||
         user.lastName === userCri.lastName ||
         user.id === userCri.id ||
-        user.utorID === userCri.utorID
+        user.utorID === userCri.utorID ||
+        user.userType === userCri.userType
     )
     if (resultUser) {
       result.push(resultUser)
