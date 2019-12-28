@@ -17,7 +17,24 @@ const Types = gql`
   }
 
   type Mutation {
-    editUser(id: String, firstName: String, lastName: String): User
+    editUser(
+      id: String!
+      firstName: String
+      lastName: String
+      utorID: String
+      email: String
+      userType: UserType
+      lastLogin: String
+      isActive: Boolean
+    ): User
+    editAssignment(
+      id: String!
+      name: String
+      requiredFiles: [String!]
+      feedbackQuestions: [String!]
+      groupSize: Int
+      isActive: Boolean
+    ): Assignment
   }
 
   enum UserType {
