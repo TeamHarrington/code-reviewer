@@ -1,4 +1,4 @@
-import data from '../mock-data.json'
+import { users } from '../mock-data'
 
 export interface IEditUser {
   id: String
@@ -7,7 +7,6 @@ export interface IEditUser {
 }
 
 export const editUser = (_: any, args: IEditUser) => {
-  const users = data.users
   const index = users.findIndex(user => user.id === args.id)
   Object.keys(args).map(key => {
     if (key !== 'id') {

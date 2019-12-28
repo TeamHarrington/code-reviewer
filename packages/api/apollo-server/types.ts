@@ -14,6 +14,7 @@ const Types = gql`
     getUsers(users: [UserInput!]!): [User!]!
     getAssignment(id: String): Assignment
     getAssignments: [Assignment!]!
+    getSubmission(id: String): Submission
   }
 
   type Mutation {

@@ -1,4 +1,4 @@
-import data from '../mock-data.json'
+import { users } from '../mock-data'
 
 export interface IGetUser {
   id?: String
@@ -7,7 +7,7 @@ export interface IGetUser {
 }
 
 export const getUser = async (_: any, args: IGetUser) => {
-  const resultUser = data.users.find(user => user.id === args.id)
+  const resultUser = users.find(user => user.id === args.id)
   return resultUser
 }
 
@@ -27,7 +27,7 @@ export const getUsers = async (_: any, args: IGetUsers) => {
   const result: any = []
   // @ts-ignore
   args.users.map(userCri => {
-    const resultUser = data.users.find(
+    const resultUser = users.find(
       user =>
         user.firstName === userCri.firstName ||
         user.lastName === userCri.lastName ||
