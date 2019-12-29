@@ -3,8 +3,8 @@ import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 
-const Container = styled.div`
-  height: ${(props: { drawerHeight: string }) => props.drawerHeight};
+const Container = styled.div<{ drawerHeight: string }>`
+  height: ${props => props.drawerHeight};
   background-color: white;
   border-radius: 20px 20px 0px 0px;
   padding-top: 6px;
