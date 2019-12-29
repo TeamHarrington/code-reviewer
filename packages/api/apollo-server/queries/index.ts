@@ -1,6 +1,6 @@
 import { getUser, getUsers } from './user'
 import { getAssignment, getAssignments } from './assignment'
-import { getSubmission } from './submission'
+import { getSubmission, getSubmissions } from './submission'
 
 export default {
   Query: {
@@ -8,6 +8,7 @@ export default {
     getUsers,
     getAssignment,
     getAssignments,
-    getSubmission
+    getSubmission,
+    getSubmissions
   }
 }
