@@ -1,10 +1,9 @@
 // take an array of criteria and return true if data
 // matches at least one of them
-export const match = (data: any, criteria: any[]) => {
-  return criteria.some(criterion => {
-    return Object.keys(criterion).every(key => data[key] === criterion[key])
-  })
-}
+export const match = (data: any, criteria: any[]) =>
+  criteria.some(criterion =>
+    Object.keys(criterion).every(key => data[key] === criterion[key])
+  )
 
 export const users = [
   {
@@ -70,27 +69,27 @@ export const submissions = [
     author: users[0],
     assignment: assignments[0],
     files: [],
-    reviewBy: []
+    reviewBy: [users[1], users[2], users[3]]
   },
   {
     id: '002',
     author: users[1],
     assignment: assignments[0],
     files: [],
-    reviewBy: []
+    reviewBy: [users[0], users[2], users[3]]
   },
   {
     id: '003',
     author: users[2],
     assignment: assignments[0],
     files: [],
-    reviewBy: []
+    reviewBy: [users[0], users[1], users[3]]
   },
   {
     id: '004',
     author: users[3],
     assignment: assignments[0],
     files: [],
-    reviewBy: []
+    reviewBy: [users[0], users[1], users[2]]
   }
 ]

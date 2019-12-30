@@ -9,20 +9,13 @@ const Types = gql`
     userType: UserType
   }
 
-  input SubmissionInput {
-    id: String
-    authorID: String
-    assignmentID: String
-    reviewByID: String
-  }
-
   type Query {
     getUser(id: String, utorID: String, email: String): User
     getUsers(users: [UserInput!]!): [User!]!
     getAssignment(id: String): Assignment
     getAssignments: [Assignment!]!
     getSubmission(id: String): Submission
-    getSubmissions(submissions: [SubmissionInput!]!): [Submission!]!
+    getSubmissions(userID: String): [Submission!]!
   }
 
   type Mutation {

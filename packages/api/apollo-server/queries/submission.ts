@@ -1,9 +1,11 @@
-import { submissions, match } from '../mock-data'
+import { submissions } from '../mock-data'
 
 export interface IGetSubmission {
   id: String
 }
 
+// don't have a use case for this one yet, put it there just for testing
+// probabl going to remove it in near future
 export const getSubmission = async (_: any, args: IGetSubmission) => {
   const resultSubmission = submissions.find(
     submission => submission.id === args.id
@@ -12,20 +14,14 @@ export const getSubmission = async (_: any, args: IGetSubmission) => {
 }
 
 export interface IGetSubmissions {
-  submissions: {
-    id?: String
-    authorID: String
-    assignmentID: String
-    reviewByID: String
-  }[]
+  userID: String
 }
 
-export const getSubmissions = async (parent: any, args: IGetSubmissions) => {
-  console.log(parent)
+// get this user's all submissions as well as the submissions has this user
+// in reviewBy
+// do not include the submissions that has submissions.Assignment.isActive = false
+// this one should be called on the student and TA home page
+export const getSubmissions = async (_: any, args: IGetSubmissions) => {
   console.log(args)
-  if (args.submissions.length === 0) {
-    return submissions
-  }
-
-  return submissions.filter(submission => match(submission, args.submissions))
+  return submissions
 }
