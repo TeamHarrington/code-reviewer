@@ -19,6 +19,17 @@ const Types = gql`
   }
 
   type Mutation {
+    addUser(
+      id: String!
+      firstName: String
+      lastName: String
+      utorID: String!
+      email: String
+      userType: UserType
+      isActive: Boolean
+    ): User
+    # there should be a addUsers mutation
+    # it should take a CSV or JSON file
     editUser(
       id: String!
       firstName: String
@@ -29,6 +40,13 @@ const Types = gql`
       lastLogin: String
       isActive: Boolean
     ): User
+    addAssignment(
+      name: String!
+      requiredFiles: [String!]
+      feedbackQuestions: [String!]
+      groupSize: Int
+      isActive: Boolean
+    ): Assignment
     editAssignment(
       id: String!
       name: String
@@ -37,6 +55,18 @@ const Types = gql`
       groupSize: Int
       isActive: Boolean
     ): Assignment
+
+    # this mutation create Submissions and Files
+    # for the given assignment
+    # it may take more properties
+    # TBD
+    addSubmissionsAndFiles(assignmentID: String): Submission
+    addAnnotation(
+      fileID: String!
+      givenByID: String!
+      line: Int!
+      content: String!
+    ): Annotation
   }
 
   enum UserType {
