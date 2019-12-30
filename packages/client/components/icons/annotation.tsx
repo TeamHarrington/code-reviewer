@@ -3,9 +3,8 @@ import ChatBubbleIcon from '@material-ui/icons/ChatBubble'
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline'
 import styled from 'styled-components'
 
-const IconContaienr = styled.div`
-  background: ${({ isActive }: { isActive: boolean }) =>
-    isActive ? '#004dca' : 'white'};
+const IconContaienr = styled.div<{ isActive: boolean }>`
+  background: ${({ isActive }) => (isActive ? '#004dca' : 'white')};
   height: 32px;
   width: 32px;
   padding-top: 6px;
@@ -19,7 +18,7 @@ const ActiveIcon = styled(ChatBubbleIcon)`
 
 const InactiveIcon = styled(ChatBubbleOutlineIcon)``
 
-interface AnnotationIconProps {
+export interface AnnotationIconProps {
   isActive?: boolean
   onClick?: () => void
 }
