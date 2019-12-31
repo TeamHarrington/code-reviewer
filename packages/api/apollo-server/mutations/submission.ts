@@ -24,8 +24,6 @@ export const addAnnotation = async (_: any, args: IAddAnnotation) => {
 
 export interface IEditAnnotation {
   id: String
-  givenById?: String
-  line?: Number
   content?: String
   isDeleted?: Boolean
 }

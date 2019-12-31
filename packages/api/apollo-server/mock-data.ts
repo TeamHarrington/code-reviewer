@@ -1,10 +1,3 @@
-// take an array of criteria and return true if data
-// matches at least one of them
-export const match = (data: any, criteria: any[]) =>
-  criteria.some(criterion =>
-    Object.keys(criterion).every(key => data[key] === criterion[key])
-  )
-
 export const users = [
   {
     id: '001',

@@ -1,18 +1,15 @@
 import { gql } from 'apollo-server-core'
 
 const Types = gql`
-  input UserInput {
-    id: String
-    firstName: String
-    lastName: String
-    utorID: String
-    userType: UserType
-  }
-
   type Query {
     getUser(id: String, utorID: String, email: String): User
-    getUsers(users: [UserInput!]!): [User!]!
-    getAssignment(id: String): Assignment
+    getUsers(
+      firstName: String
+      lastName: String
+      userType: UserType
+      isActive: Boolean
+    ): [User!]!
+    getAssignment(id: String!): Assignment
     getAssignments: [Assignment!]!
     getSubmission(id: String): Submission
     getSubmissions(userID: String): [Submission!]!

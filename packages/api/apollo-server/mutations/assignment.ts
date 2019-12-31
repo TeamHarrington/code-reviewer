@@ -1,13 +1,12 @@
 import { assignments } from '../mock-data'
 
 export interface IAddAssignment {
-  id: String
   name: String
-  requiredFiles?: String[]
+  requiredFiles: String[]
   peerReviewDeadline?: String
-  feedbackQuestions?: String[]
-  groupSize?: Number
-  isActive?: Boolean
+  feedbackQuestions: String[]
+  groupSize: Number
+  isActive: Boolean
 }
 
 // add a new assignment
@@ -16,14 +15,8 @@ export const addAssignment = (_: any, args: IAddAssignment) => {
   return null
 }
 
-export interface IEditAssignment {
+export interface IEditAssignment extends IAddAssignment {
   id: String
-  name?: String
-  requiredFiles?: String[]
-  peerReviewDeadline?: String
-  feedbackQuestions?: String[]
-  groupSize?: Number
-  isActive?: Boolean
 }
 
 // edit an assignment given its id and the properties that

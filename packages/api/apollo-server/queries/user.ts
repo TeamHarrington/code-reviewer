@@ -1,4 +1,4 @@
-import { users, match } from '../mock-data'
+import { users } from '../mock-data'
 
 export interface IGetUser {
   id?: String
@@ -21,15 +21,12 @@ export interface IGetUsers {
     email?: String
     userType?: String
     isActive?: Boolean
-  }[]
+  }
 }
 
-// get 0 or more usrs based on a list of criteria
-// each criterion can be one or more properties from IGetUsers.usrs
-// users in the result list should satisfy at least one criterion
+// get 0 or more usrs based on the criterion
+// the criterion can be one or more properties from IGetUsers
 export const getUsers = async (_: any, args: IGetUsers) => {
-  if (args.users.length === 0) {
-    return users
-  }
-  return users.filter(user => match(user, args.users))
+  console.log(args)
+  return users
 }

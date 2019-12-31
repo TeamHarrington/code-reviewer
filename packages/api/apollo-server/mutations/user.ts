@@ -7,7 +7,6 @@ export interface IEditUser {
   utorID?: String
   email?: String
   userType?: String
-  lastLogin?: String
   isActive?: Boolean
 }
 
