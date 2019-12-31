@@ -1,1 +1,2 @@
-export { Logo as default } from './logo'
+export { Logo } from './logo'
+export { AnnotationIcon } from './annotation'
