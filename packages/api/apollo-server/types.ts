@@ -72,10 +72,10 @@ const Types = gql`
     ): Annotation
     editAnnotation(
       annotationID: String!
-      givenByID: String!
-      line: Int!
-      content: String!
-      isDeleted: Boolean!
+      givenByID: String
+      line: Int
+      content: String
+      isDeleted: Boolean
     ): Annotation
   }
 
