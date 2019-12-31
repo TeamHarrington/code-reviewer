@@ -1,11 +1,11 @@
 import React from 'react'
 
 interface LogoProps {
-  height: number
-  width: number
+  height?: number
+  width?: number
 }
 
-export const Logo = ({ height, width }: LogoProps) => {
+export const Logo = ({ height = 24, width = 24 }: LogoProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
