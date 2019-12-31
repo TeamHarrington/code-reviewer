@@ -16,6 +16,8 @@ const Types = gql`
     getAssignments: [Assignment!]!
     getSubmission(id: String): Submission
     getSubmissions(userID: String): [Submission!]!
+    getFiles(submissionID: String): [File!]!
+    getAnnotations(fileID: String): [Annotation!]!
   }
 
   type Mutation {
@@ -40,6 +42,7 @@ const Types = gql`
       lastLogin: String
       isActive: Boolean
     ): User
+
     addAssignment(
       name: String!
       requiredFiles: [String!]
@@ -58,14 +61,21 @@ const Types = gql`
 
     # this mutation create Submissions and Files
     # for the given assignment
-    # it may take more properties
-    # TBD
+    # it should take a few more arguments
     addSubmissionsAndFiles(assignmentID: String): Submission
+
     addAnnotation(
       fileID: String!
       givenByID: String!
       line: Int!
       content: String!
+    ): Annotation
+    editAnnotation(
+      annotationID: String!
+      givenByID: String!
+      line: Int!
+      content: String!
+      isDeleted: Boolean!
     ): Annotation
   }
 
@@ -109,6 +119,7 @@ const Types = gql`
     assignment: Assignment!
     files: [File!]!
     reviewBy: [User!]!
+    feedbackAnswers: [String]!
   }
 
   type Annotation {

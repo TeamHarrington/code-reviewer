@@ -1,9 +1,10 @@
 import { editUser } from './user'
-import { editAssignment } from './assignment'
+import { addAssignment, editAssignment } from './assignment'
 
 export default {
   Mutation: {
     editUser,
+    addAssignment,
     editAssignment
   }
 }

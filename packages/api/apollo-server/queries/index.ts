@@ -1,6 +1,11 @@
 import { getUser, getUsers } from './user'
 import { getAssignment, getAssignments } from './assignment'
-import { getSubmission, getSubmissions } from './submission'
+import {
+  getSubmission,
+  getSubmissions,
+  getFiles,
+  getAnnotations
+} from './submission'
 
 export default {
   Query: {
@@ -9,6 +14,8 @@ export default {
     getAssignment,
     getAssignments,
     getSubmission,
-    getSubmissions
+    getSubmissions,
+    getFiles,
+    getAnnotations
   }
 }
