@@ -7,7 +7,6 @@ export interface IEditUser {
   utorID?: String
   email?: String
   userType?: String
-  isActive?: Boolean
 }
 
 // edit a user's properties given its id and the properties
@@ -21,4 +20,12 @@ export const editUser = (_: any, args: IEditUser) => {
     }
   })
   return users[index]
+}
+
+export interface IDeleteUser {
+  id: String
+}
+
+export const deactivateUser = (_: any, args: IDeleteUser) => {
+  return args
 }

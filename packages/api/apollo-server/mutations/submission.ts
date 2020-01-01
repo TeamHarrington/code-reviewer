@@ -25,9 +25,16 @@ export const addAnnotation = async (_: any, args: IAddAnnotation) => {
 export interface IEditAnnotation {
   id: String
   content?: String
-  isDeleted?: Boolean
 }
 
 export const editAnnotation = async (_: any, args: IEditAnnotation) => {
+  return args
+}
+
+export interface IDeleteAnnotation {
+  id: String
+}
+
+export const deleteAnnotation = async (_: any, args: IDeleteAnnotation) => {
   return args
 }

@@ -2,23 +2,23 @@ import { gql } from 'apollo-server-core'
 
 const Types = gql`
   type Query {
-    getUser(id: String, utorID: String, email: String): User
+    getUser(id: String, utorID: String, email: String): User!
     getUsers(
       firstName: String
       lastName: String
       userType: UserType
       isActive: Boolean
     ): [User!]!
-    getAssignment(id: String!): Assignment
+    getAssignment(id: String!): Assignment!
     getAssignments: [Assignment!]!
-    getSubmission(id: String): Submission
+    getSubmission(id: String): Submission!
     getSubmissions(userID: String): [Submission!]!
     getFiles(submissionID: String): [File!]!
     getAnnotations(fileID: String): [Annotation!]!
   }
 
   type Mutation {
-    addUser(
+    addStudent(
       id: String!
       firstName: String
       lastName: String
@@ -26,7 +26,7 @@ const Types = gql`
       email: String
       userType: UserType
       isActive: Boolean
-    ): User
+    ): User!
     # there should be a addUsers mutation
     # it should take a CSV or JSON file
     editUser(
@@ -38,7 +38,7 @@ const Types = gql`
       userType: UserType
       lastLogin: String
       isActive: Boolean
-    ): User
+    ): User!
 
     addAssignment(
       name: String!
@@ -46,7 +46,8 @@ const Types = gql`
       feedbackQuestions: [String!]
       groupSize: Int
       isActive: Boolean
-    ): Assignment
+    ): Assignment!
+
     editAssignment(
       id: String!
       name: String
@@ -54,26 +55,25 @@ const Types = gql`
       feedbackQuestions: [String!]
       groupSize: Int
       isActive: Boolean
-    ): Assignment
+    ): Assignment!
 
     # this mutation create Submissions and Files
     # for the given assignment
     # it should take a few more arguments
-    addSubmissionsAndFiles(assignmentID: String): Submission
+    addSubmissionsAndFiles(assignmentID: String): Submission!
+
+    editSubmissions(assignmentID: String): [Submission!]!
 
     addAnnotation(
       fileID: String!
       givenByID: String!
       line: Int!
       content: String!
-    ): Annotation
-    editAnnotation(
-      annotationID: String!
-      givenByID: String
-      line: Int
-      content: String
-      isDeleted: Boolean
-    ): Annotation
+    ): Annotation!
+
+    editAnnotation(annotationID: String!, content: String): Annotation!
+
+    deleteAnnotation(annotationID: String!): Annotation!
   }
 
   enum UserType {
