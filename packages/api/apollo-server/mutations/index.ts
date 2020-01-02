@@ -1,4 +1,3 @@
-import { editUser } from './user'
 import { addAssignment, editAssignment } from './assignment'
 import {
   editSubmissions,
@@ -6,10 +5,25 @@ import {
   editAnnotation,
   deleteAnnotation
 } from './submission'
+import {
+  addStudent,
+  addTA,
+  addInstructor,
+  editStudent,
+  editTA,
+  editInstructor,
+  deactivateUser
+} from './user'
 
 export default {
   Mutation: {
-    editUser,
+    addStudent,
+    addTA,
+    addInstructor,
+    editStudent,
+    editTA,
+    editInstructor,
+    deactivateUser,
     addAssignment,
     editAssignment,
     editSubmissions,

@@ -1,25 +1,71 @@
-import { users } from '../mock-data'
+export interface IAddStudent {
+  firstName?: String
+  lastName?: String
+  utorID: String
+  email?: String
+  lastLogin: String
+}
 
-export interface IEditUser {
+export const addStudent = (_: any, args: IAddStudent) => {
+  return args
+}
+
+export interface IAddTA {
+  firstName?: String
+  lastName?: String
+  utorID: String
+  email?: String
+  lastLogin: String
+}
+
+export const addTA = (_: any, args: IAddTA) => {
+  return args
+}
+
+export interface IAddInstructor {
+  firstName?: String
+  lastName?: String
+  email?: String
+  lastLogin: String
+}
+
+export const addInstructor = (_: any, args: IAddInstructor) => {
+  return args
+}
+
+export interface IEditStudent {
   id: String
   firstName?: String
   lastName?: String
-  utorID?: String
+  utorID: String
   email?: String
-  userType?: String
 }
 
-// edit a user's properties given its id and the properties
-// that need to be upaded
-export const editUser = (_: any, args: IEditUser) => {
-  const index = users.findIndex(user => user.id === args.id)
-  Object.keys(args).map(key => {
-    if (key !== 'id') {
-      // @ts-ignore
-      users[index][key] = props[key]
-    }
-  })
-  return users[index]
+export const editStudent = (_: any, args: IEditStudent) => {
+  return args
+}
+
+export interface IEditTA {
+  id: String
+  firstName?: String
+  lastName?: String
+  utorID: String
+  email?: String
+}
+
+export const editTA = (_: any, args: IEditTA) => {
+  return args
+}
+
+export interface IEditInstructor {
+  id: String
+  firstName?: String
+  lastName?: String
+  email?: String
+}
+
+export const editInstructor = (_: any, args: IEditInstructor) => {
+  return args
 }
 
 export interface IDeleteUser {

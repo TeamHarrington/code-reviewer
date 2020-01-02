@@ -19,26 +19,49 @@ const Types = gql`
 
   type Mutation {
     addStudent(
+      firstName: String
+      lastName: String
+      utorID: String!
+      email: String
+    ): User!
+    addTA(
+      firstName: String
+      lastName: String
+      utorID: String!
+      email: String
+    ): User!
+    addInstructor(firstName: String, lastName: String, email: String): User!
+
+    # there should be a addUsers mutation
+    # it should take a CSV or JSON file
+
+    editStudent(
       id: String!
       firstName: String
       lastName: String
       utorID: String!
       email: String
-      userType: UserType
-      isActive: Boolean
-    ): User!
-    # there should be a addUsers mutation
-    # it should take a CSV or JSON file
-    editUser(
+      lastLogin: String
+    ): User
+
+    editTA(
       id: String!
       firstName: String
       lastName: String
-      utorID: String
+      utorID: String!
       email: String
-      userType: UserType
       lastLogin: String
-      isActive: Boolean
-    ): User!
+    ): User
+
+    editInstructor(
+      id: String!
+      firstName: String
+      lastName: String
+      email: String
+      lastLogin: String
+    ): User
+
+    deactivateUser(id: String): User
 
     addAssignment(
       name: String!
