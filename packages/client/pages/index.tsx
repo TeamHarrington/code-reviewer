@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react'
 // import { testQuery } from '@code-reviewer/client/graphql/queries/testQuery'
 
 const HomePage: FunctionComponent = () => {
-  return <div>something</div>
+  return <div>home page</div>
 }
 
 export default HomePage

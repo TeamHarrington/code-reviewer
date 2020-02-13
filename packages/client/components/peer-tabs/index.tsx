@@ -34,10 +34,10 @@ const TabPanel = (props: TabPanelProps) => {
 }
 
 export interface PeerTabsProps {
-  content: any[]
+  contents: any[]
 }
 
-export const PeerTabs = ({ content = [] }: PeerTabsProps) => {
+export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = React.useState(0)
 
   const handleChange = (_: unknown, newValue: number) => {
@@ -57,18 +57,18 @@ export const PeerTabs = ({ content = [] }: PeerTabsProps) => {
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth">
-          {content.map((_, index) => (
+          {contents.map((_, index) => (
             <Tab
               key={index}
-              label={`Peer ${index}`}
+              label={`Peer ${index + 1}`}
               id={`action-tab-${index}`}
               aria-controls={`action-tabpanel-${index}`}
             />
           ))}
           <Tab
             label="All"
-            id={`action-tab-${content.length}`}
-            aria-controls={`action-tabpanel-${content.length}`}
+            id={`action-tab-${contents.length}`}
+            aria-controls={`action-tabpanel-${contents.length}`}
           />
         </Tabs>
       </TabsContainer>
@@ -76,17 +76,17 @@ export const PeerTabs = ({ content = [] }: PeerTabsProps) => {
         index={selectedTabIndex}
         onChangeIndex={handleChangeIndex}>
         {/* individual student tab */}
-        {content.map((_, index) => (
+        {contents.map((content, index) => (
           <TabPanel
             selectedTabIndex={selectedTabIndex}
             index={index}
             key={index}>
-            {`Peer ${index + 1}`}
+            {content}
           </TabPanel>
         ))}
 
         {/* summary tab */}
-        <TabPanel selectedTabIndex={selectedTabIndex} index={content.length}>
+        <TabPanel selectedTabIndex={selectedTabIndex} index={contents.length}>
           All
         </TabPanel>
       </SwipeableViews>
