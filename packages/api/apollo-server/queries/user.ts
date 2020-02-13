@@ -8,8 +8,13 @@ export interface IGetUser {
 
 // get one user based on id, utorID or email
 export const getUser = async (_: any, args: IGetUser) => {
-  const resultUser = User.findOne(_, { where: args })
-  return resultUser
+  try {
+    const resultUser = await User.findOne(_, { where: args })
+    return resultUser
+  } catch (e) {
+    // TODO: Add Error management Urgent!!
+    console.log(e)
+  }
 }
 
 export interface IGetUsers {
@@ -27,8 +32,6 @@ export interface IGetUsers {
 // get 0 or more usrs based on the criterion
 // the criterion can be one or more properties from IGetUsers
 export const getUsers = async (_: any, args: IGetUsers) => {
-  console.log(args)
-  // Return ALL users.
-  const users = User.find({ where: args })
+  const users = await User.find({ where: args })
   return users
 }
