@@ -19,6 +19,18 @@ const StyledButton = styled(Button)`
   }
 `
 
+const StyledExpansionPanelSummary = styled(ExpansionPanelSummary)`
+  && {
+    padding: 8px;
+  }
+`
+
+const StyledExpansionPanelDetails = styled(ExpansionPanelDetails)`
+  && {
+    padding: 8px;
+  }
+`
+
 interface AssignmentButtonProps {
   title: string
   date: string
@@ -47,15 +59,15 @@ export const AssignmentPanel = ({
   feedbackDueDate = ''
 }: AssignmentPanelProps) => (
   <ExpansionPanel>
-    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} id={`${name}`}>
+    <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />} id={`${name}`}>
       <TitleText>{`Review: ${name}`}</TitleText>
-    </ExpansionPanelSummary>
-    <ExpansionPanelDetails>
+    </StyledExpansionPanelSummary>
+    <StyledExpansionPanelDetails>
       <Grid container direction="column">
         <AssignmentButton title={'Review Given'} date={reviewDueDate} />
         <AssignmentButton title={'Review Received'} date={feedbackDueDate} />
       </Grid>
-    </ExpansionPanelDetails>
+    </StyledExpansionPanelDetails>
   </ExpansionPanel>
 )
 
