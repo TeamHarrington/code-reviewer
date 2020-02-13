@@ -11,6 +11,7 @@
   },
   "scripts": {
     "start": "ts-node --project tsconfig.json server.ts",
+    "test-db": "ts-node --project tsconfig.json db/test-connection.ts",
     "test": "jest",
     "dev": "nodemon"
   },
@@ -20,6 +21,7 @@
     "express": "^4.17.1",
     "graphql": "^14.5.8",
     "lodash": "^4.17.15",
+    "mysql": "^2.18.1",
     "typeorm": "^0.2.20"
   },
   "devDependencies": {
@@ -34,5 +36,11 @@
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.7.2"
+  },
+  "workspaces": {
+    "nohoist": [
+      "typeorm",
+      "typeorm/**"
+    ]
   }
 }

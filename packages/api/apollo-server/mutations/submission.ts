@@ -1,7 +1,7 @@
 import { submissions } from '../mock-data'
 
 export interface IEditSubmissions {
-  assignmentID: String
+  assignmentID: number
 }
 
 // edit all submissions related to an assignment
@@ -12,8 +12,8 @@ export const editSubmissions = async (_: any, args: IEditSubmissions) => {
 }
 
 export interface IAddAnnotation {
-  fileID: String
-  givenByID: String
+  fileID: number
+  givenByID: number
   line: Number
   content: String
 }
@@ -23,7 +23,7 @@ export const addAnnotation = async (_: any, args: IAddAnnotation) => {
 }
 
 export interface IEditAnnotation {
-  id: String
+  id: number
   content?: String
 }
 
@@ -32,7 +32,7 @@ export const editAnnotation = async (_: any, args: IEditAnnotation) => {
 }
 
 export interface IDeleteAnnotation {
-  id: String
+  id: number
 }
 
 export const deleteAnnotation = async (_: any, args: IDeleteAnnotation) => {

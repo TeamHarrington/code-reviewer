@@ -34,7 +34,7 @@ export const addInstructor = (_: any, args: IAddInstructor) => {
 }
 
 export interface IEditStudent {
-  id: String
+  id: number
   firstName?: String
   lastName?: String
   utorID: String
@@ -46,7 +46,7 @@ export const editStudent = (_: any, args: IEditStudent) => {
 }
 
 export interface IEditTA {
-  id: String
+  id: number
   firstName?: String
   lastName?: String
   utorID: String
@@ -58,7 +58,7 @@ export const editTA = (_: any, args: IEditTA) => {
 }
 
 export interface IEditInstructor {
-  id: String
+  id: number
   firstName?: String
   lastName?: String
   email?: String
@@ -69,7 +69,7 @@ export const editInstructor = (_: any, args: IEditInstructor) => {
 }
 
 export interface IDeleteUser {
-  id: String
+  id: number
 }
 
 export const deactivateUser = (_: any, args: IDeleteUser) => {
