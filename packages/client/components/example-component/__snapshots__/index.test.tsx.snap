@@ -3,7 +3,7 @@
 exports[`Link changes the class when hovered 1`] = `
 <a
   _target="blank"
-  className="example-component__StyledButton-sc-118y5c4-0 bFMWwg"
+  className="example-component__StyledButton-sc-118y5c4-0 jzEbxA"
   href="https://google.com"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -15,7 +15,7 @@ exports[`Link changes the class when hovered 1`] = `
 exports[`Link changes the class when hovered 2`] = `
 <a
   _target="blank"
-  className="example-component__StyledButton-sc-118y5c4-0 bFMWwg"
+  className="example-component__StyledButton-sc-118y5c4-0 jzEbxA"
   href="https://google.com"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -27,7 +27,7 @@ exports[`Link changes the class when hovered 2`] = `
 exports[`Link changes the class when hovered 3`] = `
 <a
   _target="blank"
-  className="example-component__StyledButton-sc-118y5c4-0 bFMWwg"
+  className="example-component__StyledButton-sc-118y5c4-0 jzEbxA"
   href="https://google.com"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}

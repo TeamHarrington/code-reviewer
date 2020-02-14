@@ -2,13 +2,13 @@
 
 exports[`Header Component 1`] = `
 <div
-  className="header__Container-sc-1vegvik-0 hiFiDO"
+  className="header__Container-sc-1vegvik-0 euKBkx"
 >
   <a
     href="app url, TBD"
   >
     <div
-      className="header__LogoContainer-sc-1vegvik-3 dqwesk"
+      className="header__LogoContainer-sc-1vegvik-3 kaxtma"
     >
       <svg
         height={24}
@@ -52,20 +52,20 @@ exports[`Header Component 1`] = `
     </div>
   </a>
   <div
-    className="header__Title-sc-1vegvik-4 jiOKHq"
+    className="header__Title-sc-1vegvik-4 gAosiJ"
   >
     
   </div>
   <div
     aria-haspopup="menu"
     aria-label="Hello . Click to open user menu."
-    className="header__UserContainer-sc-1vegvik-5 eUVMWh"
+    className="header__UserContainer-sc-1vegvik-5 YvjaL"
     onClick={[Function]}
     role="button"
     tabIndex={0}
   >
     <div
-      className="header__UserNameContainer-sc-1vegvik-1 hgZbTG"
+      className="header__UserNameContainer-sc-1vegvik-1 fHncqZ"
     >
       
     </div>
