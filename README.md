@@ -14,7 +14,7 @@ Anonymous online peer code review made easy.
 
 ## Requirements
 
-- MongoDB v4.2 https://docs.mongodb.com/manual/installation/
+- MySQL v8.0.19 https://www.mysql.com/
 - Node v10.16.3 https://nodejs.org/en/download/
 - Yarn v1.19.0 https://yarnpkg.com/lang/en/docs/install
 
@@ -27,7 +27,6 @@ yarn        # Run in project root to install all node dependencies
 ### Starting Application
 
 ```bash
-mongod      # Start MongoDB server at default port
 yarn start  # Run in project root to start code reviewer app
 ```
 

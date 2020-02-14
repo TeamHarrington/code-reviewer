@@ -1,7 +1,7 @@
 import { submissions } from '../mock-data'
 
 export interface IGetSubmission {
-  id: String
+  id: number
 }
 
 // don't have a use case for this one yet, put it there just for testing
@@ -14,7 +14,7 @@ export const getSubmission = async (_: any, args: IGetSubmission) => {
 }
 
 export interface IGetSubmissions {
-  userID: String
+  userID: number
 }
 
 // get this user's all submissions as well as the submissions has this user
@@ -27,7 +27,7 @@ export const getSubmissions = async (_: any, args: IGetSubmissions) => {
 }
 
 export interface IGetFiles {
-  submissionID: String
+  submissionID: number
 }
 
 // get files by submissionID
@@ -36,7 +36,7 @@ export const getFiles = async (_: any, args: IGetFiles) => {
 }
 
 export interface IGetAnnotations {
-  fileID: String
+  fileID: number
 }
 
 // get annotations by fileID
