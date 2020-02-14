@@ -23,7 +23,6 @@ exports[`Syntax Highlight Component 1`] = `
   >
     <span
       className="react-syntax-highlighter-line-number"
-      style={Object {}}
     >
       1
 
