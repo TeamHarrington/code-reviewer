@@ -2,26 +2,26 @@ import { gql } from 'apollo-server-core'
 
 const Types = gql`
   type Query {
-    getUser(id: String, utorID: String, email: String): User!
+    getUser(id: Int, utorID: String, email: String): User!
     getUsers(
       firstName: String
       lastName: String
       userType: UserType
       isActive: Boolean
     ): [User!]!
-    getAssignment(id: String!): Assignment!
+    getAssignment(id: Int!): Assignment!
     getAssignments: [Assignment!]!
-    getSubmission(id: String): Submission!
-    getSubmissions(userID: String): [Submission!]!
-    getFiles(submissionID: String): [File!]!
-    getAnnotations(fileID: String): [Annotation!]!
+    getSubmission(id: Int): Submission!
+    getSubmissions(userID: Int): [Submission!]!
+    getFiles(submissionID: Int): [File!]!
+    getAnnotations(fileID: Int): [Annotation!]!
   }
 
   type Mutation {
     addStudent(
       firstName: String
       lastName: String
-      utorID: String!
+      utorID: Int!
       email: String
     ): User!
     addTA(
@@ -36,7 +36,7 @@ const Types = gql`
     # it should take a CSV or JSON file
 
     editStudent(
-      id: String!
+      id: Int!
       firstName: String
       lastName: String
       utorID: String!
@@ -45,23 +45,23 @@ const Types = gql`
     ): User
 
     editTA(
-      id: String!
+      id: Int!
       firstName: String
       lastName: String
-      utorID: String!
+      utorID: Int!
       email: String
       lastLogin: String
     ): User
 
     editInstructor(
-      id: String!
+      id: Int!
       firstName: String
       lastName: String
       email: String
       lastLogin: String
     ): User
 
-    deactivateUser(id: String): User
+    deactivateUser(id: Int): User
 
     addAssignment(
       name: String!
@@ -72,7 +72,7 @@ const Types = gql`
     ): Assignment!
 
     editAssignment(
-      id: String!
+      id: Int!
       name: String
       requiredFiles: [String!]
       feedbackQuestions: [String!]
@@ -83,20 +83,20 @@ const Types = gql`
     # this mutation create Submissions and Files
     # for the given assignment
     # it should take a few more arguments
-    addSubmissionsAndFiles(assignmentID: String): Submission!
+    addSubmissionsAndFiles(assignmentID: Int): Submission!
 
-    editSubmissions(assignmentID: String): [Submission!]!
+    editSubmissions(assignmentID: Int): [Submission!]!
 
     addAnnotation(
-      fileID: String!
-      givenByID: String!
+      fileID: Int!
+      givenByID: Int!
       line: Int!
       content: String!
     ): Annotation!
 
-    editAnnotation(annotationID: String!, content: String): Annotation!
+    editAnnotation(annotationID: Int!, content: String): Annotation!
 
-    deleteAnnotation(annotationID: String!): Annotation!
+    deleteAnnotation(annotationID: Int!): Annotation!
   }
 
   enum UserType {

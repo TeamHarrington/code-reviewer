@@ -22,7 +22,6 @@
     "curly": true,
     "import-blacklist": true,
     "no-arg": true,
-    "no-async-without-await": true,
     "no-bitwise": true,
     "no-conditional-assignment": true,
     "no-dynamic-delete": true,

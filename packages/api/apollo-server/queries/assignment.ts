@@ -1,7 +1,7 @@
 import { assignments } from '../mock-data'
 
 export interface IGetAssignment {
-  id: String
+  id: number
 }
 
 // get a single assignment based on ID

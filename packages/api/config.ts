@@ -7,7 +7,6 @@ export interface APIConfig {
     PORT: number
     GRAPHQL_ENDPOINT: string
   }
-  MONGO_SERVER: string
   ENV: 'development' | 'production'
 }
 const config: Readonly<APIConfig> = Object.freeze({
@@ -16,7 +15,6 @@ const config: Readonly<APIConfig> = Object.freeze({
     PORT: env.PORT,
     GRAPHQL_ENDPOINT: env.GRAPHQL_ENDPOINT
   },
-  MONGO_SERVER: env.MONGO_SERVER,
   ENV: env.ENV
 })
 
