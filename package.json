@@ -27,9 +27,8 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-tslint": "^8.1.4",
-    "lerna": "^3.16.4",
-    "tslint": "^5.20.0",
-    "typescript": "^3.7.2"
+    "lerna": "^3.20.2",
+    "tslint": "^6.0.0"
   },
   "dependencies": {}
 }

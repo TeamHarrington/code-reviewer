@@ -1,6 +1,6 @@
 export const users = [
   {
-    id: '001',
+    id: 1,
     firstName: 'Alice',
     lastName: 'A',
     utorID: 'alice01',
@@ -9,7 +9,7 @@ export const users = [
     isActive: true
   },
   {
-    id: '002',
+    id: 2,
     firstName: 'Bob',
     lastName: 'B',
     utorID: 'bob01',
@@ -18,7 +18,7 @@ export const users = [
     isActive: true
   },
   {
-    id: '003',
+    id: 3,
     firstName: 'Charlie',
     lastName: 'C',
     utorID: 'charlie01',
@@ -27,7 +27,7 @@ export const users = [
     isActive: true
   },
   {
-    id: '004',
+    id: 4,
     firstName: 'David',
     lastName: 'D',
     utorID: 'david01',
@@ -39,7 +39,7 @@ export const users = [
 
 export const assignments = [
   {
-    id: '001',
+    id: 1,
     name: 'Assignment 1',
     requiredFiles: [],
     feedbackQuestions: [],
@@ -47,7 +47,7 @@ export const assignments = [
     isActive: true
   },
   {
-    id: '002',
+    id: 2,
     name: 'Assignment 2',
     requiredFiles: [],
     feedbackQuestions: [],
@@ -58,28 +58,28 @@ export const assignments = [
 
 export const submissions = [
   {
-    id: '001',
+    id: 1,
     author: users[0],
     assignment: assignments[0],
     files: [],
     reviewBy: [users[1], users[2], users[3]]
   },
   {
-    id: '002',
+    id: 2,
     author: users[1],
     assignment: assignments[0],
     files: [],
     reviewBy: [users[0], users[2], users[3]]
   },
   {
-    id: '003',
+    id: 3,
     author: users[2],
     assignment: assignments[0],
     files: [],
     reviewBy: [users[0], users[1], users[3]]
   },
   {
-    id: '004',
+    id: 4,
     author: users[3],
     assignment: assignments[0],
     files: [],

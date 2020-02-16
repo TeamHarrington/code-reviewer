@@ -1,32 +1,37 @@
-import { users } from '../mock-data'
+import { User } from '../../db/entity/User'
 
 export interface IGetUser {
-  id?: String
+  id?: number
   utorID?: String
   email?: String
 }
 
 // get one user based on id, utorID or email
 export const getUser = async (_: any, args: IGetUser) => {
-  const resultUser = users.find(user => user.id === args.id)
-  return resultUser
+  try {
+    const resultUser = await User.findOne(_, { where: args })
+    return resultUser
+  } catch (e) {
+    // TODO: Add Error management Urgent!!
+    console.log(e)
+  }
 }
 
 export interface IGetUsers {
   users: {
-    id?: String
+    id?: number
     firstName?: String
     lastName?: String
     utorID?: String
     email?: String
     userType?: String
-    isActive?: Boolean
+    isActive?: boolean
   }
 }
 
 // get 0 or more usrs based on the criterion
 // the criterion can be one or more properties from IGetUsers
 export const getUsers = async (_: any, args: IGetUsers) => {
-  console.log(args)
+  const users = await User.find({ where: args })
   return users
 }

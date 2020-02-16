@@ -16,7 +16,7 @@ export const addAssignment = (_: any, args: IAddAssignment) => {
 }
 
 export interface IEditAssignment extends IAddAssignment {
-  id: String
+  id: number
 }
 
 // edit an assignment given its id and the properties that
