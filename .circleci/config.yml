@@ -13,13 +13,13 @@ jobs:
 
       - run: yarn --frozen-lockfile
 
-      - run: 
+      - run:
           command: yarn autoclean --force
 
       - save_cache:
           paths:
             - node_modules
-            - ~/.yarn 
+            - ~/.yarn
             - ~/.config/yarn
           key: code-reviewer-{{ checksum "yarn.lock" }}
 
@@ -37,3 +37,8 @@ jobs:
       - run:
           name: build:client
           command: yarn build:client
+
+      # Run check-tsc
+      - run:
+          name: check-tsc
+          command: yarn check-tsc

@@ -1,5 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": ["./*.ts", "./**/*.ts"],
-  "exclude": ["./node_modules"]
+  "extends": "./tsconfig.prod.json",
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  }
 }
