@@ -17,7 +17,7 @@ export const SyntaxHighlight = ({
 }: Props) => {
   return (
     <SyntaxHighlighter
-      customStyle={{ fontSize: '20px' }}
+      customStyle={{ fontSize: '20px', marginTop: 0 }}
       showLineNumbers
       style={colorTheme}
       wrapLines
