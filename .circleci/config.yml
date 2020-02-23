@@ -23,6 +23,11 @@ jobs:
             - ~/.config/yarn
           key: code-reviewer-{{ checksum "yarn.lock" }}
 
+      # Run check-tsc
+      - run:
+          name: check-tsc
+          command: yarn check-tsc
+
       # Run tests
       - run:
           name: test
@@ -37,8 +42,3 @@ jobs:
       - run:
           name: build:client
           command: yarn build:client
-
-      # Run check-tsc
-      - run:
-          name: check-tsc
-          command: yarn check-tsc

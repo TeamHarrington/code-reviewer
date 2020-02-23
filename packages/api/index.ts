@@ -3,8 +3,6 @@ import { ApolloServer, ApolloServerExpressConfig } from 'apollo-server-express'
 import GraphQLServer from './apollo-server'
 import config from './config'
 
-const a = 1
-
 export interface ExpressAppConfig extends ApolloServerExpressConfig {
   graphqlEndpoint: string
 }
