@@ -13,6 +13,7 @@ type lineTagPropsFunction = (
 
 declare module 'react-syntax-highlighter' {
   export interface SyntaxHighlighterProps {
+    [spread: string]: any
     language?: string
     style?: any
     customStyle?: any
@@ -22,7 +23,6 @@ declare module 'react-syntax-highlighter' {
     showLineNumbers?: boolean
     startingLineNumber?: number
     lineNumberStyle?: any
-    [spread: string]: any
   }
 
   export { default } from 'react-syntax-highlighter/dist/cjs/default-highlight'

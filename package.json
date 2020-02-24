@@ -16,7 +16,7 @@
     "schema:download": "lerna run schema:download --scope @code-reviewer/client --stream",
     "codegen:generate": "lerna run codegen:generate --scope @code-reviewer/client --stream",
     "test": "lerna run test --stream",
-    "lint": "gulp lint"
+    "lint": "gulp eslint"
   },
   "repository": {
     "type": "git",
@@ -26,10 +26,16 @@
   "bugs": "https://github.com/TeamHarrington/code-reviewer/issues",
   "homepage": "https://github.com/TeamHarrington/code-reviewer#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
     "gulp": "^4.0.2",
-    "gulp-tslint": "^8.1.4",
+    "gulp-eslint": "^6.0.0",
     "lerna": "^3.20.2",
-    "tslint": "^6.0.0"
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.2"
   },
   "dependencies": {}
 }
