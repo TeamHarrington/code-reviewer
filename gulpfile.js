@@ -4,5 +4,5 @@ const loadTask = fileName => {
   return require(`./tools/gulp-tasks/${fileName}`)(gulp)
 }
 
-gulp.task('tslint', loadTask('tslint'))
-gulp.task('lint', gulp.series(['tslint']))
+gulp.task('eslint', loadTask('eslint'))
+gulp.task('lint', gulp.series(['eslint']))

@@ -23,16 +23,23 @@ yarn build
 
 Builds the Next Application into `.next` directory.
 
+### Check against production tsconfig.json
+The production tsconfig (tsconfig.prod.ts) is more strict compared to the dev tsconfig.
+
+```
+yarn check-tsc
+```
+
 ### Open Storybook
 
 ```
-yarn storybook
+yarn sb
 ```
 
 ### Build Storybook
 
 ```
-yarn storybook:build
+yarn sb:build
 ```
 
 ### Running Tests

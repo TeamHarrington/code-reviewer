@@ -1,9 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "./tsconfig.prod.json",
   "compilerOptions": {
-    "module": "esnext",
-    "typeRoots": ["./node_modules/@types", "packages/client/@types"]
-  },
-  "include": ["./*.ts", "./**/*.ts", "./**/*.tsx"],
-  "exclude": ["./node_modules"]
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  }
 }
