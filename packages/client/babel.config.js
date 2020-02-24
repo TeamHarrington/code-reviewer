@@ -4,6 +4,12 @@ module.exports = api => {
 
   const plugins = [
     [
+      '@babel/transform-runtime',
+      {
+        regenerator: true
+      }
+    ],
+    [
       'babel-plugin-styled-components',
       {
         ssr: true,

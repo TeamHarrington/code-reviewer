@@ -23,6 +23,13 @@ yarn dev
 
 Note: This will start the server standalone (without `@code-reviewer/client`). For information on how start the server with `@code-reviewer/client`, refer to the root README.
 
+### Check against production tsconfig.json
+The production tsconfig (tsconfig.prod.ts) is more strict compared to the dev tsconfig.
+
+```
+yarn check-tsc
+```
+
 ### Running Tests
 
 ```
