@@ -23,5 +23,5 @@ To load a task, use the `loadTask` function. Usually the task format goes as fol
 Example:
 
 ```
-gulp.task('tslint', loadTask('tslint'))
+gulp.task('eslint', loadTask('eslint'))
 ```
