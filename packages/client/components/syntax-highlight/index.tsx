@@ -13,7 +13,7 @@ export interface Props {
 
 const Container = styled(Grid)``
 
-const LeftContainer = styled(Grid)<{ backgroundColor: string }>`
+const LeftContainer = styled(Grid)`
   width: 32px;
   background: #1e1e1e;
 `
@@ -32,9 +32,7 @@ export const SyntaxHighlight = ({
 
   return (
     <Container container direction="row" id="ghjk">
-      <LeftContainer backgroundColor={colorTheme['hljs'].background}>
-        {`currentLineNumber: ${currentLineNumber}`}
-      </LeftContainer>
+      <LeftContainer>{`currentLineNumber: ${currentLineNumber}`}</LeftContainer>
       <CodeContainer>
         <SyntaxHighlighter
           customStyle={{ fontSize: '20px', marginTop: 0 }}
