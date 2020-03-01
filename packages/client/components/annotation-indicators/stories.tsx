@@ -16,7 +16,7 @@ stories.add('default', () => {
 
   return (
     <StoryContainer>
-      <AnnotationIndicators annotations={annotations} />
+      <AnnotationIndicators totalLines={10} annotations={annotations} />
     </StoryContainer>
   )
 })

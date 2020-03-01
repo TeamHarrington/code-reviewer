@@ -18,7 +18,6 @@ const Container = styled(Grid)``
 
 const LeftContainer = styled(Grid)`
   width: 32px;
-  background: #1e1e1e;
 `
 
 const CodeContainer = styled(Grid)`
@@ -43,7 +42,10 @@ export const SyntaxHighlight = ({
     <Container container>
       <LeftContainer>
         <AnnotationIndicators
+          totalLines={10}
           annotations={annotations}
+          currentLineNumber={currentLineNumber}
+          setCurrentLineNumber={setCurrentLineNumber}
           selectedAnnotationLineNumber={selectedAnnotationLineNumber}
           setSelectedAnnotationLineNumber={setSelectedAnnotationLineNumber}
         />

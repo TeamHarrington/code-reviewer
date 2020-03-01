@@ -7,8 +7,8 @@ const IconContaienr = styled.div<{ isActive: boolean }>`
   background: ${({ isActive }) => (isActive ? '#004dca' : 'white')};
   height: 32px;
   width: 32px;
-  padding-top: 6px;
-  padding-left: 6px;
+  padding-top: 5px;
+  padding-left: 5px;
   box-sizing: border-box;
   border: 1px solid white;
 `

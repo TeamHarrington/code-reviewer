@@ -4,8 +4,10 @@ import styled from 'styled-components'
 import { AnnotationIcon, AddAnnotationIcon } from '../icons'
 
 export interface Props {
+  totalLines: number
   lineHeight?: number
   currentLineNumber?: number
+  setCurrentLineNumber: (lineNumber: number) => void
   editable?: boolean
   selectedAnnotationLineNumber?: number
   setSelectedAnnotationLineNumber: (lineNumber: number) => void
@@ -13,9 +15,18 @@ export interface Props {
 }
 
 const Container = styled(Grid)`
+  padding-top: 10px;
   width: 32px;
   background: #1e1e1e;
   height: 100%;
+`
+
+const Placeholder = styled.div`
+  height: 23px;
+  width: 100%;
+  color: white;
+  border: 1px solid yellow;
+  box-sizing: border-box;
 `
 
 const getHeight = (lineHeight: number, lineNumber: number) =>
@@ -27,15 +38,32 @@ const IndicatorContainer = styled.div<{ top: string }>`
 `
 
 export const AnnotationIndicators = ({
+  totalLines,
   currentLineNumber = -1,
+  setCurrentLineNumber,
   lineHeight = 23,
   editable = false,
   selectedAnnotationLineNumber = -1,
   setSelectedAnnotationLineNumber,
   annotations = []
 }: Props) => {
+  const generatePlaceholders = () => {
+    const rows = []
+    for (let i = 1; i <= totalLines; i++) {
+      rows.push(
+        <Placeholder
+          onMouseEnter={() => setCurrentLineNumber(i)}
+          onMouseLeave={() => setCurrentLineNumber(-1)}>
+          {i}
+        </Placeholder>
+      )
+    }
+    return rows
+  }
+
   return (
     <Container>
+      {generatePlaceholders()}
       {editable && currentLineNumber > 0 && (
         <IndicatorContainer top={getHeight(lineHeight, currentLineNumber)}>
           <AddAnnotationIcon />
