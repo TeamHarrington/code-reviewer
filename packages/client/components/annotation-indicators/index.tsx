@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
-import { AnnotationIcon } from '../icons'
+import { AnnotationIcon, AddAnnotationIcon } from '../icons'
 
 export interface Props {
   lineHeight?: number
+  currentLineNumber?: number
+  editable?: boolean
+  selectedAnnotationLineNumber?: number
+  annotations?: any[]
 }
 
 const Container = styled(Grid)`
@@ -13,17 +17,36 @@ const Container = styled(Grid)`
   height: 100%;
 `
 
-const IndicatorContainer = styled.div`
+const getHeight = (lineHeight: number, lineNumber: number) =>
+  `${lineNumber * lineHeight + 4}px`
+
+const IndicatorContainer = styled.div<{ top: string }>`
   position: absolute;
-  top: 12px;
+  top: ${props => props.top};
 `
 
-export const AnnotationIndicators = ({}: Props) => {
+export const AnnotationIndicators = ({
+  currentLineNumber = -1,
+  lineHeight = 23,
+  editable = false,
+  selectedAnnotationLineNumber = -1,
+  annotations = []
+}: Props) => {
   return (
     <Container>
-      <IndicatorContainer>
-        <AnnotationIcon />
-      </IndicatorContainer>
+      {editable && currentLineNumber > 0 && (
+        <IndicatorContainer top={getHeight(lineHeight, currentLineNumber)}>
+          <AddAnnotationIcon />
+        </IndicatorContainer>
+      )}
+
+      {annotations.map(ann => (
+        <IndicatorContainer top={getHeight(lineHeight, ann.lineNumber)}>
+          <AnnotationIcon
+            isActive={selectedAnnotationLineNumber === ann.lineNumber}
+          />
+        </IndicatorContainer>
+      ))}
     </Container>
   )
 }

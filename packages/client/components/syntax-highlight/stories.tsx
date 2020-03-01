@@ -22,6 +22,8 @@ stories.add('default', () => {
     colorThemes.vs2015
   )
 
+  const annotations = [{ lineNumber: 0 }, { lineNumber: 2 }]
+
   return (
     <div>
       <div>
@@ -30,6 +32,7 @@ stories.add('default', () => {
           colorTheme={colorTheme}
           codeString={codeString}
           highlightedLines={[1]}
+          annotations={annotations}
         />
       </div>
       <div></div>

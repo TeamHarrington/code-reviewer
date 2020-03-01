@@ -12,9 +12,11 @@ const StoryContainer = styled.div`
 `
 
 stories.add('default', () => {
+  const annotations = [{ lineNumber: 0 }, { lineNumber: 2 }]
+
   return (
     <StoryContainer>
-      <AnnotationIndicators />
+      <AnnotationIndicators annotations={annotations} />
     </StoryContainer>
   )
 })

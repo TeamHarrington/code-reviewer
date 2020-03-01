@@ -9,6 +9,8 @@ export interface Props {
   highlightedLines?: number[]
   colorTheme?: any
   language?: string
+  editable?: boolean
+  annotations?: any[]
 }
 
 const Container = styled(Grid)``
@@ -26,9 +28,15 @@ export const SyntaxHighlight = ({
   codeString,
   colorTheme = vs2015,
   highlightedLines = [],
-  language = 'python'
+  language = 'python',
+  editable = false,
+  annotations = []
 }: Props) => {
   const [currentLineNumber, setCurrentLineNumber] = useState(-1)
+  const [
+    selectedAnnotationLineNumber,
+    setSelectedAnnotationLineNumber
+  ] = useState(-1)
 
   return (
     <Container container>
