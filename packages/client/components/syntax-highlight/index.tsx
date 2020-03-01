@@ -31,11 +31,11 @@ export const SyntaxHighlight = ({
   const [currentLineNumber, setCurrentLineNumber] = useState(-1)
 
   return (
-    <Container container direction="row" id="ghjk">
+    <Container container>
       <LeftContainer>{`currentLineNumber: ${currentLineNumber}`}</LeftContainer>
       <CodeContainer>
         <SyntaxHighlighter
-          customStyle={{ fontSize: '20px', marginTop: 0 }}
+          customStyle={{ fontSize: '20px', margin: 0 }}
           showLineNumbers
           style={colorTheme}
           wrapLines
