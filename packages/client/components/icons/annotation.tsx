@@ -10,6 +10,7 @@ const IconContaienr = styled.div<{ isActive: boolean }>`
   padding-top: 6px;
   padding-left: 6px;
   box-sizing: border-box;
+  border: 1px solid white;
 `
 
 const ActiveIcon = styled(ChatBubbleIcon)`

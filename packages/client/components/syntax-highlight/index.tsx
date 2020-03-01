@@ -3,6 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
+import { AnnotationIndicators } from '../annotation-indicators'
 
 export interface Props {
   codeString: string
@@ -36,11 +37,17 @@ export const SyntaxHighlight = ({
   const [
     selectedAnnotationLineNumber,
     setSelectedAnnotationLineNumber
-  ] = useState(-1)
+  ] = useState(0)
 
   return (
     <Container container>
-      <LeftContainer>{`currentLineNumber: ${currentLineNumber}`}</LeftContainer>
+      <LeftContainer>
+        <AnnotationIndicators
+          annotations={annotations}
+          selectedAnnotationLineNumber={selectedAnnotationLineNumber}
+          setSelectedAnnotationLineNumber={setSelectedAnnotationLineNumber}
+        />
+      </LeftContainer>
       <CodeContainer>
         <SyntaxHighlighter
           customStyle={{ fontSize: '20px', margin: 0 }}

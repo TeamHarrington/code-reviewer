@@ -10,7 +10,13 @@ stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 stories.add('default', () => {
   const codeString = `def myfunc():
   result = ["str", True, 1, []]
-  return result`
+  return result
+
+
+
+
+
+  `
 
   const colorThemeOptions = {
     ...colorThemes
@@ -26,16 +32,13 @@ stories.add('default', () => {
 
   return (
     <div>
-      <div>
-        <SyntaxHighlight
-          language={text('language', 'python')}
-          colorTheme={colorTheme}
-          codeString={codeString}
-          highlightedLines={[1]}
-          annotations={annotations}
-        />
-      </div>
-      <div></div>
+      <SyntaxHighlight
+        language={text('language', 'python')}
+        colorTheme={colorTheme}
+        codeString={codeString}
+        highlightedLines={[1]}
+        annotations={annotations}
+      />
     </div>
   )
 })

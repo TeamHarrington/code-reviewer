@@ -8,6 +8,7 @@ export interface Props {
   currentLineNumber?: number
   editable?: boolean
   selectedAnnotationLineNumber?: number
+  setSelectedAnnotationLineNumber: (lineNumber: number) => void
   annotations?: any[]
 }
 
@@ -18,7 +19,7 @@ const Container = styled(Grid)`
 `
 
 const getHeight = (lineHeight: number, lineNumber: number) =>
-  `${lineNumber * lineHeight + 4}px`
+  `${lineNumber * lineHeight + 14}px`
 
 const IndicatorContainer = styled.div<{ top: string }>`
   position: absolute;
@@ -30,6 +31,7 @@ export const AnnotationIndicators = ({
   lineHeight = 23,
   editable = false,
   selectedAnnotationLineNumber = -1,
+  setSelectedAnnotationLineNumber,
   annotations = []
 }: Props) => {
   return (
@@ -44,6 +46,7 @@ export const AnnotationIndicators = ({
         <IndicatorContainer top={getHeight(lineHeight, ann.lineNumber)}>
           <AnnotationIcon
             isActive={selectedAnnotationLineNumber === ann.lineNumber}
+            onClick={() => setSelectedAnnotationLineNumber(ann.lineNumber)}
           />
         </IndicatorContainer>
       ))}
