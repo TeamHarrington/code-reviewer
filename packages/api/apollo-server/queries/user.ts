@@ -1,5 +1,4 @@
 import { User } from '../../db/entity/User'
-import { UnauthenticatedError } from '@code-reviewer/graphql-errors'
 
 export interface IGetUser {
   id?: number
