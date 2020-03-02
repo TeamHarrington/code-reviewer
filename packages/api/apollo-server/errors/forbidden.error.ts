@@ -1,5 +1,5 @@
 import { ApolloError } from 'apollo-server-express'
-import { CODES } from '..'
+import { CODES } from '.'
 
 export class ForbiddenError extends ApolloError {
   constructor(item?: string) {

@@ -1,5 +1,5 @@
 import { ApolloError } from 'apollo-server-express'
-import { CODES } from '..'
+import { CODES } from '.'
 
 export class InternalServerError extends ApolloError {
   constructor() {

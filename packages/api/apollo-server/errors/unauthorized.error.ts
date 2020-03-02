@@ -1,9 +1,9 @@
 import { ApolloError } from 'apollo-server-express'
-import { CODES } from '..'
+import { CODES } from '.'
 
 export class UnauthenticatedError extends ApolloError {
   constructor() {
-    super('User requires authentication.', CODES.UNAUTHENTICATED)
+    super('User authentication required.', CODES.UNAUTHENTICATED)
 
     Object.defineProperty(this, 'name', { value: 'UnauthenticatedError' })
   }
