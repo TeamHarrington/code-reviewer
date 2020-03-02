@@ -1,0 +1,25 @@
+{
+  "name": "@code-reviewer/graphql-errors",
+  "version": "0.0.0",
+  "description": "GraphQL error handling",
+  "author": "Mystaken <kgaotianx@gmail.com>",
+  "homepage": "https://github.com/TeamHarrington/code-reviewer/tree/master/packages/graphql-errors#readme",
+  "license": "ISC",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamHarrington/code-reviewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TeamHarrington/code-reviewer/issues"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.2"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.10.1",
+    "graphql": "^14.6.0"
+  }
+}
