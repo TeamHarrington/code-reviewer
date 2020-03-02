@@ -1,5 +1,4 @@
 import { User } from '../../db/entity/User'
-import { AuthenticationError } from 'apollo-server-express'
 import { UnauthenticatedError } from '@code-reviewer/graphql-errors'
 
 export interface IGetUser {
@@ -10,7 +9,6 @@ export interface IGetUser {
 
 // get one user based on id, utorID or email
 export const getUser = async (_: any, args: IGetUser) => {
-  throw new UnauthenticatedError()
   try {
     const resultUser = await User.findOne(_, { where: args })
     return resultUser
