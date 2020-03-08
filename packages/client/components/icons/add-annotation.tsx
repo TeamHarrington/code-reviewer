@@ -5,8 +5,8 @@ import styled from 'styled-components'
 const IconContaienr = styled.div`
   background: #004dca;
   border: 1px solid white;
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   justify-content: center;
   align-items: center;
   display: flex;

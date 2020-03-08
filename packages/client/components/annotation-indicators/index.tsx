@@ -38,8 +38,8 @@ const IndicatorContainer = styled.div<{ top: string }>`
 `
 
 export const AnnotationIndicators = ({
-  totalLines,
-  currentLineNumber = -1,
+  totalLines, // totol number of lines
+  currentLineNumber = -1, // line number: hover
   setCurrentLineNumber,
   lineHeight = 23,
   editable = false,
@@ -47,14 +47,15 @@ export const AnnotationIndicators = ({
   setSelectedAnnotationLineNumber,
   annotations = []
 }: Props) => {
-  const generatePlaceholders = () => {
+  const generateRows = () => {
     const rows = []
     for (let i = 1; i <= totalLines; i++) {
       rows.push(
         <Placeholder
           onMouseEnter={() => setCurrentLineNumber(i)}
           onMouseLeave={() => setCurrentLineNumber(-1)}>
-          {i}
+          {/* {i} */}
+          {editable && currentLineNumber === i && <AddAnnotationIcon />}
         </Placeholder>
       )
     }
@@ -63,8 +64,8 @@ export const AnnotationIndicators = ({
 
   return (
     <Container>
-      {generatePlaceholders()}
-      {editable && currentLineNumber > 0 && (
+      {generateRows()}
+      {/* {editable && currentLineNumber > 0 && (
         <IndicatorContainer top={getHeight(lineHeight, currentLineNumber)}>
           <AddAnnotationIcon />
         </IndicatorContainer>
@@ -77,7 +78,7 @@ export const AnnotationIndicators = ({
             onClick={() => setSelectedAnnotationLineNumber(ann.lineNumber)}
           />
         </IndicatorContainer>
-      ))}
+      ))} */}
     </Container>
   )
 }

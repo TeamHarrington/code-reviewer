@@ -38,6 +38,7 @@ stories.add('default', () => {
         codeString={codeString}
         highlightedLines={[1]}
         annotations={annotations}
+        editable
       />
     </div>
   )

@@ -5,10 +5,10 @@ import styled from 'styled-components'
 
 const IconContaienr = styled.div<{ isActive: boolean }>`
   background: ${({ isActive }) => (isActive ? '#004dca' : 'white')};
-  height: 32px;
-  width: 32px;
-  padding-top: 5px;
-  padding-left: 5px;
+  height: 24px;
+  width: 24px;
+  padding-top: 2px;
+  padding-left: 2px;
   box-sizing: border-box;
   border: 1px solid white;
 `
