@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { AnnotationIcon, AddAnnotationIcon } from '../icons'
 
 export interface Props {
   totalLines: number
-  lineHeight?: number
   currentLineNumber?: number
   setCurrentLineNumber: (lineNumber: number) => void
   editable?: boolean
@@ -21,7 +20,7 @@ const Container = styled(Grid)`
   height: 100%;
 `
 
-const Placeholder = styled.div`
+const Row = styled.div`
   height: 23px;
   width: 100%;
   color: white;
@@ -29,19 +28,10 @@ const Placeholder = styled.div`
   box-sizing: border-box;
 `
 
-const getHeight = (lineHeight: number, lineNumber: number) =>
-  `${lineNumber * lineHeight + 14}px`
-
-const IndicatorContainer = styled.div<{ top: string }>`
-  position: absolute;
-  top: ${props => props.top};
-`
-
 export const AnnotationIndicators = ({
   totalLines, // totol number of lines
   currentLineNumber = -1, // line number: hover
   setCurrentLineNumber,
-  lineHeight = 23,
   editable = false,
   selectedAnnotationLineNumber = -1,
   setSelectedAnnotationLineNumber,
@@ -49,36 +39,36 @@ export const AnnotationIndicators = ({
 }: Props) => {
   const generateRows = () => {
     const rows = []
-    for (let i = 1; i <= totalLines; i++) {
+    let annotationIndex = 0
+    console.log('====', annotations)
+
+    for (let i = 0; i < totalLines; i++) {
+      console.log('==== ', annotationIndex, i)
+      let content
+      if (annotations[annotationIndex]?.lineNumber === i - 1) {
+        content = (
+          <AnnotationIcon
+            isActive={selectedAnnotationLineNumber === i - 1}
+            onClick={() => setSelectedAnnotationLineNumber(i)}
+          />
+        )
+        annotationIndex++
+      } else {
+        content = editable && currentLineNumber === i && <AddAnnotationIcon />
+      }
+
       rows.push(
-        <Placeholder
+        <Row
+          key={i}
           onMouseEnter={() => setCurrentLineNumber(i)}
           onMouseLeave={() => setCurrentLineNumber(-1)}>
-          {/* {i} */}
-          {editable && currentLineNumber === i && <AddAnnotationIcon />}
-        </Placeholder>
+          {content}
+        </Row>
       )
     }
+
     return rows
   }
 
-  return (
-    <Container>
-      {generateRows()}
-      {/* {editable && currentLineNumber > 0 && (
-        <IndicatorContainer top={getHeight(lineHeight, currentLineNumber)}>
-          <AddAnnotationIcon />
-        </IndicatorContainer>
-      )}
-
-      {annotations.map(ann => (
-        <IndicatorContainer top={getHeight(lineHeight, ann.lineNumber)}>
-          <AnnotationIcon
-            isActive={selectedAnnotationLineNumber === ann.lineNumber}
-            onClick={() => setSelectedAnnotationLineNumber(ann.lineNumber)}
-          />
-        </IndicatorContainer>
-      ))} */}
-    </Container>
-  )
+  return <Container>{generateRows()}</Container>
 }

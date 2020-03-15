@@ -42,7 +42,7 @@ export const SyntaxHighlight = ({
     <Container container>
       <LeftContainer>
         <AnnotationIndicators
-          editable
+          editable={editable}
           totalLines={10}
           annotations={annotations}
           currentLineNumber={currentLineNumber}

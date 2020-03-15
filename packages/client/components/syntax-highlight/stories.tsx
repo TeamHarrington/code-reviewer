@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import { SyntaxHighlight } from '.'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import * as colorThemes from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 const stories = storiesOf('Syntax Highlight', module)
@@ -38,7 +38,7 @@ stories.add('default', () => {
         codeString={codeString}
         highlightedLines={[1]}
         annotations={annotations}
-        editable
+        editable={boolean('editable', true)}
       />
     </div>
   )
