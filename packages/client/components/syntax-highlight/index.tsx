@@ -36,7 +36,7 @@ export const SyntaxHighlight = ({
   const [
     selectedAnnotationLineNumber,
     setSelectedAnnotationLineNumber
-  ] = useState(0)
+  ] = useState(-1)
 
   return (
     <Container container>

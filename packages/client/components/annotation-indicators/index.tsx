@@ -34,7 +34,7 @@ export const AnnotationIndicators = ({
   currentLineNumber = -1, // line number: hover
   setCurrentLineNumber,
   editable = false,
-  selectedAnnotationLineNumber = -1,
+  selectedAnnotationLineNumber = -1, // line number: on click
   setSelectedAnnotationLineNumber,
   annotations = []
 }: Props) => {
@@ -45,10 +45,7 @@ export const AnnotationIndicators = ({
       let content
       if (annotations[annotationIndex]?.lineNumber === i - 1) {
         content = (
-          <AnnotationIcon
-            isActive={selectedAnnotationLineNumber === i - 1}
-            onClick={() => setSelectedAnnotationLineNumber(i)}
-          />
+          <AnnotationIcon isActive={selectedAnnotationLineNumber === i} />
         )
         annotationIndex++
       } else {
@@ -57,6 +54,7 @@ export const AnnotationIndicators = ({
 
       rows.push(
         <Row
+          onClick={() => setSelectedAnnotationLineNumber(i)}
           key={i}
           onMouseEnter={() => setCurrentLineNumber(i)}
           onMouseLeave={() => setCurrentLineNumber(-1)}>
