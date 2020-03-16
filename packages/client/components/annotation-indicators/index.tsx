@@ -21,6 +21,7 @@ const Container = styled(Grid)`
 `
 
 const Row = styled.div`
+  padding-left: 4px;
   height: 23px;
   width: 100%;
   color: white;
@@ -37,13 +38,10 @@ export const AnnotationIndicators = ({
   setSelectedAnnotationLineNumber,
   annotations = []
 }: Props) => {
-  const generateRows = () => {
+  const getRows = () => {
     const rows = []
     let annotationIndex = 0
-    console.log('====', annotations)
-
-    for (let i = 0; i < totalLines; i++) {
-      console.log('==== ', annotationIndex, i)
+    for (let i = 1; i < totalLines; i++) {
       let content
       if (annotations[annotationIndex]?.lineNumber === i - 1) {
         content = (
@@ -70,5 +68,5 @@ export const AnnotationIndicators = ({
     return rows
   }
 
-  return <Container>{generateRows()}</Container>
+  return <Container>{getRows()}</Container>
 }
