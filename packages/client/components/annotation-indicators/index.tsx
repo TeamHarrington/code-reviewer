@@ -18,6 +18,7 @@ const Container = styled(Grid)`
   width: 32px;
   background: #1e1e1e;
   height: 100%;
+  box-sizing: border-box;
 `
 
 const Row = styled.div`
@@ -25,7 +26,6 @@ const Row = styled.div`
   height: 23px;
   width: 100%;
   color: white;
-  border: 1px solid yellow;
   box-sizing: border-box;
 `
 
