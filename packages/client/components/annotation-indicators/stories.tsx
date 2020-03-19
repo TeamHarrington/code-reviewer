@@ -25,6 +25,7 @@ stories.add('default', () => {
     return (
       <StoryContainer>
         <AnnotationIndicators
+          editable
           totalLines={10}
           annotations={annotations}
           currentLineNumber={currentLineNumber}

@@ -1,33 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Syntax Highlight Component 1`] = `
-<pre
-  style={
-    Object {
-      "background": "#1E1E1E",
-      "color": "#DCDCDC",
-      "display": "block",
-      "fontSize": "20px",
-      "overflowX": "auto",
-      "padding": "0.5em",
-    }
-  }
+<div
+  className="MuiGrid-root syntax-highlight__Container-sc-12l7p11-0 bJhvaZ MuiGrid-container"
 >
-  <code
-    style={
-      Object {
-        "float": "left",
-        "paddingRight": "10px",
-      }
-    }
+  <div
+    className="MuiGrid-root syntax-highlight__LeftContainer-sc-12l7p11-1 crXnUV"
   >
-    <span
-      className="react-syntax-highlighter-line-number"
+    <div
+      className="MuiGrid-root annotation-indicators__Container-sc-16ay4gl-0 fSZeWP"
     >
-      1
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+      <div
+        className="annotation-indicators__Row-sc-16ay4gl-1 kpAklh"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="MuiGrid-root syntax-highlight__CodeContainer-sc-12l7p11-2 PEnnx"
+  >
+    <pre
+      style={
+        Object {
+          "background": "#1E1E1E",
+          "color": "#DCDCDC",
+          "display": "block",
+          "fontSize": "20px",
+          "margin": 0,
+          "overflowX": "auto",
+          "padding": "0.5em",
+        }
+      }
+    >
+      <code
+        style={
+          Object {
+            "float": "left",
+            "paddingRight": "10px",
+          }
+        }
+      >
+        <span
+          className="react-syntax-highlighter-line-number"
+        >
+          1
 
-    </span>
-  </code>
-  <code />
-</pre>
+        </span>
+      </code>
+      <code />
+    </pre>
+  </div>
+</div>
 `;
