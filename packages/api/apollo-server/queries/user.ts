@@ -1,4 +1,5 @@
 import { User } from '../../db/entity/User'
+import { NotFoundError } from '../errors'
 
 export interface IGetUser {
   id?: number
@@ -8,13 +9,16 @@ export interface IGetUser {
 
 // get one user based on id, utorID or email
 export const getUser = async (_: any, args: IGetUser) => {
+  let user: User | undefined
   try {
-    const resultUser = await User.findOne(_, { where: args })
-    return resultUser
+    user = await User.findOne(_, { where: args })
   } catch (e) {
-    // TODO: Add Error management Urgent!!
-    console.log(e)
+    // Network error, throw 404
   }
+  if (!user) {
+    throw new NotFoundError('User')
+  }
+  return user
 }
 
 export interface IGetUsers {
@@ -32,6 +36,11 @@ export interface IGetUsers {
 // get 0 or more usrs based on the criterion
 // the criterion can be one or more properties from IGetUsers
 export const getUsers = async (_: any, args: IGetUsers) => {
-  const users = await User.find({ where: args })
+  let users: User[] = []
+  try {
+    users = await User.find({ where: args })
+  } catch (e) {
+    // Network error, just return []
+  }
   return users
 }
