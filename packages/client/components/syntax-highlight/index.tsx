@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { AnnotationIndicators } from '../annotation-indicators'
 
-export interface Props {
+export interface SyntaxHighlightProps {
   codeString: string
   highlightedLines?: number[]
   colorTheme?: any
@@ -31,7 +31,7 @@ export const SyntaxHighlight = ({
   language = 'python',
   editable = false,
   annotations = []
-}: Props) => {
+}: SyntaxHighlightProps) => {
   const [currentLineNumber, setCurrentLineNumber] = useState(-1)
   const [
     selectedAnnotationLineNumber,

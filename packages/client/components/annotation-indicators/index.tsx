@@ -3,14 +3,14 @@ import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { AnnotationIcon, AddAnnotationIcon } from '../icons'
 
-export interface Props {
+export interface AnnotationIndicatorsProps {
+  editable?: boolean
   totalLines: number
+  annotations?: any[]
   currentLineNumber?: number
   setCurrentLineNumber: (lineNumber: number) => void
-  editable?: boolean
   selectedAnnotationLineNumber?: number
   setSelectedAnnotationLineNumber: (lineNumber: number) => void
-  annotations?: any[]
 }
 
 const Container = styled(Grid)`
@@ -37,7 +37,7 @@ export const AnnotationIndicators = ({
   selectedAnnotationLineNumber = -1, // line number: on click
   setSelectedAnnotationLineNumber,
   annotations = []
-}: Props) => {
+}: AnnotationIndicatorsProps) => {
   const getRows = () => {
     const rows = []
     let annotationIndex = 0
