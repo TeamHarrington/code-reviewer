@@ -35,6 +35,12 @@ declare module 'react-syntax-highlighter' {
   export { default as Prism } from 'react-syntax-highlighter/dist/cjs/prism'
 }
 
+declare module 'react-syntax-highlighter/dist/esm/create-element' {
+  import * as React from 'react'
+  export type CreateElementProps = any
+  export default function(props: CreateElementProps): any
+}
+
 declare module 'react-syntax-highlighter/dist/cjs/default-highlight' {
   import * as React from 'react'
   import { SyntaxHighlighterProps } from 'react-syntax-highlighter'
