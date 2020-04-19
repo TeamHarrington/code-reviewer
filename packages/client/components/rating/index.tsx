@@ -1,18 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 import StarIcon from '@material-ui/icons/Star'
 import StarBorderIcon from '@material-ui/icons/StarBorder'
-
-const Container = styled.div`
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
-  box-sizing: border-box;
-`
 
 const BlueStar = styled(StarIcon)`
   color: #004dca;
@@ -33,6 +24,15 @@ const Star = ({ index, rating, onClick }: StarProps) => {
   )
 }
 
+const messages = [
+  'not rated yet',
+  'not helpful',
+  'a little bit helpful',
+  'helpful-ish',
+  'helpful',
+  'very helpful'
+]
+
 export const Rating = () => {
   const onStarClick = (index: number) => {
     setRating(index + 1)
@@ -40,12 +40,18 @@ export const Rating = () => {
   const [rating, setRating] = useState(0)
 
   return (
-    <Container>
-      <Star index={0} rating={rating} onClick={onStarClick} />
-      <Star index={1} rating={rating} onClick={onStarClick} />
-      <Star index={2} rating={rating} onClick={onStarClick} />
-      <Star index={3} rating={rating} onClick={onStarClick} />
-      <Star index={4} rating={rating} onClick={onStarClick} />
-    </Container>
+    <div>
+      {/* messages */}
+      <Grid>{messages[rating]}</Grid>
+
+      {/* stars */}
+      <Grid>
+        <Star index={0} rating={rating} onClick={onStarClick} />
+        <Star index={1} rating={rating} onClick={onStarClick} />
+        <Star index={2} rating={rating} onClick={onStarClick} />
+        <Star index={3} rating={rating} onClick={onStarClick} />
+        <Star index={4} rating={rating} onClick={onStarClick} />
+      </Grid>
+    </div>
   )
 }
