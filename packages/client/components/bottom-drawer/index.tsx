@@ -12,6 +12,9 @@ const Container = styled.div<{ drawerHeight: string }>`
   padding-right: 16px;
   box-sizing: border-box;
   transition: height 0.3s;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 `
 
 const ExtendButton = styled.div`

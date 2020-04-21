@@ -1,11 +1,13 @@
 import { storiesOf } from '@storybook/react'
-import { AnnotationIcon, Logo } from '.'
+import { Logo, AnnotationIcon, AddAnnotationIcon } from '.'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { GridList, Grid } from '@material-ui/core'
 import { action } from '@storybook/addon-actions'
 
 const stories = storiesOf('Icons', module)
+
+stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
 const IconContainerDiv = styled.div`
   margin: 40px;
@@ -24,6 +26,10 @@ const Background = styled.div`
   background: #ddd;
 `
 
+const StyledTitle = styled.div`
+  text-align: center;
+`
+
 interface IconContainerProps {
   children: React.ReactNode
   title: string
@@ -39,13 +45,11 @@ const IconContainer = ({ children, title }: IconContainerProps) => {
         alignItems="center">
         <div>{children}</div>
 
-        <div>{title}</div>
+        <StyledTitle>{title}</StyledTitle>
       </Grid>
     </IconContainerDiv>
   )
 }
-
-stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
 stories.add('default', () => {
   const isActive = boolean('is active', false)
@@ -54,12 +58,16 @@ stories.add('default', () => {
   return (
     <Background>
       <GridList cellHeight={180}>
+        <IconContainer title="logo">
+          <Logo />
+        </IconContainer>
+
         <IconContainer title="annotation">
           <AnnotationIcon isActive={isActive} onClick={onClick} />
         </IconContainer>
 
-        <IconContainer title="logo">
-          <Logo />
+        <IconContainer title="add annotation">
+          <AddAnnotationIcon />
         </IconContainer>
       </GridList>
     </Background>
