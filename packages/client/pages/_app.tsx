@@ -1,17 +1,26 @@
 import App, { AppContext } from 'next/app'
 import withApollo from '@code-reviewer/client/lib/withApollo'
 import { ApolloProvider } from '@apollo/react-hooks'
+import { createMuiTheme } from '@material-ui/core'
+import { ThemeProvider } from 'styled-components'
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Roboto',
+    fontSize: 16
+  }
+})
 
 class MyApp extends App<AppContext> {
   public render() {
     const { Component, pageProps, apollo } = this.props as any
 
     return (
-      <>
-        <ApolloProvider client={apollo}>
+      <ApolloProvider client={apollo}>
+        <ThemeProvider theme={theme}>
           <Component {...pageProps} />
-        </ApolloProvider>
-      </>
+        </ThemeProvider>
+      </ApolloProvider>
     )
   }
 }
