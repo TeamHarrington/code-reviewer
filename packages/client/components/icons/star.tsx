@@ -8,6 +8,10 @@ const BlueStar = styled(StarIcon)`
   color: #004dca;
 `
 
+const EmptyStar = styled(StarBorderIcon)`
+  color: #656565;
+`
+
 interface StarProps {
   index: number
   rating: number
@@ -19,6 +23,6 @@ export const Star = ({ index, rating, onClick }: StarProps) => {
   return rating > index ? (
     <BlueStar onClick={onStarClick} />
   ) : (
-    <StarBorderIcon onClick={onStarClick} />
+    <EmptyStar onClick={onStarClick} />
   )
 }
