@@ -1,36 +1,34 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 
-import StarIcon from '@material-ui/icons/Star'
-import StarBorderIcon from '@material-ui/icons/StarBorder'
+import { Star } from '../icons'
 
-const BlueStar = styled(StarIcon)`
-  color: #004dca;
+const Container = styled(Grid)`
+  outline: 1px solid black;
 `
 
-interface StarProps {
-  index: number
-  rating: number
-  onClick: (index: any) => void
-}
+const Title = styled.div`
+  font-size: 18px;
+`
 
-const Star = ({ index, rating, onClick }: StarProps) => {
-  const onStarClick = () => onClick(index)
-  return rating > index ? (
-    <BlueStar onClick={onStarClick} />
-  ) : (
-    <StarBorderIcon onClick={onStarClick} />
-  )
-}
+const Description = styled.div`
+  font-size: 16px;
+`
 
+const StarContainer = styled(Grid)`
+  width: 140px;
+  outline: 1px solid red;
+`
+
+// TODO: use better messages
 const messages = [
-  'not rated yet',
-  'not helpful',
-  'a little bit helpful',
-  'helpful-ish',
-  'helpful',
-  'very helpful'
+  'Not rated yet',
+  'Not helpful',
+  'A little bit helpful',
+  'Helpful-ish',
+  'Helpful',
+  'Very helpful'
 ]
 
 export const Rating = () => {
@@ -40,18 +38,22 @@ export const Rating = () => {
   const [rating, setRating] = useState(0)
 
   return (
-    <div>
-      {/* messages */}
-      <Grid>{messages[rating]}</Grid>
+    <Container container direction="column">
+      <div>Reflection</div>
+
+      <div>How would you rate the feedback from this peer?</div>
+
+      {/* helpfulness */}
+      <div>{messages[rating]}</div>
 
       {/* stars */}
-      <Grid>
+      <StarContainer container justify="center">
         <Star index={0} rating={rating} onClick={onStarClick} />
         <Star index={1} rating={rating} onClick={onStarClick} />
         <Star index={2} rating={rating} onClick={onStarClick} />
         <Star index={3} rating={rating} onClick={onStarClick} />
         <Star index={4} rating={rating} onClick={onStarClick} />
-      </Grid>
-    </div>
+      </StarContainer>
+    </Container>
   )
 }
