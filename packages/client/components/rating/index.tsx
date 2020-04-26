@@ -1,24 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Grid, Typography } from '@material-ui/core'
-
+import Box from '@material-ui/core/Box'
 import { Star } from '../icons'
 
-const Container = styled(Grid)`
-  outline: 1px solid black;
-`
-
-const Title = styled.div`
-  font-size: 18px;
-`
-
-const Description = styled.div`
-  font-size: 16px;
-`
+const Container = styled(Grid)``
 
 const StarContainer = styled(Grid)`
+  margin-top: 8px;
   width: 140px;
-  outline: 1px solid red;
 `
 
 // TODO: use better messages
@@ -39,12 +29,20 @@ export const Rating = () => {
 
   return (
     <Container container direction="column">
-      <div>Reflection</div>
+      <Typography paragraph>
+        <Box fontWeight={300}>Reflection</Box>
+      </Typography>
 
-      <div>How would you rate the feedback from this peer?</div>
+      <Typography>
+        <Box fontWeight={500}>
+          How would you rate the feedback from this peer?
+        </Box>
+      </Typography>
 
       {/* helpfulness */}
-      <div>{messages[rating]}</div>
+      <Grid container justify="center">
+        {messages[rating]}
+      </Grid>
 
       {/* stars */}
       <StarContainer container justify="center">
