@@ -25,13 +25,16 @@ const LineNumberContainer = styled.span`
 interface RowProps {
   index: number
   rowProps: CreateElementProps
+  editable: boolean
 }
 
-const Row = ({ rowProps, index }: RowProps) => {
+const Row = ({ rowProps, index, editable }: RowProps) => {
   const [isHovered, hoverProps] = useOnHover()
   return (
     <div {...hoverProps}>
-      <IconContainer>{isHovered && <AddAnnotationIcon />}</IconContainer>
+      <IconContainer>
+        {editable && isHovered && <AddAnnotationIcon />}
+      </IconContainer>
       <LineNumberContainer>{index}</LineNumberContainer>
       {createElement(rowProps)}
     </div>
@@ -68,6 +71,7 @@ export const SyntaxHighlight = ({
             useInlineStyles,
             i
           }}
+          editable={editable}
         />
       ))
     }
