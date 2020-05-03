@@ -36,7 +36,7 @@ stories.add('default', () => {
   )
 
   const annotations = {
-    0: { annotation: 'good variable name' },
+    1: { annotation: 'good variable name' },
     5: { annotation: 'hard-coded value' }
   }
 
@@ -46,7 +46,6 @@ stories.add('default', () => {
         language={text('language', 'python')}
         colorTheme={colorTheme}
         codeString={codeString}
-        highlightedLines={[1]}
         annotations={annotations}
         editable={boolean('editable', true)}
       />

@@ -7,7 +7,11 @@ import createElement, {
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
-import { Grid } from '@material-ui/core'
+
+const RowContainer = styled.div`
+  display: flex;
+  font-size: 20px;
+`
 
 const IconContainer = styled.div`
   display: inline-block;
@@ -33,23 +37,22 @@ interface RowProps {
 const Row = ({ rowProps, index, editable, annotations }: RowProps) => {
   const [isHovered, hoverProps] = useOnHover()
   return (
-    <Grid container {...hoverProps}>
+    <RowContainer {...hoverProps}>
       <IconContainer>
-        {annotations[index] ? (
+        {annotations[index + 1] ? (
           <AnnotationIcon />
         ) : (
           editable && isHovered && <AddAnnotationIcon />
         )}
       </IconContainer>
-      <LineNumberContainer>{index}</LineNumberContainer>
+      <LineNumberContainer>{index + 1}</LineNumberContainer>
       {createElement(rowProps)}
-    </Grid>
+    </RowContainer>
   )
 }
 
 export interface SyntaxHighlightProps {
   codeString: string
-  highlightedLines?: number[]
   colorTheme?: any
   language?: string
   editable?: boolean
@@ -59,7 +62,6 @@ export interface SyntaxHighlightProps {
 export const SyntaxHighlight = ({
   codeString,
   colorTheme = vs2015,
-  highlightedLines = [],
   language = 'python',
   editable = false,
   annotations = {}
@@ -68,6 +70,7 @@ export const SyntaxHighlight = ({
     return ({ rows, stylesheet, useInlineStyles }: any) => {
       return rows.map((row: any, i: number) => (
         <Row
+          key={i}
           index={i}
           rowProps={{
             node: row,
@@ -84,14 +87,13 @@ export const SyntaxHighlight = ({
 
   return (
     <SyntaxHighlighter
-      customStyle={{ fontSize: '20px' }}
       style={colorTheme}
       wrapLines
       language={language}
       renderer={renderRow({})}
       lineProps={(lineNumber: number) => {
         const style: any = {}
-        if (highlightedLines.includes(lineNumber)) {
+        if (annotations[lineNumber]) {
           style['backgroundColor'] =
             colorTheme['hljs-addition'].backgroundColor || 'yellow'
         }

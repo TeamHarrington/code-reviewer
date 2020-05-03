@@ -8,7 +8,7 @@ const IconContaienr = styled.div<{ isActive: boolean }>`
   height: 24px;
   width: 24px;
   padding-top: 2px;
-  // padding-left: px;
+  padding-left: 1px;
   box-sizing: border-box;
   border: 1px solid white;
 `
