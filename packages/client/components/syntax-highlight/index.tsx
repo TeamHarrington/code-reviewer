@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import createElement, {
@@ -7,13 +7,6 @@ import createElement, {
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon } from '../icons'
-
-export interface Props {
-  codeString: string
-  highlightedLines?: number[]
-  colorTheme?: any
-  language?: string
-}
 
 const IconContainer = styled.div`
   display: inline-block;
@@ -24,8 +17,9 @@ const IconContainer = styled.div`
 `
 
 const LineNumberContainer = styled.span`
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-left: 8px;
+  margin-right: 12px;
+  user-select: none;
 `
 
 interface RowProps {
@@ -37,37 +31,48 @@ const Row = ({ rowProps, index }: RowProps) => {
   const [isHovered, hoverProps] = useOnHover()
   return (
     <div {...hoverProps}>
-      <IconContainer>
-        {isHovered && <AddAnnotationIcon></AddAnnotationIcon>}
-      </IconContainer>
+      <IconContainer>{isHovered && <AddAnnotationIcon />}</IconContainer>
       <LineNumberContainer>{index}</LineNumberContainer>
       {createElement(rowProps)}
     </div>
   )
 }
 
-const renderRow = (_someOpts: {}) => {
-  return ({ rows, stylesheet, useInlineStyles }: any) => {
-    return rows.map((row: any, i: number) => (
-      <Row
-        index={i}
-        rowProps={{
-          node: row,
-          stylesheet,
-          useInlineStyles,
-          i
-        }}
-      />
-    ))
-  }
+export interface SyntaxHighlightProps {
+  codeString: string
+  highlightedLines?: number[]
+  colorTheme?: any
+  language?: string
+  editable?: boolean
+  annotations?: any[]
 }
 
 export const SyntaxHighlight = ({
   codeString,
   colorTheme = vs2015,
   highlightedLines = [],
-  language = 'python'
-}: Props) => {
+  language = 'python',
+  editable = false,
+  annotations = []
+}: SyntaxHighlightProps) => {
+  // const [currentLineNum, setCurrentLineNum] = useState(-1)
+
+  const renderRow = (_someOpts: {}) => {
+    return ({ rows, stylesheet, useInlineStyles }: any) => {
+      return rows.map((row: any, i: number) => (
+        <Row
+          index={i}
+          rowProps={{
+            node: row,
+            stylesheet,
+            useInlineStyles,
+            i
+          }}
+        />
+      ))
+    }
+  }
+
   return (
     <SyntaxHighlighter
       customStyle={{ fontSize: '20px' }}
