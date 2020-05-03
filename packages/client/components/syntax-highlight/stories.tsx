@@ -24,15 +24,12 @@ stories.add('default', () => {
 
   return (
     <div>
-      <div>
-        <SyntaxHighlight
-          language={text('language', 'python')}
-          colorTheme={colorTheme}
-          codeString={codeString}
-          highlightedLines={[1]}
-        />
-      </div>
-      <div></div>
+      <SyntaxHighlight
+        language={text('language', 'python')}
+        colorTheme={colorTheme}
+        codeString={codeString}
+        highlightedLines={[1]}
+      />
     </div>
   )
 })

@@ -5,9 +5,8 @@ import createElement, {
   CreateElementProps
 } from 'react-syntax-highlighter/dist/esm/create-element'
 import styled from 'styled-components'
-import { FunctionComponent } from 'react'
 import { useOnHover } from '../../hooks/hover.hook'
-import ChatBubbleIcon from '@material-ui/icons/ChatBubble'
+import { AddAnnotationIcon } from '../icons'
 
 export interface Props {
   codeString: string
@@ -18,10 +17,15 @@ export interface Props {
 
 const IconContainer = styled.div`
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   color: white;
   box-sizing: border-box;
+`
+
+const LineNumberContainer = styled.span`
+  margin-left: 16px;
+  margin-right: 16px;
 `
 
 interface RowProps {
@@ -29,20 +33,20 @@ interface RowProps {
   rowProps: CreateElementProps
 }
 
-const Row: FunctionComponent<RowProps> = ({ rowProps, index }) => {
+const Row = ({ rowProps, index }: RowProps) => {
   const [isHovered, hoverProps] = useOnHover()
   return (
     <div {...hoverProps}>
       <IconContainer>
-        {isHovered && <ChatBubbleIcon fontSize="small"></ChatBubbleIcon>}
+        {isHovered && <AddAnnotationIcon></AddAnnotationIcon>}
       </IconContainer>
-      {index}
+      <LineNumberContainer>{index}</LineNumberContainer>
       {createElement(rowProps)}
     </div>
   )
 }
 
-const testRenderer = (_someOpts: {}) => {
+const renderRow = (_someOpts: {}) => {
   return ({ rows, stylesheet, useInlineStyles }: any) => {
     return rows.map((row: any, i: number) => (
       <Row
@@ -70,7 +74,7 @@ export const SyntaxHighlight = ({
       style={colorTheme}
       wrapLines
       language={language}
-      renderer={testRenderer({})}
+      renderer={renderRow({})}
       lineProps={(lineNumber: number) => {
         const style: any = {}
         if (highlightedLines.includes(lineNumber)) {
