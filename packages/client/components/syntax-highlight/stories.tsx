@@ -35,7 +35,10 @@ stories.add('default', () => {
     colorThemes.vs2015
   )
 
-  const annotations = [{ lineNumber: 0 }, { lineNumber: 2 }]
+  const annotations = {
+    0: { annotation: 'good variable name' },
+    5: { annotation: 'hard-coded value' }
+  }
 
   return (
     <div>

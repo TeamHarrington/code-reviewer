@@ -6,7 +6,8 @@ import createElement, {
 } from 'react-syntax-highlighter/dist/esm/create-element'
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
-import { AddAnnotationIcon } from '../icons'
+import { AddAnnotationIcon, AnnotationIcon } from '../icons'
+import { Grid } from '@material-ui/core'
 
 const IconContainer = styled.div`
   display: inline-block;
@@ -26,18 +27,23 @@ interface RowProps {
   index: number
   rowProps: CreateElementProps
   editable: boolean
+  annotations: any
 }
 
-const Row = ({ rowProps, index, editable }: RowProps) => {
+const Row = ({ rowProps, index, editable, annotations }: RowProps) => {
   const [isHovered, hoverProps] = useOnHover()
   return (
-    <div {...hoverProps}>
+    <Grid container {...hoverProps}>
       <IconContainer>
-        {editable && isHovered && <AddAnnotationIcon />}
+        {annotations[index] ? (
+          <AnnotationIcon />
+        ) : (
+          editable && isHovered && <AddAnnotationIcon />
+        )}
       </IconContainer>
       <LineNumberContainer>{index}</LineNumberContainer>
       {createElement(rowProps)}
-    </div>
+    </Grid>
   )
 }
 
@@ -47,7 +53,7 @@ export interface SyntaxHighlightProps {
   colorTheme?: any
   language?: string
   editable?: boolean
-  annotations?: any[]
+  annotations?: any
 }
 
 export const SyntaxHighlight = ({
@@ -56,10 +62,8 @@ export const SyntaxHighlight = ({
   highlightedLines = [],
   language = 'python',
   editable = false,
-  annotations = []
+  annotations = {}
 }: SyntaxHighlightProps) => {
-  // const [currentLineNum, setCurrentLineNum] = useState(-1)
-
   const renderRow = (_someOpts: {}) => {
     return ({ rows, stylesheet, useInlineStyles }: any) => {
       return rows.map((row: any, i: number) => (
@@ -72,6 +76,7 @@ export const SyntaxHighlight = ({
             i
           }}
           editable={editable}
+          annotations={annotations}
         />
       ))
     }
