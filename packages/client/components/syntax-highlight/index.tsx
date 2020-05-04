@@ -32,20 +32,39 @@ interface RowProps {
   rowProps: CreateElementProps
   editable: boolean
   annotations: any
+  selectedLineNum: number
+  setSelectedLineNum: (i: number) => void
 }
 
-const Row = ({ rowProps, index, editable, annotations }: RowProps) => {
+const Row = ({
+  rowProps,
+  index,
+  editable,
+  annotations,
+  selectedLineNum,
+  setSelectedLineNum
+}: RowProps) => {
   const [isHovered, hoverProps] = useOnHover()
+
+  // make the starting line number 1 instead of 0
+  const i = index + 1
+
   return (
     <RowContainer {...hoverProps}>
       <IconContainer>
-        {annotations[index + 1] ? (
-          <AnnotationIcon />
+        {annotations[i] ? (
+          <AnnotationIcon
+            onClick={() => setSelectedLineNum(i)}
+            isActive={selectedLineNum === i}
+          />
         ) : (
-          editable && isHovered && <AddAnnotationIcon />
+          editable &&
+          (isHovered || selectedLineNum === i) && (
+            <AddAnnotationIcon onClick={() => setSelectedLineNum(i)} />
+          )
         )}
       </IconContainer>
-      <LineNumberContainer>{index + 1}</LineNumberContainer>
+      <LineNumberContainer>{i}</LineNumberContainer>
       {createElement(rowProps)}
     </RowContainer>
   )
@@ -66,6 +85,8 @@ export const SyntaxHighlight = ({
   editable = false,
   annotations = {}
 }: SyntaxHighlightProps) => {
+  const [selectedLineNum, setSelectedLineNum] = useState(-1)
+
   const renderRow = (_someOpts: {}) => {
     return ({ rows, stylesheet, useInlineStyles }: any) => {
       return rows.map((row: any, i: number) => (
@@ -80,6 +101,8 @@ export const SyntaxHighlight = ({
           }}
           editable={editable}
           annotations={annotations}
+          selectedLineNum={selectedLineNum}
+          setSelectedLineNum={setSelectedLineNum}
         />
       ))
     }

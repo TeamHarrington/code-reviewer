@@ -15,11 +15,9 @@ const IconContaienr = styled.div<{ isActive: boolean }>`
 
 const ActiveIcon = styled(ChatBubbleIcon)`
   color: white;
-  font-size: 20px;
 `
 
 const InactiveIcon = styled(ChatBubbleOutlineIcon)`
-  font-size: 20px;
   color: black;
 `
 
