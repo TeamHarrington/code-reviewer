@@ -7,19 +7,17 @@ const IconContaienr = styled.div<{ isActive: boolean }>`
   background: ${({ isActive }) => (isActive ? '#004dca' : 'white')};
   height: 24px;
   width: 24px;
-  padding-top: 4px;
-  padding-left: 3px;
+  padding-top: 2px;
+  padding-left: 1px;
   box-sizing: border-box;
   border: 1px solid white;
 `
 
 const ActiveIcon = styled(ChatBubbleIcon)`
   color: white;
-  font-size: 20px;
 `
 
 const InactiveIcon = styled(ChatBubbleOutlineIcon)`
-  font-size: 20px;
   color: black;
 `
 

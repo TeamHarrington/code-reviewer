@@ -1,30 +1,122 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
+import createElement, {
+  CreateElementProps
+} from 'react-syntax-highlighter/dist/esm/create-element'
+import styled from 'styled-components'
+import { useOnHover } from '../../hooks/hover.hook'
+import { AddAnnotationIcon, AnnotationIcon } from '../icons'
 
-export interface Props {
+const RowContainer = styled.div`
+  display: flex;
+  font-size: 20px;
+`
+
+const IconContainer = styled.div`
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  color: white;
+  box-sizing: border-box;
+`
+
+const LineNumberContainer = styled.span`
+  margin-left: 8px;
+  margin-right: 12px;
+  user-select: none;
+`
+
+interface RowProps {
+  index: number
+  rowProps: CreateElementProps
+  editable: boolean
+  annotations: any
+  selectedLineNum: number
+  setSelectedLineNum: (i: number) => void
+}
+
+const Row = ({
+  rowProps,
+  index,
+  editable,
+  annotations,
+  selectedLineNum,
+  setSelectedLineNum
+}: RowProps) => {
+  const [isHovered, hoverProps] = useOnHover()
+
+  // make the starting line number 1 instead of 0
+  const i = index + 1
+
+  return (
+    <RowContainer {...hoverProps}>
+      <IconContainer>
+        {annotations[i] ? (
+          <AnnotationIcon
+            onClick={() => setSelectedLineNum(i)}
+            isActive={selectedLineNum === i}
+          />
+        ) : (
+          editable &&
+          (isHovered || selectedLineNum === i) && (
+            <AddAnnotationIcon onClick={() => setSelectedLineNum(i)} />
+          )
+        )}
+      </IconContainer>
+      <LineNumberContainer>{i}</LineNumberContainer>
+      {createElement(rowProps)}
+    </RowContainer>
+  )
+}
+
+export interface SyntaxHighlightProps {
   codeString: string
-  highlightedLines?: number[]
   colorTheme?: any
   language?: string
+  editable?: boolean
+  annotations?: any
 }
 
 export const SyntaxHighlight = ({
   codeString,
   colorTheme = vs2015,
-  highlightedLines = [],
-  language = 'python'
-}: Props) => {
+  language = 'python',
+  editable = false,
+  annotations = {}
+}: SyntaxHighlightProps) => {
+  const [selectedLineNum, setSelectedLineNum] = useState(-1)
+
+  const renderRow = (_someOpts: {}) => {
+    return ({ rows, stylesheet, useInlineStyles }: any) => {
+      return rows.map((row: any, i: number) => (
+        <Row
+          key={i}
+          index={i}
+          rowProps={{
+            node: row,
+            stylesheet,
+            useInlineStyles,
+            i
+          }}
+          editable={editable}
+          annotations={annotations}
+          selectedLineNum={selectedLineNum}
+          setSelectedLineNum={setSelectedLineNum}
+        />
+      ))
+    }
+  }
+
   return (
     <SyntaxHighlighter
-      customStyle={{ fontSize: '20px' }}
-      showLineNumbers
       style={colorTheme}
       wrapLines
       language={language}
+      renderer={renderRow({})}
       lineProps={(lineNumber: number) => {
         const style: any = {}
-        if (highlightedLines.includes(lineNumber)) {
+        if (annotations[lineNumber]) {
           style['backgroundColor'] =
             colorTheme['hljs-addition'].backgroundColor || 'yellow'
         }

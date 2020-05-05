@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import { SyntaxHighlight } from '.'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 import * as colorThemes from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 const stories = storiesOf('Syntax Highlight', module)
@@ -10,7 +10,20 @@ stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 stories.add('default', () => {
   const codeString = `def myfunc():
   result = ["str", True, 1, []]
-  return result`
+  return result
+
+
+
+
+
+
+
+
+
+
+
+
+  `
 
   const colorThemeOptions = {
     ...colorThemes
@@ -22,17 +35,20 @@ stories.add('default', () => {
     colorThemes.vs2015
   )
 
+  const annotations = {
+    1: { annotation: 'good variable name' },
+    5: { annotation: 'hard-coded value' }
+  }
+
   return (
     <div>
-      <div>
-        <SyntaxHighlight
-          language={text('language', 'python')}
-          colorTheme={colorTheme}
-          codeString={codeString}
-          highlightedLines={[1]}
-        />
-      </div>
-      <div></div>
+      <SyntaxHighlight
+        language={text('language', 'python')}
+        colorTheme={colorTheme}
+        codeString={codeString}
+        annotations={annotations}
+        editable={boolean('editable', true)}
+      />
     </div>
   )
 })
