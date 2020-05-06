@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import createElement, {
   CreateElementProps
-} from 'react-syntax-highlighter/dist/esm/create-element'
+} from 'react-syntax-highlighter/dist/cjs/create-element'
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
