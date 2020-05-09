@@ -99,19 +99,19 @@ export const BottomDrawer = ({
 
 export interface FeedbackDrawerProps {
   editable: boolean
-  onSaveClick: () => void
+  onSaveClick?: () => void
   questions: string[]
   answers: string[]
 }
 
 export const FeedbackDrawer = ({
-  onSaveClick,
+  onSaveClick = () => null,
   questions,
   answers,
   editable
 }: FeedbackDrawerProps) => {
-  const [content, setContent] = useState(questions)
-  const isDirty = content === answers
+  const [newAnswers, setNewAnswers] = useState(questions)
+  const isDirty = newAnswers === answers
   const saveButton = (
     <Button
       onClick={onSaveClick}
@@ -121,12 +121,21 @@ export const FeedbackDrawer = ({
     </Button>
   )
 
-  const children = content.map((question, i) => (
+  console.log('=== new answers', newAnswers)
+
+  const setAnswer = (answer: string, i: number) => {
+    newAnswers[i] = answer
+    setNewAnswers(newAnswers)
+  }
+
+  const children = newAnswers.map((answer, i) => (
     <TextQuestionAnswer
-      question={question}
+      key={i}
+      question={questions[i]}
+      answer={answer}
       editable={editable}
       index={i}
-      onChange={setContent}
+      onChange={setAnswer}
     />
   ))
 

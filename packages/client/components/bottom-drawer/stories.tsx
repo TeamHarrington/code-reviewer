@@ -1,9 +1,8 @@
 import { storiesOf } from '@storybook/react'
-import { BottomDrawer } from '.'
+import { BottomDrawer, FeedbackDrawer } from '.'
 import { withKnobs, boolean, text, number } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { action } from '@storybook/addon-actions'
-import { TextQuestionAnswer } from '../text-question-answer'
 import { Button } from '@material-ui/core'
 import { Annotations } from '../annotation'
 import CloseIcon from '@material-ui/icons/Close'
@@ -33,56 +32,20 @@ stories.add('default', () => {
   )
 })
 
-stories.add('with questions and answer', () => {
+stories.add('with feedback', () => {
   return (
     <StoryContainer>
-      <BottomDrawer
-        title={text('title', 'Questions')}
-        actionButton={
-          <Button
-            onClick={action('button clicked')}
-            disabled={boolean('disable save button', false)}
-            color="primary">
-            Save
-          </Button>
-        }>
-        <>
-          <TextQuestionAnswer
-            editable
-            index={1}
-            question={
-              'Did the author use meaningful and descriptive variable names?'
-            }
-            answer={
-              'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
-            }
-          />
-          <TextQuestionAnswer
-            editable
-            index={2}
-            question={'Is the algorithm in function xxx efficient?'}
-            answer={
-              'I think so. An alternative (equally efficient) way would be to xxx.'
-            }
-          />
-          <TextQuestionAnswer
-            editable
-            index={3}
-            question={'Is the algorithm in function xxx efficient?'}
-            answer={
-              'I think so. An alternative (equally efficient) way would be to xxx.'
-            }
-          />
-          <TextQuestionAnswer
-            editable
-            index={4}
-            question={'Is the algorithm in function xxx efficient?'}
-            answer={
-              'I think so. An alternative (equally efficient) way would be to xxx.'
-            }
-          />
-        </>
-      </BottomDrawer>
+      <FeedbackDrawer
+        editable={boolean('editable', true)}
+        questions={[
+          'Did the author use meaningful and descriptive variable names?',
+          'Is the algorithm in function xxx efficient?'
+        ]}
+        answers={[
+          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.',
+          'I think so. An alternative (equally efficient) way would be to xxx.'
+        ]}
+      />
     </StoryContainer>
   )
 })

@@ -11,7 +11,7 @@ export interface TextQuestionAnswerProps {
   question: string
   answer?: string
   editable?: boolean
-  onChange?: (value: any) => void
+  onChange?: (answer: string, i: number) => void
 }
 
 export const TextQuestionAnswer = ({
@@ -22,7 +22,7 @@ export const TextQuestionAnswer = ({
   onChange = () => null
 }: TextQuestionAnswerProps) => {
   const handleOnChange = (event: any) => {
-    onChange(event.target.value)
+    onChange(event.target.value, index)
   }
 
   return (
