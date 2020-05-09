@@ -8,6 +8,12 @@ const assignmentsData = [
     reviewDueDate: 'Oct 14, 2019',
     feedbackDueDate: 'Oct 28, 2019',
     givenLink: '/given'
+  },
+  {
+    name: 'Assignment 1',
+    reviewDueDate: 'Jan 25, 2020',
+    feedbackDueDate: 'July 14, 2020',
+    givenLink: '/given'
   }
 ]
 

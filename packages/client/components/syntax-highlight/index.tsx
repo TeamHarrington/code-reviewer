@@ -25,6 +25,7 @@ const LineNumberContainer = styled.span`
   margin-left: 8px;
   margin-right: 12px;
   user-select: none;
+  min-width: 40px;
 `
 
 interface RowProps {

@@ -11,6 +11,118 @@ stories.add('default', () => {
   const codeString = `def myfunc():
   result = ["str", True, 1, []]
   return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+
+
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

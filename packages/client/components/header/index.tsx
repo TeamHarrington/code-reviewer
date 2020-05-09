@@ -20,6 +20,8 @@ const Container = styled.div`
   justify-content: space-between;
   margin-bottom: 4px;
   box-sizing: border-box;
+  padding-left: 8px;
+  padding-right: 16px;
 `
 
 const UserNameContainer = styled.div`

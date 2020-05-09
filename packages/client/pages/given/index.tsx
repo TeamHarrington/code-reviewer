@@ -12,6 +12,99 @@ const HomePage: FunctionComponent = () => {
 
 
 
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+
+
+  result = ["str", True, 1, []]
+  return result
+  result = ["str", True, 1, []]
+  return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  result = ["str", True, 1, []]
+  return result
+
+
+
+
+
 
 
 
@@ -43,6 +136,14 @@ const HomePage: FunctionComponent = () => {
           }
           answers={[
             'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
+          ]}
+        />
+        <TextQuestionAnswer
+          editable
+          index={1}
+          question={'Is the algorithm in funciton xxx sufficient?'}
+          answers={[
+            'I think so. An alternative (equally efficient way) would be xxx.'
           ]}
         />
       </BottomDrawer>
