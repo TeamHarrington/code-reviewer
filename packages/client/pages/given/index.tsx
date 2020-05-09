@@ -29,7 +29,7 @@ const HomePage: FunctionComponent = () => {
 
 
   `
-  const peer1 = <SyntaxHighlight codeString={codeString} />
+  const peer1 = <SyntaxHighlight editable codeString={codeString} />
   return (
     <>
       <Header title={'CSCA20'} userName={'Kenny'} />

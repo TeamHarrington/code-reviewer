@@ -65,11 +65,11 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
               aria-controls={`action-tabpanel-${index}`}
             />
           ))}
-          <Tab
+          {/* <Tab
             label="All"
             id={`action-tab-${contents.length}`}
             aria-controls={`action-tabpanel-${contents.length}`}
-          />
+          /> */}
         </Tabs>
       </TabsContainer>
       <SwipeableViews
@@ -86,9 +86,9 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
         ))}
 
         {/* summary tab */}
-        <TabPanel selectedTabIndex={selectedTabIndex} index={contents.length}>
+        {/* <TabPanel selectedTabIndex={selectedTabIndex} index={contents.length}>
           All
-        </TabPanel>
+        </TabPanel> */}
       </SwipeableViews>
     </Container>
   )
