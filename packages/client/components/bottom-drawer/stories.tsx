@@ -53,33 +53,33 @@ stories.add('with questions and answer', () => {
             question={
               'Did the author use meaningful and descriptive variable names?'
             }
-            answers={[
+            answer={
               'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
-            ]}
+            }
           />
           <TextQuestionAnswer
             editable
             index={2}
             question={'Is the algorithm in function xxx efficient?'}
-            answers={[
+            answer={
               'I think so. An alternative (equally efficient) way would be to xxx.'
-            ]}
+            }
           />
           <TextQuestionAnswer
             editable
             index={3}
             question={'Is the algorithm in function xxx efficient?'}
-            answers={[
+            answer={
               'I think so. An alternative (equally efficient) way would be to xxx.'
-            ]}
+            }
           />
           <TextQuestionAnswer
             editable
             index={4}
             question={'Is the algorithm in function xxx efficient?'}
-            answers={[
+            answer={
               'I think so. An alternative (equally efficient) way would be to xxx.'
-            ]}
+            }
           />
         </>
       </BottomDrawer>

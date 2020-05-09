@@ -125,12 +125,7 @@ export const FeedbackDrawer = ({
   )
 
   const children = questions.map((question, i) => (
-    <TextQuestionAnswer
-      question={question}
-      answers={['']}
-      editable={editable}
-      index={i}
-    />
+    <TextQuestionAnswer question={question} editable={editable} index={i} />
   ))
 
   return (
