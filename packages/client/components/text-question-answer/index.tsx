@@ -11,7 +11,7 @@ export interface TextQuestionAnswerProps {
   question: string
   answer?: string
   editable?: boolean
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (value: any) => void
 }
 
 export const TextQuestionAnswer = ({
@@ -19,14 +19,18 @@ export const TextQuestionAnswer = ({
   question,
   answer = '',
   editable = false,
-  onChange
+  onChange = () => null
 }: TextQuestionAnswerProps) => {
+  const handleOnChange = (event: any) => {
+    onChange(event.target.value)
+  }
+
   return (
     <Container>
       <Typography>{`${index}. ${question}`}</Typography>
       {editable && (
         <TextField
-          onChange={onChange}
+          onChange={handleOnChange}
           fullWidth
           multiline
           variant="outlined"

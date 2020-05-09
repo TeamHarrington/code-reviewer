@@ -45,7 +45,7 @@ stories.add('editable', () => {
           'answer 1',
           'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
         )}
-        onChange={event => console.log(event.target.value)}
+        onChange={value => console.log(value)}
       />
       <TextQuestionAnswer
         editable
@@ -55,7 +55,7 @@ stories.add('editable', () => {
           'answer 2',
           'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
         )}
-        onChange={event => console.log(event.target.value)}
+        onChange={value => console.log(value)}
       />
     </StoryContainer>
   )

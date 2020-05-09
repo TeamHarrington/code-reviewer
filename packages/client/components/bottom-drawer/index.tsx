@@ -3,10 +3,7 @@ import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 import { Button } from '@material-ui/core'
-import {
-  TextQuestionAnswer,
-  TextQuestionAnswerProps
-} from '../text-question-answer'
+import { TextQuestionAnswer } from '../text-question-answer'
 
 const Container = styled.div<{ drawerHeight: string }>`
   height: ${props => props.drawerHeight};
@@ -104,17 +101,17 @@ export interface FeedbackDrawerProps {
   editable: boolean
   onSaveClick: () => void
   questions: string[]
+  answers: string[]
 }
 
 export const FeedbackDrawer = ({
   onSaveClick,
   questions,
+  answers,
   editable
 }: FeedbackDrawerProps) => {
-  const title = 'Questions'
-
-  const [isDirty, setIsDirty] = useState(false)
-
+  const [content, setContent] = useState(questions)
+  const isDirty = content === answers
   const saveButton = (
     <Button
       onClick={onSaveClick}
@@ -124,12 +121,17 @@ export const FeedbackDrawer = ({
     </Button>
   )
 
-  const children = questions.map((question, i) => (
-    <TextQuestionAnswer question={question} editable={editable} index={i} />
+  const children = content.map((question, i) => (
+    <TextQuestionAnswer
+      question={question}
+      editable={editable}
+      index={i}
+      onChange={setContent}
+    />
   ))
 
   return (
-    <BottomDrawer title={title} actionButton={saveButton}>
+    <BottomDrawer title={'Questions'} actionButton={saveButton}>
       {children}
     </BottomDrawer>
   )
