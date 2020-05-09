@@ -4,6 +4,7 @@ import { Header } from '../../components/header'
 import { SyntaxHighlight } from '../../components/syntax-highlight'
 import { BottomDrawer } from '../../components/bottom-drawer'
 import { TextQuestionAnswer } from '../../components/text-question-answer'
+import { Button } from '@material-ui/core'
 
 const HomePage: FunctionComponent = () => {
   const codeString = `def myfunc():
@@ -122,12 +123,18 @@ const HomePage: FunctionComponent = () => {
 
 
   `
+  const saveButton = (
+    <Button onClick={() => console.log('saved')} color="primary">
+      Save
+    </Button>
+  )
+
   const peer1 = <SyntaxHighlight editable codeString={codeString} />
   return (
     <>
       <Header title={'CSCA20'} userName={'Kenny'} />
       <PeerTabs contents={[peer1, 'Peer 2', 'Peer 3']} />
-      <BottomDrawer title={'Questions'}>
+      <BottomDrawer title={'Questions'} actionButton={saveButton}>
         <TextQuestionAnswer
           editable
           index={1}
@@ -140,7 +147,7 @@ const HomePage: FunctionComponent = () => {
         />
         <TextQuestionAnswer
           editable
-          index={1}
+          index={2}
           question={'Is the algorithm in funciton xxx sufficient?'}
           answers={[
             'I think so. An alternative (equally efficient way) would be xxx.'

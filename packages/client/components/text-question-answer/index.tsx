@@ -6,28 +6,22 @@ const Container = styled(Grid)`
   padding: 8px;
 `
 
-const AnswerField = styled(TextField)`
-  width: 100%;
-`
-
 interface SingleAnswerProps {
-  editable: boolean
-  answer: string
-  from: string
+  editable?: boolean
+  answer?: string
 }
 
-const SingleAnswer = ({ editable, answer, from }: SingleAnswerProps) => {
+const SingleAnswer = ({ editable, answer }: SingleAnswerProps) => {
   if (editable) {
-    return <AnswerField multiline variant="outlined" value={answer} />
+    return <TextField fullWidth multiline variant="outlined" value={answer} />
   }
-  const author = from ? `${from}: ` : ''
-  return <Typography>{`${author}${answer || '[No response]'}`}</Typography>
+  return <Typography>{answer || '[No response]'}</Typography>
 }
 
-export interface QuestionAnswerProps {
+export interface TextQuestionAnswerProps {
   index: number // index of this question
   question: string
-  answers: string[]
+  answer: string
   editable?: boolean
 }
 
@@ -37,20 +31,13 @@ export interface QuestionAnswerProps {
 export const TextQuestionAnswer = ({
   index,
   question,
-  answers,
+  answer,
   editable = false
-}: QuestionAnswerProps) => {
+}: TextQuestionAnswerProps) => {
   return (
     <Container>
       <Typography>{`${index}. ${question}`}</Typography>
-      {answers.map((answer, i) => (
-        <SingleAnswer
-          key={i}
-          editable={editable}
-          answer={answer}
-          from={answers.length > 1 ? `Peer ${i + 1}` : ''}
-        />
-      ))}
+      <SingleAnswer editable={editable} answer={answer} />
     </Container>
   )
 }
