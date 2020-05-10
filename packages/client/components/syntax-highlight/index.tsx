@@ -16,7 +16,7 @@ const RowContainer = styled.div`
 const IconContainer = styled.div`
   display: inline-block;
   height: 24px;
-  width: 24px;
+  min-width: 24px;
   color: white;
   box-sizing: border-box;
 `
@@ -25,7 +25,7 @@ const LineNumberContainer = styled.span`
   margin-left: 8px;
   margin-right: 12px;
   user-select: none;
-  min-width: 40px;
+  min-width: 32px;
 `
 
 interface RowProps {
