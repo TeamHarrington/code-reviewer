@@ -1,9 +1,15 @@
-import { PeerTabs } from '../../components/peer-tabs'
-import { Header } from '../../components/header'
-import { SyntaxHighlight } from '../../components/syntax-highlight'
-import { FeedbackDrawer } from '../../components/bottom-drawer'
+import { storiesOf } from '@storybook/react'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
+import { SyntaxHighlight } from '../syntax-highlight'
+import { Header } from '../header'
+import { PeerTabs } from '../peer-tabs'
+import { FeedbackDrawer } from '../bottom-drawer'
 
-const CodePage = () => {
+const stories = storiesOf('Pages', module)
+
+stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
+
+stories.add('default', () => {
   const codeString = `def myfunc():
   result = ["str", True, 1, []]
   return result
@@ -11,6 +17,7 @@ const CodePage = () => {
   `
 
   const peer1 = <SyntaxHighlight editable codeString={codeString} />
+
   return (
     <>
       <Header title={'CSCA20'} userName={'Kenny'} />
@@ -29,6 +36,4 @@ const CodePage = () => {
       />
     </>
   )
-}
-
-export default CodePage
+})
