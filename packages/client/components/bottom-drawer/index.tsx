@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 import { Button } from '@material-ui/core'
 import { TextQuestionAnswer } from '../text-question-answer'
+import CloseIcon from '@material-ui/icons/Close'
+import { Annotation } from '../annotation'
 
 const Container = styled.div<{ drawerHeight: string }>`
   height: ${props => props.drawerHeight};
@@ -110,8 +112,9 @@ export const FeedbackDrawer = ({
   answers,
   editable
 }: FeedbackDrawerProps) => {
-  const [newAnswers, setNewAnswers] = useState(questions)
-  const isDirty = newAnswers === answers
+  const [newAnswers, setNewAnswers] = useState([...answers])
+  const [isDirty, setIsDirty] = useState(false)
+
   const saveButton = (
     <Button
       onClick={onSaveClick}
@@ -121,11 +124,10 @@ export const FeedbackDrawer = ({
     </Button>
   )
 
-  console.log('=== new answers', newAnswers)
-
   const setAnswer = (answer: string, i: number) => {
     newAnswers[i] = answer
     setNewAnswers(newAnswers)
+    setIsDirty(true)
   }
 
   const children = newAnswers.map((answer, i) => (
@@ -146,4 +148,26 @@ export const FeedbackDrawer = ({
   )
 }
 
-export const AnnotationDrawer = true
+export interface AnnotationDrawerProps {
+  onCloseClick: () => void
+  annotation: any
+}
+
+export const AnnotationDrawer = ({
+  onCloseClick,
+  annotation
+}: AnnotationDrawerProps) => {
+  const closeButton = (
+    <Button onClick={onCloseClick}>
+      <CloseIcon />
+    </Button>
+  )
+
+  const children = <Annotation annotation={annotation} />
+
+  return (
+    <BottomDrawer title={'Annotation'} actionButton={closeButton}>
+      {children}
+    </BottomDrawer>
+  )
+}

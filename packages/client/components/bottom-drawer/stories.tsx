@@ -1,11 +1,8 @@
 import { storiesOf } from '@storybook/react'
-import { BottomDrawer, FeedbackDrawer } from '.'
+import { BottomDrawer, FeedbackDrawer, AnnotationDrawer } from '.'
 import { withKnobs, boolean, text, number } from '@storybook/addon-knobs'
 import styled from 'styled-components'
-import { action } from '@storybook/addon-actions'
 import { Button } from '@material-ui/core'
-import { Annotations } from '../annotation'
-import CloseIcon from '@material-ui/icons/Close'
 
 const stories = storiesOf('Bottom Drawer', module)
 
@@ -53,23 +50,13 @@ stories.add('with feedback', () => {
 stories.add('with annotations', () => {
   return (
     <StoryContainer>
-      <BottomDrawer
-        fixedHeight="178px"
-        title={text('title', 'Annotations')}
-        actionButton={
-          <Button onClick={action('button clicked')}>
-            <CloseIcon />
-          </Button>
-        }>
-        <Annotations
-          lineNum={number('first line number', 7)}
-          annotations={[
-            {
-              content: text('first annotation', 'What is this?')
-            }
-          ]}
-        />
-      </BottomDrawer>
+      <AnnotationDrawer
+        onCloseClick={() => console.log('clicked')}
+        annotation={{
+          lineNum: 7,
+          content: text('first annotation', 'What is this?')
+        }}
+      />
     </StoryContainer>
   )
 })

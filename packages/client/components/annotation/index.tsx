@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -11,21 +11,18 @@ const LineNumber = styled(Typography)`
   font-style: italic;
 `
 
-export interface AnnotationsProp {
-  lineNum: Number
-  annotations: { from?: String; content: String }[]
+export interface AnnotationProp {
+  annotation: {
+    lineNum: number
+    content: string
+  }
 }
 
-export const Annotations = ({ lineNum, annotations }: AnnotationsProp) => {
+export const Annotation = ({ annotation }: AnnotationProp) => {
   return (
     <Container>
-      <LineNumber>{`Line ${lineNum}`}</LineNumber>
-      <Grid>
-        {annotations.map(({ content, from }, index) => {
-          const author = from ? `${from}: ` : ''
-          return <Typography key={index}>{`${author}${content}`}</Typography>
-        })}
-      </Grid>
+      <LineNumber>{`Line ${annotation.lineNum}`}</LineNumber>
+      <Typography>{annotation.content}</Typography>
     </Container>
   )
 }
