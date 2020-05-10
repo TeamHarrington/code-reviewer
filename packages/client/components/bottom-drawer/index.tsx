@@ -6,6 +6,7 @@ import { Button } from '@material-ui/core'
 import { TextQuestionAnswer } from '../text-question-answer'
 import CloseIcon from '@material-ui/icons/Close'
 import { Annotation } from '../annotation'
+import { Rating } from '../rating'
 
 const Container = styled.div<{ drawerHeight: string }>`
   height: ${props => props.drawerHeight};
@@ -144,6 +145,7 @@ export const FeedbackDrawer = ({
   return (
     <BottomDrawer title={'Questions'} actionButton={saveButton}>
       {children}
+      <Rating />
     </BottomDrawer>
   )
 }

@@ -4,7 +4,10 @@ import { Grid, Typography } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { Star } from '../icons'
 
-const Container = styled(Grid)``
+const Container = styled(Grid)`
+  margin-top: 16px;
+  margin-bottom: 16px;
+`
 
 const StarContainer = styled(Grid)`
   margin-top: 8px;
