@@ -29,11 +29,11 @@ export const Rating = () => {
 
   return (
     <Container container direction="column">
-      <Typography paragraph>
+      <Typography paragraph component="div">
         <Box fontWeight={300}>Reflection</Box>
       </Typography>
 
-      <Typography>
+      <Typography component="div">
         <Box fontWeight={500}>
           How would you rate the feedback from this peer?
         </Box>
