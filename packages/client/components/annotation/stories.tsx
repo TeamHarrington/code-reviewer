@@ -10,13 +10,12 @@ stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 const StoryContainer = styled.div``
 
 stories.add('default', () => {
-  const annotation = {
-    7: text('first annotation', 'What is this?')
-  }
-
   return (
     <StoryContainer>
-      <Annotation annotation={annotation} />
+      <Annotation
+        lineNum={number('line number', 7)}
+        content={text('content', 'Bad variable name')}
+      />
     </StoryContainer>
   )
 })

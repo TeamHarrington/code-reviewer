@@ -152,12 +152,14 @@ export const FeedbackDrawer = ({
 
 export interface AnnotationDrawerProps {
   onCloseClick: () => void
-  annotation: any
+  lineNum: number
+  content: string
 }
 
 export const AnnotationDrawer = ({
   onCloseClick,
-  annotation
+  lineNum,
+  content
 }: AnnotationDrawerProps) => {
   const closeButton = (
     <Button onClick={onCloseClick}>
@@ -165,7 +167,7 @@ export const AnnotationDrawer = ({
     </Button>
   )
 
-  const children = <Annotation annotation={annotation} />
+  const children = <Annotation lineNum={lineNum} content={content} />
 
   return (
     <BottomDrawer title={'Annotation'} actionButton={closeButton}>

@@ -52,10 +52,8 @@ stories.add('with annotations', () => {
     <StoryContainer>
       <AnnotationDrawer
         onCloseClick={() => console.log('clicked')}
-        annotation={{
-          lineNum: 7,
-          content: text('first annotation', 'What is this?')
-        }}
+        lineNum={1}
+        content={'Magic number'}
       />
     </StoryContainer>
   )

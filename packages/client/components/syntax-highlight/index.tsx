@@ -142,10 +142,8 @@ export const SyntaxHighlight = ({
       {selectedLineNum >= 0 && (
         <AnnotationDrawer
           onCloseClick={() => console.log('clicked')}
-          annotation={{
-            lineNum: 7,
-            content: 'What is this?'
-          }}
+          lineNum={selectedLineNum}
+          content={annotations[selectedLineNum]}
         />
       )}
     </>
