@@ -34,17 +34,6 @@ stories.add('default', () => {
         annotations={annotations}
         codeString={codeString}
       />
-      {/* <FeedbackDrawer
-        editable
-        questions={[
-          'Did the author use meaningful and descriptive variable names?',
-          'Is the algorithm in function xxx efficient?'
-        ]}
-        answers={[
-          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.',
-          'I think so. An alternative (equally efficient) way would be to xxx.'
-        ]}
-      /> */}
     </TabContainer>
   )
 

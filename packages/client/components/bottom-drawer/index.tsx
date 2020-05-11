@@ -154,12 +154,14 @@ export interface AnnotationDrawerProps {
   onCloseClick: () => void
   lineNum: number
   content: string
+  editable?: boolean
 }
 
 export const AnnotationDrawer = ({
   onCloseClick,
   lineNum,
-  content
+  content,
+  editable = false
 }: AnnotationDrawerProps) => {
   const closeButton = (
     <Button onClick={onCloseClick}>
@@ -167,14 +169,12 @@ export const AnnotationDrawer = ({
     </Button>
   )
 
-  const children = <Annotation lineNum={lineNum} content={content} />
-
   return (
     <BottomDrawer
       title={'Annotation'}
       actionButton={closeButton}
       fixedHeight={'300px'}>
-      {children}
+      <Annotation editable={editable} lineNum={lineNum} content={content} />
     </BottomDrawer>
   )
 }

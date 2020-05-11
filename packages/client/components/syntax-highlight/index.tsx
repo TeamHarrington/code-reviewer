@@ -113,6 +113,7 @@ export const SyntaxHighlight = ({
   return (
     <>
       <SyntaxHighlighter
+        editable={editable}
         style={colorTheme}
         wrapLines
         language={language}
@@ -129,6 +130,7 @@ export const SyntaxHighlight = ({
       </SyntaxHighlighter>
 
       <FeedbackDrawer
+        editable={editable}
         questions={[
           'Did the author use meaningful and descriptive variable names?',
           'Is the algorithm in function xxx efficient?'
@@ -141,6 +143,7 @@ export const SyntaxHighlight = ({
 
       {selectedLineNum >= 0 && (
         <AnnotationDrawer
+          editable={editable}
           onCloseClick={() => setSelectedLineNum(-1)}
           lineNum={selectedLineNum}
           content={annotations[selectedLineNum]}

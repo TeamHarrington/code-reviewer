@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import { Annotation } from '.'
-import { withKnobs, text, number } from '@storybook/addon-knobs'
+import { withKnobs, text, number, boolean } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 
 const stories = storiesOf('Annotation', module)
@@ -15,6 +15,7 @@ stories.add('default', () => {
       <Annotation
         lineNum={number('line number', 7)}
         content={text('content', 'Bad variable name')}
+        editable={boolean('editable', false)}
       />
     </StoryContainer>
   )

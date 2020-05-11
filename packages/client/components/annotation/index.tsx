@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import { Typography, TextField } from '@material-ui/core'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -14,13 +14,32 @@ const LineNumber = styled(Typography)`
 export interface AnnotationProp {
   lineNum: number
   content?: string
+  editable?: boolean
+  onChange?: (content: string) => void
 }
 
-export const Annotation = ({ lineNum, content = '' }: AnnotationProp) => {
+export const Annotation = ({
+  lineNum,
+  content = '',
+  editable = false,
+  onChange = () => null
+}: AnnotationProp) => {
+  const handleOnChange = (event: any) => {
+    onChange(event.target.value)
+  }
+
   return (
     <Container>
       <LineNumber>{`Line ${lineNum}`}</LineNumber>
-      <Typography>{content}</Typography>
+      {editable && (
+        <TextField
+          onChange={handleOnChange}
+          fullWidth
+          variant="outlined"
+          defaultValue={content}
+        />
+      )}
+      {!editable && <Typography>{content}</Typography>}
     </Container>
   )
 }
