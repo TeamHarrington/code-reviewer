@@ -12,17 +12,16 @@ const LineNumber = styled(Typography)`
 `
 
 export interface AnnotationProp {
-  annotation: {
-    lineNum: number
-    content: string
-  }
+  annotation: object
 }
 
 export const Annotation = ({ annotation }: AnnotationProp) => {
+  const lineNum = Object.keys(annotation)[0]
+
   return (
     <Container>
-      <LineNumber>{`Line ${annotation.lineNum}`}</LineNumber>
-      <Typography>{annotation.content}</Typography>
+      <LineNumber>{`Line ${lineNum}`}</LineNumber>
+      <Typography>{annotation[lineNum]}</Typography>
     </Container>
   )
 }

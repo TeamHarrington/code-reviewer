@@ -7,6 +7,7 @@ import createElement, {
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
+import { FeedbackDrawer, AnnotationDrawer } from '../bottom-drawer'
 
 const RowContainer = styled.div`
   display: flex;
@@ -110,20 +111,43 @@ export const SyntaxHighlight = ({
   }
 
   return (
-    <SyntaxHighlighter
-      style={colorTheme}
-      wrapLines
-      language={language}
-      renderer={renderRow({})}
-      lineProps={(lineNumber: number) => {
-        const style: any = {}
-        if (annotations[lineNumber]) {
-          style['backgroundColor'] =
-            colorTheme['hljs-addition'].backgroundColor || 'yellow'
-        }
-        return { style } as React.DOMAttributes<HTMLElement>
-      }}>
-      {codeString}
-    </SyntaxHighlighter>
+    <>
+      <SyntaxHighlighter
+        style={colorTheme}
+        wrapLines
+        language={language}
+        renderer={renderRow({})}
+        lineProps={(lineNumber: number) => {
+          const style: any = {}
+          if (annotations[lineNumber]) {
+            style['backgroundColor'] =
+              colorTheme['hljs-addition'].backgroundColor || 'yellow'
+          }
+          return { style } as React.DOMAttributes<HTMLElement>
+        }}>
+        {codeString}
+      </SyntaxHighlighter>
+
+      <FeedbackDrawer
+        questions={[
+          'Did the author use meaningful and descriptive variable names?',
+          'Is the algorithm in function xxx efficient?'
+        ]}
+        answers={[
+          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.',
+          'I think so. An alternative (equally efficient) way would be to xxx.'
+        ]}
+      />
+
+      {selectedLineNum >= 0 && (
+        <AnnotationDrawer
+          onCloseClick={() => console.log('clicked')}
+          annotation={{
+            lineNum: 7,
+            content: 'What is this?'
+          }}
+        />
+      )}
+    </>
   )
 }

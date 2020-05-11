@@ -101,7 +101,7 @@ export const BottomDrawer = ({
 }
 
 export interface FeedbackDrawerProps {
-  editable: boolean
+  editable?: boolean
   onSaveClick?: () => void
   questions: string[]
   answers: string[]

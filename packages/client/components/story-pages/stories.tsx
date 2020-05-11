@@ -10,9 +10,9 @@ const stories = storiesOf('Pages', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
+// TODO: use height: 100% in a better place
 const TabContainer = styled.div`
-  height: 100%;
-  outline: 5px solid red;
+  height: 600px;
 `
 
 stories.add('default', () => {
@@ -34,7 +34,7 @@ stories.add('default', () => {
         annotations={annotations}
         codeString={codeString}
       />
-      <FeedbackDrawer
+      {/* <FeedbackDrawer
         editable
         questions={[
           'Did the author use meaningful and descriptive variable names?',
@@ -44,7 +44,7 @@ stories.add('default', () => {
           'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.',
           'I think so. An alternative (equally efficient) way would be to xxx.'
         ]}
-      />
+      /> */}
     </TabContainer>
   )
 

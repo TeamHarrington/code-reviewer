@@ -1,6 +1,6 @@
 import React from 'react'
 import SwipeableViews from 'react-swipeable-views'
-import { Tabs, Tab, Typography } from '@material-ui/core'
+import { Tabs, Tab } from '@material-ui/core'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -22,13 +22,13 @@ const TabPanel = (props: TabPanelProps) => {
   const { children, selectedTabIndex, index } = props
 
   return (
-    <Typography
+    <div
       role="tabpanel"
       hidden={selectedTabIndex !== index}
       id={`action-tabpanel-${index}`}
       aria-labelledby={`action-tab-${index}`}>
       {children}
-    </Typography>
+    </div>
   )
 }
 
