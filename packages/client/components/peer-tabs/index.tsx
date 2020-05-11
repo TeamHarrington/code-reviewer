@@ -6,7 +6,6 @@ import styled from 'styled-components'
 const Container = styled.div`
   width: 100%;
   position: relative;
-  min-height: 200px;
 `
 
 const TabsContainer = styled.div`
@@ -51,6 +50,7 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
   return (
     <Container>
       <TabsContainer>
+        {/* headers of each tab */}
         <Tabs
           value={selectedTabIndex}
           onChange={handleChange}
@@ -65,17 +65,13 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
               aria-controls={`action-tabpanel-${index}`}
             />
           ))}
-          {/* <Tab
-            label="All"
-            id={`action-tab-${contents.length}`}
-            aria-controls={`action-tabpanel-${contents.length}`}
-          /> */}
         </Tabs>
       </TabsContainer>
+
+      {/* content of each tab */}
       <SwipeableViews
         index={selectedTabIndex}
         onChangeIndex={handleChangeIndex}>
-        {/* individual student tab */}
         {contents.map((content, index) => (
           <TabPanel
             selectedTabIndex={selectedTabIndex}
@@ -84,11 +80,6 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
             {content}
           </TabPanel>
         ))}
-
-        {/* summary tab */}
-        {/* <TabPanel selectedTabIndex={selectedTabIndex} index={contents.length}>
-          All
-        </TabPanel> */}
       </SwipeableViews>
     </Container>
   )

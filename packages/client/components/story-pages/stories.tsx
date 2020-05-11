@@ -4,10 +4,16 @@ import { SyntaxHighlight } from '../syntax-highlight'
 import { Header } from '../header'
 import { PeerTabs } from '../peer-tabs'
 import { FeedbackDrawer } from '../bottom-drawer'
+import styled from 'styled-components'
 
 const stories = storiesOf('Pages', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
+
+const TabContainer = styled.div`
+  height: 100%;
+  outline: 5px solid red;
+`
 
 stories.add('default', () => {
   const codeString = `def myfunc():
@@ -16,13 +22,18 @@ stories.add('default', () => {
 
   `
 
-  const peer1 = <SyntaxHighlight editable codeString={codeString} />
+  const annotations = {
+    1: 'Use better variable name',
+    3: 'Magic number'
+  }
 
-  return (
-    <>
-      <Header title={'CSCA20'} userName={'Kenny'} />
-      <PeerTabs contents={[peer1, 'Peer 2', 'Peer 3']} />
-
+  const peer1 = (
+    <TabContainer>
+      <SyntaxHighlight
+        editable
+        annotations={annotations}
+        codeString={codeString}
+      />
       <FeedbackDrawer
         editable
         questions={[
@@ -34,6 +45,13 @@ stories.add('default', () => {
           'I think so. An alternative (equally efficient) way would be to xxx.'
         ]}
       />
+    </TabContainer>
+  )
+
+  return (
+    <>
+      <Header title={'CSCA20'} userName={'Kenny'} />
+      <PeerTabs contents={[peer1, 'Peer 2', 'Peer 3']} />
     </>
   )
 })

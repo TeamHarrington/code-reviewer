@@ -24,8 +24,8 @@ stories.add('default', () => {
   )
 
   const annotations = {
-    1: { annotation: 'good variable name' },
-    5: { annotation: 'hard-coded value' }
+    1: 'good variable name',
+    5: 'hard-coded value'
   }
 
   return (
