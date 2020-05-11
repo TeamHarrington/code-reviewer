@@ -170,7 +170,10 @@ export const AnnotationDrawer = ({
   const children = <Annotation lineNum={lineNum} content={content} />
 
   return (
-    <BottomDrawer title={'Annotation'} actionButton={closeButton}>
+    <BottomDrawer
+      title={'Annotation'}
+      actionButton={closeButton}
+      fixedHeight={'300px'}>
       {children}
     </BottomDrawer>
   )
