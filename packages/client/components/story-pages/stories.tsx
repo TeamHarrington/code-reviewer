@@ -1,9 +1,8 @@
 import { storiesOf } from '@storybook/react'
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
+import { withKnobs } from '@storybook/addon-knobs'
 import { SyntaxHighlight } from '../syntax-highlight'
 import { Header } from '../header'
 import { PeerTabs } from '../peer-tabs'
-import { FeedbackDrawer } from '../bottom-drawer'
 import styled from 'styled-components'
 
 const stories = storiesOf('Pages', module)

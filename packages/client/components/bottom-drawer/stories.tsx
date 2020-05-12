@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import { BottomDrawer, FeedbackDrawer, AnnotationDrawer } from '.'
-import { withKnobs, boolean, text, number } from '@storybook/addon-knobs'
+import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { Button } from '@material-ui/core'
 
