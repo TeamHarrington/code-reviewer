@@ -27,7 +27,7 @@ export const TextQuestionAnswer = ({
 
   return (
     <Container>
-      <Typography>{`${index}. ${question}`}</Typography>
+      <Typography>{`${index + 1}. ${question}`}</Typography>
       {editable && (
         <TextField
           onChange={handleOnChange}

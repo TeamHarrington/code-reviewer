@@ -113,7 +113,6 @@ export const SyntaxHighlight = ({
   return (
     <>
       <SyntaxHighlighter
-        editable={editable}
         style={colorTheme}
         wrapLines
         language={language}

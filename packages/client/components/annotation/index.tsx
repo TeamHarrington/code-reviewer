@@ -35,6 +35,8 @@ export const Annotation = ({
         <TextField
           onChange={handleOnChange}
           fullWidth
+          multiline
+          rowsMax={7}
           variant="outlined"
           defaultValue={content}
         />
