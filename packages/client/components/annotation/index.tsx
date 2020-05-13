@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, TextField } from '@material-ui/core'
+import { Typography, TextField, Button } from '@material-ui/core'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -28,6 +28,15 @@ export const Annotation = ({
     onChange(event.target.value)
   }
 
+  const saveButton = (
+    <Button
+      onClick={() => console.log('clicked')}
+      disabled={false}
+      color={'primary'}>
+      Save
+    </Button>
+  )
+
   return (
     <Container>
       <LineNumber>{`Line ${lineNum}`}</LineNumber>
@@ -42,6 +51,7 @@ export const Annotation = ({
         />
       )}
       {!editable && <Typography>{content}</Typography>}
+      {saveButton}
     </Container>
   )
 }
