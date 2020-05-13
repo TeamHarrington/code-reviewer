@@ -9,8 +9,14 @@ const Container = styled(Grid)`
   margin-bottom: 16px;
 `
 
+const HelpfulnessContainer = styled(Grid)`
+  margin-top: 16px;
+  font-size: 20px;
+`
+
 const StarContainer = styled(Grid)`
-  margin-top: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   width: 140px;
 `
 
@@ -43,9 +49,9 @@ export const Rating = () => {
       </Typography>
 
       {/* helpfulness */}
-      <Grid container justify="center">
+      <HelpfulnessContainer container justify="center">
         {messages[rating]}
-      </Grid>
+      </HelpfulnessContainer>
 
       {/* stars */}
       <StarContainer container justify="center">
