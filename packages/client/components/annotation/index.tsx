@@ -51,7 +51,7 @@ export const Annotation = ({
         />
       )}
       {!editable && <Typography>{content}</Typography>}
-      {saveButton}
+      {editable && saveButton}
     </Container>
   )
 }

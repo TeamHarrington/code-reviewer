@@ -9,6 +9,10 @@ import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
 import { FeedbackDrawer, AnnotationDrawer } from '../bottom-drawer'
 
+const Container = styled.div`
+  min-height: 80vh;
+`
+
 const RowContainer = styled.div`
   display: flex;
   font-size: 20px;
@@ -111,7 +115,7 @@ export const SyntaxHighlight = ({
   }
 
   return (
-    <>
+    <Container>
       <SyntaxHighlighter
         style={colorTheme}
         wrapLines
@@ -148,6 +152,6 @@ export const SyntaxHighlight = ({
           content={annotations[selectedLineNum]}
         />
       )}
-    </>
+    </Container>
   )
 }

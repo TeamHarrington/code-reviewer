@@ -9,10 +9,7 @@ const stories = storiesOf('Pages', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
-// TODO: use height: 100% in a better place
-const TabContainer = styled.div`
-  height: 600px;
-`
+const TabContainer = styled.div``
 
 stories.add('default', () => {
   const codeString = `def myfunc():
