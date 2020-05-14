@@ -50,7 +50,7 @@ const LogoContainer = styled.div`
 const Title = styled.div`
   font-size: 16px;
   position: absolute;
-  margin-left: 43%;
+  margin-left: 38%;
 `
 
 const UserContainer = styled.div`

@@ -1,5 +1,4 @@
 import React from 'react'
-import SwipeableViews from 'react-swipeable-views'
 import { Tabs, Tab } from '@material-ui/core'
 import styled from 'styled-components'
 
@@ -69,18 +68,11 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
       </TabsContainer>
 
       {/* content of each tab */}
-      <SwipeableViews
-        index={selectedTabIndex}
-        onChangeIndex={handleChangeIndex}>
-        {contents.map((content, index) => (
-          <TabPanel
-            selectedTabIndex={selectedTabIndex}
-            index={index}
-            key={index}>
-            {content}
-          </TabPanel>
-        ))}
-      </SwipeableViews>
+      {contents.map((content, index) => (
+        <TabPanel selectedTabIndex={selectedTabIndex} index={index} key={index}>
+          {content}
+        </TabPanel>
+      ))}
     </Container>
   )
 }
