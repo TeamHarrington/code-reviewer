@@ -42,10 +42,6 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
     setSelectedTabIndex(newValue)
   }
 
-  const handleChangeIndex = (index: number) => {
-    setSelectedTabIndex(index)
-  }
-
   return (
     <Container>
       <TabsContainer>

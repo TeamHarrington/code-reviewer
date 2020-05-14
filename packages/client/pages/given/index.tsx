@@ -9,9 +9,32 @@ const CodePage = () => {
   const codeString = `def myfunc():
   result = ["str", True, 1, []]
   return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   `
 
   const peer1 = <SyntaxHighlight editable codeString={codeString} />
+  const peer2 = <SyntaxHighlight codeString={codeString} />
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />
