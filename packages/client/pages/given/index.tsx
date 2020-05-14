@@ -38,7 +38,7 @@ const CodePage = () => {
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />
-      <PeerTabs contents={[peer1, 'Peer 2', 'Peer 3']} />
+      <PeerTabs contents={[peer1, peer2, 'Peer 3']} />
     </PageContainer>
   )
 }
