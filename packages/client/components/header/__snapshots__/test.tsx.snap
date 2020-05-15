@@ -2,7 +2,7 @@
 
 exports[`Header Component 1`] = `
 <div
-  className="header__Container-sc-1vegvik-0 euKBkx"
+  className="header__Container-sc-1vegvik-0 gHuXxp"
 >
   <a
     href="app url, TBD"
@@ -52,7 +52,7 @@ exports[`Header Component 1`] = `
     </div>
   </a>
   <div
-    className="header__Title-sc-1vegvik-4 gAosiJ"
+    className="header__Title-sc-1vegvik-4 iPhvBd"
   >
     
   </div>

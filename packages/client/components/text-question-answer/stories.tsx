@@ -17,43 +17,16 @@ stories.add('non-editable Q/A from single user', () => {
         question={
           'Did the author use meaningful and descriptive variable names?'
         }
-        answers={[
+        answer={
           'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
-        ]}
-      />
-      <TextQuestionAnswer
-        index={2}
-        question={'Is the algorithm in function xxx efficient?'}
-        answers={[
-          'I think so. An alternative (equally efficient) way would be to xxx.'
-        ]}
-      />
-    </StoryContainer>
-  )
-})
-
-stories.add('non-editable Q/A from multiple users', () => {
-  return (
-    <StoryContainer>
-      <TextQuestionAnswer
-        index={1}
-        question={
-          'Did the author use meaningful and descriptive variable names?'
         }
-        answers={[
-          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.',
-          '',
-          'No'
-        ]}
       />
       <TextQuestionAnswer
         index={2}
         question={'Is the algorithm in function xxx efficient?'}
-        answers={[
-          'I think so. An alternative (equally efficient) way would be to xxx.',
-          '',
-          ''
-        ]}
+        answer={
+          'I think so. An alternative (equally efficient) way would be to xxx.'
+        }
       />
     </StoryContainer>
   )
@@ -68,23 +41,21 @@ stories.add('editable', () => {
         question={
           'Did the author use meaningful and descriptive variable names?'
         }
-        answers={[
-          text(
-            'answer 1',
-            'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
-          )
-        ]}
+        answer={text(
+          'answer 1',
+          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
+        )}
+        onChange={value => console.log(value)}
       />
       <TextQuestionAnswer
         editable
         index={2}
         question={'Is the algorithm in function xxx efficient?'}
-        answers={[
-          text(
-            'answer 2',
-            'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
-          )
-        ]}
+        answer={text(
+          'answer 2',
+          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.'
+        )}
+        onChange={value => console.log(value)}
       />
     </StoryContainer>
   )

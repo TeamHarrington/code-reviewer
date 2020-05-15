@@ -20,6 +20,8 @@ const Container = styled.div`
   justify-content: space-between;
   margin-bottom: 4px;
   box-sizing: border-box;
+  padding-left: 8px;
+  padding-right: 16px;
 `
 
 const UserNameContainer = styled.div`
@@ -48,7 +50,7 @@ const LogoContainer = styled.div`
 const Title = styled.div`
   font-size: 16px;
   position: absolute;
-  margin-left: 43%;
+  margin-left: 38%;
 `
 
 const UserContainer = styled.div`

@@ -6,51 +6,38 @@ const Container = styled(Grid)`
   padding: 8px;
 `
 
-const AnswerField = styled(TextField)`
-  width: 100%;
-`
-
-interface SingleAnswerProps {
-  editable: boolean
-  answer: string
-  from: string
-}
-
-const SingleAnswer = ({ editable, answer, from }: SingleAnswerProps) => {
-  if (editable) {
-    return <AnswerField multiline variant="outlined" value={answer} />
-  }
-  const author = from ? `${from}: ` : ''
-  return <Typography>{`${author}${answer || '[No response]'}`}</Typography>
-}
-
-export interface QuestionAnswerProps {
+export interface TextQuestionAnswerProps {
   index: number // index of this question
   question: string
-  answers: string[]
+  answer?: string
   editable?: boolean
+  onChange?: (answer: string, i: number) => void
 }
 
-// editable = true implies there can be at most one answer
-// because users can only VIEW feedbacks from peers and
-// they can only edit their own answer
 export const TextQuestionAnswer = ({
   index,
   question,
-  answers,
-  editable = false
-}: QuestionAnswerProps) => {
+  answer = '',
+  editable = false,
+  onChange = () => null
+}: TextQuestionAnswerProps) => {
+  const handleOnChange = (event: any) => {
+    onChange(event.target.value, index)
+  }
+
   return (
     <Container>
-      <Typography>{`${index}. ${question}`}</Typography>
-      {answers.map((answer, i) => (
-        <SingleAnswer
-          key={i}
-          editable={editable}
-          answer={answer}
-          from={answers.length > 1 ? `Peer ${i + 1}` : ''}
+      <Typography>{`${index + 1}. ${question}`}</Typography>
+      {editable && (
+        <TextField
+          onChange={handleOnChange}
+          fullWidth
+          multiline
+          variant="outlined"
+          defaultValue={answer}
         />
-      ))}
+      )}
+      {!editable && <Typography>{answer || '[No response]'}</Typography>}
     </Container>
   )
 }

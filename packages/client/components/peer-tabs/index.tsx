@@ -1,12 +1,10 @@
 import React from 'react'
-import SwipeableViews from 'react-swipeable-views'
-import { Tabs, Tab, Typography } from '@material-ui/core'
+import { Tabs, Tab } from '@material-ui/core'
 import styled from 'styled-components'
 
 const Container = styled.div`
   width: 100%;
   position: relative;
-  min-height: 200px;
 `
 
 const TabsContainer = styled.div`
@@ -23,13 +21,13 @@ const TabPanel = (props: TabPanelProps) => {
   const { children, selectedTabIndex, index } = props
 
   return (
-    <Typography
+    <div
       role="tabpanel"
       hidden={selectedTabIndex !== index}
       id={`action-tabpanel-${index}`}
       aria-labelledby={`action-tab-${index}`}>
       {children}
-    </Typography>
+    </div>
   )
 }
 
@@ -44,13 +42,10 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
     setSelectedTabIndex(newValue)
   }
 
-  const handleChangeIndex = (index: number) => {
-    setSelectedTabIndex(index)
-  }
-
   return (
     <Container>
       <TabsContainer>
+        {/* headers of each tab */}
         <Tabs
           value={selectedTabIndex}
           onChange={handleChange}
@@ -65,31 +60,15 @@ export const PeerTabs = ({ contents = [] }: PeerTabsProps) => {
               aria-controls={`action-tabpanel-${index}`}
             />
           ))}
-          <Tab
-            label="All"
-            id={`action-tab-${contents.length}`}
-            aria-controls={`action-tabpanel-${contents.length}`}
-          />
         </Tabs>
       </TabsContainer>
-      <SwipeableViews
-        index={selectedTabIndex}
-        onChangeIndex={handleChangeIndex}>
-        {/* individual student tab */}
-        {contents.map((content, index) => (
-          <TabPanel
-            selectedTabIndex={selectedTabIndex}
-            index={index}
-            key={index}>
-            {content}
-          </TabPanel>
-        ))}
 
-        {/* summary tab */}
-        <TabPanel selectedTabIndex={selectedTabIndex} index={contents.length}>
-          All
+      {/* content of each tab */}
+      {contents.map((content, index) => (
+        <TabPanel selectedTabIndex={selectedTabIndex} index={index} key={index}>
+          {content}
         </TabPanel>
-      </SwipeableViews>
+      ))}
     </Container>
   )
 }

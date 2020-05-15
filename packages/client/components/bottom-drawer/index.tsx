@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
+import { Button } from '@material-ui/core'
+import { TextQuestionAnswer } from '../text-question-answer'
+import CloseIcon from '@material-ui/icons/Close'
+import { Annotation } from '../annotation'
+import { Rating } from '../rating'
 
 const Container = styled.div<{ drawerHeight: string }>`
   height: ${props => props.drawerHeight};
@@ -92,5 +97,84 @@ export const BottomDrawer = ({
         <ChildContent>{children}</ChildContent>
       </Grid>
     </Container>
+  )
+}
+
+export interface FeedbackDrawerProps {
+  editable?: boolean
+  onSaveClick?: () => void
+  questions: string[]
+  answers: string[]
+}
+
+export const FeedbackDrawer = ({
+  onSaveClick = () => null,
+  questions,
+  answers,
+  editable
+}: FeedbackDrawerProps) => {
+  const [newAnswers, setNewAnswers] = useState([...answers])
+  const [isDirty, setIsDirty] = useState(false)
+
+  const saveButton = (
+    <Button
+      onClick={onSaveClick}
+      disabled={!isDirty}
+      color={isDirty ? 'primary' : 'default'}>
+      Save
+    </Button>
+  )
+
+  const setAnswer = (answer: string, i: number) => {
+    newAnswers[i] = answer
+    setNewAnswers(newAnswers)
+    setIsDirty(true)
+  }
+
+  const children = newAnswers.map((answer, i) => (
+    <TextQuestionAnswer
+      key={i}
+      question={questions[i]}
+      answer={answer}
+      editable={editable}
+      index={i}
+      onChange={setAnswer}
+    />
+  ))
+
+  return (
+    <BottomDrawer title={'Questions'} actionButton={saveButton}>
+      {children}
+      <Rating />
+    </BottomDrawer>
+  )
+}
+
+export interface AnnotationDrawerProps {
+  onCloseClick: () => void
+  lineNum: number
+  content: string
+  editable?: boolean
+}
+
+export const AnnotationDrawer = ({
+  onCloseClick,
+  lineNum,
+  content,
+  editable = false
+}: AnnotationDrawerProps) => {
+  const closeButton = (
+    <Button onClick={onCloseClick}>
+      <CloseIcon />
+    </Button>
+  )
+
+  return (
+    <BottomDrawer
+      title={'Annotation'}
+      actionButton={closeButton}
+      fixedHeight={'300px'}>
+      <Annotation editable={editable} lineNum={lineNum} content={content} />
+    </BottomDrawer>
   )
 }

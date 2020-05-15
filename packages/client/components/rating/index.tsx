@@ -4,10 +4,19 @@ import { Grid, Typography } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { Star } from '../icons'
 
-const Container = styled(Grid)``
+const Container = styled(Grid)`
+  margin-top: 16px;
+  margin-bottom: 16px;
+`
+
+const HelpfulnessContainer = styled(Grid)`
+  margin-top: 16px;
+  font-size: 20px;
+`
 
 const StarContainer = styled(Grid)`
-  margin-top: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   width: 140px;
 `
 
@@ -29,20 +38,20 @@ export const Rating = () => {
 
   return (
     <Container container direction="column">
-      <Typography paragraph>
+      <Typography paragraph component="div">
         <Box fontWeight={300}>Reflection</Box>
       </Typography>
 
-      <Typography>
+      <Typography component="div">
         <Box fontWeight={500}>
           How would you rate the feedback from this peer?
         </Box>
       </Typography>
 
       {/* helpfulness */}
-      <Grid container justify="center">
+      <HelpfulnessContainer container justify="center">
         {messages[rating]}
-      </Grid>
+      </HelpfulnessContainer>
 
       {/* stars */}
       <StarContainer container justify="center">

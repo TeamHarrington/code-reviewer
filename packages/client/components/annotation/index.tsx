@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Typography, TextField, Button } from '@material-ui/core'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -11,21 +11,47 @@ const LineNumber = styled(Typography)`
   font-style: italic;
 `
 
-export interface AnnotationsProp {
-  lineNum: Number
-  annotations: { from?: String; content: String }[]
+export interface AnnotationProp {
+  lineNum: number
+  content?: string
+  editable?: boolean
+  onChange?: (content: string) => void
 }
 
-export const Annotations = ({ lineNum, annotations }: AnnotationsProp) => {
+export const Annotation = ({
+  lineNum,
+  content = '',
+  editable = false,
+  onChange = () => null
+}: AnnotationProp) => {
+  const handleOnChange = (event: any) => {
+    onChange(event.target.value)
+  }
+
+  const saveButton = (
+    <Button
+      onClick={() => console.log('clicked')}
+      disabled={false}
+      color={'primary'}>
+      Save
+    </Button>
+  )
+
   return (
     <Container>
       <LineNumber>{`Line ${lineNum}`}</LineNumber>
-      <Grid>
-        {annotations.map(({ content, from }, index) => {
-          const author = from ? `${from}: ` : ''
-          return <Typography key={index}>{`${author}${content}`}</Typography>
-        })}
-      </Grid>
+      {editable && (
+        <TextField
+          onChange={handleOnChange}
+          fullWidth
+          multiline
+          rowsMax={7}
+          variant="outlined"
+          defaultValue={content}
+        />
+      )}
+      {!editable && <Typography>{content}</Typography>}
+      {editable && saveButton}
     </Container>
   )
 }

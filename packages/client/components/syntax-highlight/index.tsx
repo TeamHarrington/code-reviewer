@@ -7,6 +7,11 @@ import createElement, {
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
+import { FeedbackDrawer, AnnotationDrawer } from '../bottom-drawer'
+
+const Container = styled.div`
+  min-height: 80vh;
+`
 
 const RowContainer = styled.div`
   display: flex;
@@ -16,7 +21,7 @@ const RowContainer = styled.div`
 const IconContainer = styled.div`
   display: inline-block;
   height: 24px;
-  width: 24px;
+  min-width: 24px;
   color: white;
   box-sizing: border-box;
 `
@@ -25,6 +30,7 @@ const LineNumberContainer = styled.span`
   margin-left: 8px;
   margin-right: 12px;
   user-select: none;
+  min-width: 32px;
 `
 
 interface RowProps {
@@ -109,20 +115,43 @@ export const SyntaxHighlight = ({
   }
 
   return (
-    <SyntaxHighlighter
-      style={colorTheme}
-      wrapLines
-      language={language}
-      renderer={renderRow({})}
-      lineProps={(lineNumber: number) => {
-        const style: any = {}
-        if (annotations[lineNumber]) {
-          style['backgroundColor'] =
-            colorTheme['hljs-addition'].backgroundColor || 'yellow'
-        }
-        return { style } as React.DOMAttributes<HTMLElement>
-      }}>
-      {codeString}
-    </SyntaxHighlighter>
+    <Container>
+      <SyntaxHighlighter
+        style={colorTheme}
+        wrapLines
+        language={language}
+        renderer={renderRow({})}
+        lineProps={(lineNumber: number) => {
+          const style: any = {}
+          if (annotations[lineNumber]) {
+            style['backgroundColor'] =
+              colorTheme['hljs-addition'].backgroundColor || 'yellow'
+          }
+          return { style } as React.DOMAttributes<HTMLElement>
+        }}>
+        {codeString}
+      </SyntaxHighlighter>
+
+      <FeedbackDrawer
+        editable={editable}
+        questions={[
+          'Did the author use meaningful and descriptive variable names?',
+          'Is the algorithm in function xxx efficient?'
+        ]}
+        answers={[
+          'Mostly yes, except for a few places the author used “xxx”. I think “yyy” would be more clear.',
+          'I think so. An alternative (equally efficient) way would be to xxx.'
+        ]}
+      />
+
+      {selectedLineNum >= 0 && (
+        <AnnotationDrawer
+          editable={editable}
+          onCloseClick={() => setSelectedLineNum(-1)}
+          lineNum={selectedLineNum}
+          content={annotations[selectedLineNum]}
+        />
+      )}
+    </Container>
   )
 }

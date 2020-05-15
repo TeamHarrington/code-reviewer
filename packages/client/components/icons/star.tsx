@@ -21,8 +21,8 @@ interface StarProps {
 export const Star = ({ index, rating, onClick }: StarProps) => {
   const onStarClick = () => onClick(index)
   return rating > index ? (
-    <BlueStar onClick={onStarClick} />
+    <BlueStar fontSize="large" onClick={onStarClick} />
   ) : (
-    <EmptyStar onClick={onStarClick} />
+    <EmptyStar fontSize="large" onClick={onStarClick} />
   )
 }
