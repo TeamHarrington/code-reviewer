@@ -1,15 +1,11 @@
 import App, { AppContext } from 'next/app'
 import withApollo from '@code-reviewer/client/lib/withApollo'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { createMuiTheme } from '@material-ui/core'
 import { ThemeProvider } from 'styled-components'
 
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: 'Roboto',
-    fontSize: 16
-  }
-})
+const theme = {
+  breakpoints: [640, 960]
+}
 
 class MyApp extends App<AppContext> {
   public render() {
