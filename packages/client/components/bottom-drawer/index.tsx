@@ -5,9 +5,9 @@ import { useSwipeable } from 'react-swipeable'
 import { Button } from '@material-ui/core'
 import { TextQuestionAnswer } from '../text-question-answer'
 import { Rating } from '../rating'
+import units from 'design-units'
 
 const Container = styled.div<{ drawerHeight: string }>`
-  height: ${props => props.drawerHeight};
   background-color: white;
   border-radius: 20px 20px 0px 0px;
   padding-top: 6px;
@@ -18,6 +18,11 @@ const Container = styled.div<{ drawerHeight: string }>`
   position: fixed;
   bottom: 0px;
   width: 100%;
+  ${({ drawerHeight }) =>
+    units({
+      height: drawerHeight,
+      display: ['block', 'none']
+    })}
 `
 
 const ExtendButton = styled.div`

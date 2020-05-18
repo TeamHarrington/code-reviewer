@@ -3,6 +3,7 @@ import { Typography, TextField, Button } from '@material-ui/core'
 import styled from 'styled-components'
 import CloseIcon from '@material-ui/icons/Close'
 import { BottomDrawer } from '../bottom-drawer'
+import { SideDrawer } from '../side-draer'
 
 const Container = styled.div`
   padding-top: 8px;
@@ -106,12 +107,23 @@ export const AnnotationDrawer = ({
     </Button>
   )
 
+  const annotation = (
+    <Annotation editable={editable} lineNum={lineNum} content={content} />
+  )
+
+  const title = 'Annotation'
+
   return (
-    <BottomDrawer
-      title={'Annotation'}
-      actionButton={closeButton}
-      fixedHeight={'300px'}>
-      <Annotation editable={editable} lineNum={lineNum} content={content} />
-    </BottomDrawer>
+    <>
+      <BottomDrawer
+        title={title}
+        actionButton={closeButton}
+        fixedHeight={'300px'}>
+        {annotation}
+      </BottomDrawer>
+      <SideDrawer title={title} actionButton={closeButton}>
+        {annotation}
+      </SideDrawer>
+    </>
   )
 }

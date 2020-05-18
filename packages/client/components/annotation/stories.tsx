@@ -32,7 +32,7 @@ stories.add('default', () => {
   )
 })
 
-stories.add('with mobile drawer', () => {
+stories.add('with drawer', () => {
   return (
     <MobileStoryContainer>
       <AnnotationDrawer

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Grid, Button } from '@material-ui/core'
+import React from 'react'
+import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
-import CloseIcon from '@material-ui/icons/Close'
+import units from 'design-units'
 
 const Container = styled.div<{ drawerWidth: string }>`
   height: 100%;
@@ -13,7 +13,11 @@ const Container = styled.div<{ drawerWidth: string }>`
   transition: width 0.3s;
   position: fixed;
   right: 0px;
-  width: ${props => props.drawerWidth};
+  ${({ drawerWidth }) =>
+    units({
+      width: drawerWidth,
+      display: ['none', 'block']
+    })}
 `
 
 const ChildContent = styled.div`
@@ -25,23 +29,22 @@ const ChildContent = styled.div`
 export interface SideDrawerProps {
   title: string
   children: React.ReactNode
+  actionButton: React.ReactNode
 }
 
-export const SideDrawer = ({ title, children }: SideDrawerProps) => {
-  const [drawerWidth, setDrawerWidth] = useState('320px')
-
-  const closeButton = (
-    <Button onClick={() => setDrawerWidth('0px')}>
-      <CloseIcon />
-    </Button>
-  )
+export const SideDrawer = ({
+  title,
+  children,
+  actionButton
+}: SideDrawerProps) => {
+  // const [drawerWidth, setDrawerWidth] = useState('320px')
 
   return (
-    <Container drawerWidth={drawerWidth}>
+    <Container drawerWidth={'320px'}>
       <Grid>
         <Grid container justify="space-between" alignItems="center">
           {title}
-          {closeButton}
+          {actionButton}
         </Grid>
         <ChildContent>{children}</ChildContent>
       </Grid>
