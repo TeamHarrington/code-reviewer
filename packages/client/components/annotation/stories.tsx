@@ -11,7 +11,7 @@ const StoryContainer = styled.div`
   max-width: 1000px;
 `
 
-const MobileStoryContainer = styled.div`
+const DrawerStoryContainer = styled.div`
   background-color: #ddd;
   position: fixed;
   top: 0px;
@@ -34,12 +34,12 @@ stories.add('default', () => {
 
 stories.add('with drawer', () => {
   return (
-    <MobileStoryContainer>
+    <DrawerStoryContainer>
       <AnnotationDrawer
         onCloseClick={() => console.log('clicked')}
         lineNum={1}
         content={'Magic number'}
       />
-    </MobileStoryContainer>
+    </DrawerStoryContainer>
   )
 })
