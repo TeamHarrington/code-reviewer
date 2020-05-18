@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import { useSwipeable } from 'react-swipeable'
 import { Button } from '@material-ui/core'
 import { TextQuestionAnswer } from '../text-question-answer'
-import CloseIcon from '@material-ui/icons/Close'
-import { Annotation } from '../annotation'
 import { Rating } from '../rating'
 
 const Container = styled.div<{ drawerHeight: string }>`
@@ -146,35 +144,6 @@ export const FeedbackDrawer = ({
     <BottomDrawer title={'Questions'} actionButton={saveButton}>
       {children}
       <Rating />
-    </BottomDrawer>
-  )
-}
-
-export interface AnnotationDrawerProps {
-  onCloseClick: () => void
-  lineNum: number
-  content: string
-  editable?: boolean
-}
-
-export const AnnotationDrawer = ({
-  onCloseClick,
-  lineNum,
-  content,
-  editable = false
-}: AnnotationDrawerProps) => {
-  const closeButton = (
-    <Button onClick={onCloseClick}>
-      <CloseIcon />
-    </Button>
-  )
-
-  return (
-    <BottomDrawer
-      title={'Annotation'}
-      actionButton={closeButton}
-      fixedHeight={'300px'}>
-      <Annotation editable={editable} lineNum={lineNum} content={content} />
     </BottomDrawer>
   )
 }

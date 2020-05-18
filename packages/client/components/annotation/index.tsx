@@ -1,6 +1,8 @@
 import React from 'react'
 import { Typography, TextField, Button } from '@material-ui/core'
 import styled from 'styled-components'
+import CloseIcon from '@material-ui/icons/Close'
+import { BottomDrawer } from '../bottom-drawer'
 
 const Container = styled.div`
   padding-top: 8px;
@@ -82,5 +84,34 @@ export const Annotation = ({
         {editable && saveButton}
       </ButtonsContainer>
     </Container>
+  )
+}
+
+export interface AnnotationDrawerProps {
+  onCloseClick: () => void
+  lineNum: number
+  content: string
+  editable?: boolean
+}
+
+export const AnnotationDrawer = ({
+  onCloseClick,
+  lineNum,
+  content,
+  editable = false
+}: AnnotationDrawerProps) => {
+  const closeButton = (
+    <Button onClick={onCloseClick}>
+      <CloseIcon />
+    </Button>
+  )
+
+  return (
+    <BottomDrawer
+      title={'Annotation'}
+      actionButton={closeButton}
+      fixedHeight={'300px'}>
+      <Annotation editable={editable} lineNum={lineNum} content={content} />
+    </BottomDrawer>
   )
 }

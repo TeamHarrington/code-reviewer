@@ -7,7 +7,8 @@ import createElement, {
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
-import { FeedbackDrawer, AnnotationDrawer } from '../bottom-drawer'
+import { FeedbackDrawer } from '../bottom-drawer'
+import { AnnotationDrawer } from '../annotation'
 
 const Container = styled.div`
   min-height: 80vh;
