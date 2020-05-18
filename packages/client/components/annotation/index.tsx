@@ -11,6 +11,22 @@ const LineNumber = styled(Typography)`
   font-style: italic;
 `
 
+const ButtonsContainer = styled.div`
+  margin-top: 16px;
+  width: 176px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+`
+
+const StyledButton = styled(Button)`
+  width: 80px;
+`
+
+const DeleteText = styled.div`
+  color: #565656;
+`
+
 export interface AnnotationProp {
   lineNum: number
   content?: string
@@ -29,22 +45,22 @@ export const Annotation = ({
   }
 
   const saveButton = (
-    <Button
+    <StyledButton
       onClick={() => console.log('clicked')}
       variant="contained"
       disabled={false}
       color={'primary'}>
       Save
-    </Button>
+    </StyledButton>
   )
 
   const deleteButton = (
-    <Button
+    <StyledButton
       onClick={() => console.log('deleted')}
       variant="outlined"
       disabled={false}>
-      Delete
-    </Button>
+      <DeleteText>Delete</DeleteText>
+    </StyledButton>
   )
 
   return (
@@ -61,8 +77,10 @@ export const Annotation = ({
         />
       )}
       {!editable && <Typography>{content}</Typography>}
-      {editable && saveButton}
-      {editable && deleteButton}
+      <ButtonsContainer>
+        {editable && deleteButton}
+        {editable && saveButton}
+      </ButtonsContainer>
     </Container>
   )
 }

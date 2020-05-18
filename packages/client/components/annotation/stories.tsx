@@ -7,7 +7,9 @@ const stories = storiesOf('Annotation', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
-const StoryContainer = styled.div``
+const StoryContainer = styled.div`
+  max-width: 1000px;
+`
 
 stories.add('default', () => {
   return (
@@ -15,7 +17,7 @@ stories.add('default', () => {
       <Annotation
         lineNum={number('line number', 7)}
         content={text('content', 'Bad variable name')}
-        editable={boolean('editable', false)}
+        editable={boolean('editable', true)}
       />
     </StoryContainer>
   )
