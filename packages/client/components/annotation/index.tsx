@@ -31,9 +31,19 @@ export const Annotation = ({
   const saveButton = (
     <Button
       onClick={() => console.log('clicked')}
+      variant="contained"
       disabled={false}
       color={'primary'}>
       Save
+    </Button>
+  )
+
+  const deleteButton = (
+    <Button
+      onClick={() => console.log('deleted')}
+      variant="outlined"
+      disabled={false}>
+      Delete
     </Button>
   )
 
@@ -52,6 +62,7 @@ export const Annotation = ({
       )}
       {!editable && <Typography>{content}</Typography>}
       {editable && saveButton}
+      {editable && deleteButton}
     </Container>
   )
 }

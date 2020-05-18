@@ -2,10 +2,22 @@ import App, { AppContext } from 'next/app'
 import withApollo from '@code-reviewer/client/lib/withApollo'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { ThemeProvider } from 'styled-components'
+import {
+  ThemeProvider as MuiThemeProvider,
+  createMuiTheme
+} from '@material-ui/core/styles'
 
 const theme = {
   breakpoints: [640, 960]
 }
+
+const muiTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#004dca'
+    }
+  }
+})
 
 class MyApp extends App<AppContext> {
   public render() {
@@ -14,7 +26,9 @@ class MyApp extends App<AppContext> {
     return (
       <ApolloProvider client={apollo}>
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <MuiThemeProvider theme={muiTheme}>
+            <Component {...pageProps} />
+          </MuiThemeProvider>
         </ThemeProvider>
       </ApolloProvider>
     )
