@@ -7,11 +7,11 @@ import {
   createMuiTheme
 } from '@material-ui/core/styles'
 
-const theme = {
+export const theme = {
   breakpoints: [640, 960]
 }
 
-const muiTheme = createMuiTheme({
+export const muiTheme = createMuiTheme({
   palette: {
     primary: {
       main: '#004dca'
