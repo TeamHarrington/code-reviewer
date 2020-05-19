@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { MobileDrawer } from '../bottom-drawer'
+import { MobileDrawer, BottomDrawer } from '../drawers'
 import { Button } from '@material-ui/core'
 import { TextQuestionAnswer } from '../text-question-answer'
 import { Rating } from '../rating'
-import units from 'design-units'
 
 export interface FeedbackDrawerProps {
   editable?: boolean
@@ -37,21 +35,30 @@ export const FeedbackDrawer = ({
     setIsDirty(true)
   }
 
-  const children = newAnswers.map((answer, i) => (
-    <TextQuestionAnswer
-      key={i}
-      question={questions[i]}
-      answer={answer}
-      editable={editable}
-      index={i}
-      onChange={setAnswer}
-    />
-  ))
+  const children = (
+    <>
+      {newAnswers.map((answer, i) => (
+        <TextQuestionAnswer
+          key={i}
+          question={questions[i]}
+          answer={answer}
+          editable={editable}
+          index={i}
+          onChange={setAnswer}
+        />
+      ))}
+      <Rating />
+    </>
+  )
+
+  const title = 'Questions'
 
   return (
-    <BottomDrawer title={'Questions'} actionButton={saveButton}>
-      {children}
-      <Rating />
-    </BottomDrawer>
+    <>
+      <MobileDrawer title={title} actionButton={saveButton}>
+        {children}
+      </MobileDrawer>
+      <BottomDrawer title={title}>{children}</BottomDrawer>
+    </>
   )
 }

@@ -4,7 +4,7 @@ import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { Button } from '@material-ui/core'
 
-const stories = storiesOf('Bottom Drawer', module)
+const stories = storiesOf('Feedback', module)
 
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
