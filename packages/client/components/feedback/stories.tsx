@@ -1,8 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import { FeedbackDrawer } from '.'
-import { withKnobs, boolean, text } from '@storybook/addon-knobs'
+import { withKnobs, boolean } from '@storybook/addon-knobs'
 import styled from 'styled-components'
-import { Button } from '@material-ui/core'
 
 const stories = storiesOf('Feedback', module)
 
