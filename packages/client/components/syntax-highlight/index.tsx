@@ -7,7 +7,7 @@ import createElement, {
 import styled from 'styled-components'
 import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
-import { FeedbackDrawer } from '../bottom-drawer'
+import { FeedbackDrawer } from '../feedback'
 import { AnnotationDrawer } from '../annotation'
 
 const Container = styled.div`

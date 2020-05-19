@@ -2,8 +2,7 @@ import React from 'react'
 import { Typography, TextField, Button } from '@material-ui/core'
 import styled from 'styled-components'
 import CloseIcon from '@material-ui/icons/Close'
-import { BottomDrawer } from '../bottom-drawer'
-import { SideDrawer } from '../side-draer'
+import { MobileDrawer, SideDrawer } from '../drawers'
 
 const Container = styled.div`
   padding-top: 8px;
@@ -115,12 +114,12 @@ export const AnnotationDrawer = ({
 
   return (
     <>
-      <BottomDrawer
+      <MobileDrawer
         title={title}
         actionButton={closeButton}
         fixedHeight={'300px'}>
         {annotation}
-      </BottomDrawer>
+      </MobileDrawer>
       <SideDrawer title={title} actionButton={closeButton}>
         {annotation}
       </SideDrawer>
