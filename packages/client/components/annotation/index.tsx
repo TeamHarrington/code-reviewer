@@ -1,6 +1,8 @@
 import React from 'react'
 import { Typography, TextField, Button } from '@material-ui/core'
 import styled from 'styled-components'
+import CloseIcon from '@material-ui/icons/Close'
+import { MobileDrawer, SideDrawer } from '../drawers'
 
 const Container = styled.div`
   padding-top: 8px;
@@ -9,6 +11,22 @@ const Container = styled.div`
 
 const LineNumber = styled(Typography)`
   font-style: italic;
+`
+
+const ButtonsContainer = styled.div`
+  margin-top: 16px;
+  width: 176px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+`
+
+const StyledButton = styled(Button)`
+  width: 80px;
+`
+
+const DeleteText = styled.div`
+  color: #565656;
 `
 
 export interface AnnotationProp {
@@ -29,12 +47,22 @@ export const Annotation = ({
   }
 
   const saveButton = (
-    <Button
+    <StyledButton
       onClick={() => console.log('clicked')}
+      variant="contained"
       disabled={false}
       color={'primary'}>
       Save
-    </Button>
+    </StyledButton>
+  )
+
+  const deleteButton = (
+    <StyledButton
+      onClick={() => console.log('deleted')}
+      variant="outlined"
+      disabled={false}>
+      <DeleteText>Delete</DeleteText>
+    </StyledButton>
   )
 
   return (
@@ -51,7 +79,50 @@ export const Annotation = ({
         />
       )}
       {!editable && <Typography>{content}</Typography>}
-      {editable && saveButton}
+      <ButtonsContainer>
+        {editable && deleteButton}
+        {editable && saveButton}
+      </ButtonsContainer>
     </Container>
+  )
+}
+
+export interface AnnotationDrawerProps {
+  onCloseClick: () => void
+  lineNum: number
+  content: string
+  editable?: boolean
+}
+
+export const AnnotationDrawer = ({
+  onCloseClick,
+  lineNum,
+  content,
+  editable = false
+}: AnnotationDrawerProps) => {
+  const closeButton = (
+    <Button onClick={onCloseClick}>
+      <CloseIcon />
+    </Button>
+  )
+
+  const annotation = (
+    <Annotation editable={editable} lineNum={lineNum} content={content} />
+  )
+
+  const title = 'Annotation'
+
+  return (
+    <>
+      <MobileDrawer
+        title={title}
+        actionButton={closeButton}
+        fixedHeight={'300px'}>
+        {annotation}
+      </MobileDrawer>
+      <SideDrawer title={title} actionButton={closeButton}>
+        {annotation}
+      </SideDrawer>
+    </>
   )
 }

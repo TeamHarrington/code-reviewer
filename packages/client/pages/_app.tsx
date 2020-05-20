@@ -1,15 +1,9 @@
 import App, { AppContext } from 'next/app'
 import withApollo from '@code-reviewer/client/lib/withApollo'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { createMuiTheme } from '@material-ui/core'
 import { ThemeProvider } from 'styled-components'
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: 'Roboto',
-    fontSize: 16
-  }
-})
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+import { theme, muiTheme } from '../styles/theme'
 
 class MyApp extends App<AppContext> {
   public render() {
@@ -18,7 +12,9 @@ class MyApp extends App<AppContext> {
     return (
       <ApolloProvider client={apollo}>
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <MuiThemeProvider theme={muiTheme}>
+            <Component {...pageProps} />
+          </MuiThemeProvider>
         </ThemeProvider>
       </ApolloProvider>
     )
