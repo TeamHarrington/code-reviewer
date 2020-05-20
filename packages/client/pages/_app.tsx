@@ -2,22 +2,8 @@ import App, { AppContext } from 'next/app'
 import withApollo from '@code-reviewer/client/lib/withApollo'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { ThemeProvider } from 'styled-components'
-import {
-  ThemeProvider as MuiThemeProvider,
-  createMuiTheme
-} from '@material-ui/core/styles'
-
-export const theme = {
-  breakpoints: [640, 960]
-}
-
-export const muiTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#004dca'
-    }
-  }
-})
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+import { theme, muiTheme } from '../styles/theme'
 
 class MyApp extends App<AppContext> {
   public render() {
