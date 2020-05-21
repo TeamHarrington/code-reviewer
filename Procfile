@@ -1,1 +1,1 @@
-web: npx http-server ./packages/client/.storybook.build -p $PORT
+web: yarn storybook:build && npx http-server ./packages/client/.storybook.build -p $PORT
