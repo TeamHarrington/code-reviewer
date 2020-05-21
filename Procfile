@@ -1,1 +1,1 @@
-web: http-server ./packages/client/.storybook.build
+web: npx http-server ./packages/client/.storybook.build
