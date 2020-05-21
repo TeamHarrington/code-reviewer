@@ -1,1 +1,1 @@
-web: yarn && yarn heroku-build && npx http-server ./packages/client/.storybook.build -p $PORT
+web: yarn && ls && yarn heroku-build && npx http-server ./packages/client/.storybook.build -p $PORT
