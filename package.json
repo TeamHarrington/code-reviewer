@@ -13,7 +13,7 @@
     "sb": "lerna run storybook --scope @code-reviewer/client --stream -- --quiet",
     "storybook": "lerna run storybook --scope @code-reviewer/client --stream -- --quiet",
     "storybook:build": "lerna run storybook:build --scope @code-reviewer/client --stream -- --quiet",
-    "heroku-build": "yarn storybook:build",
+    "heroku-build": "npx lerna run storybook:build --scope @code-reviewer/client --stream -- --quiet",
     "schema:download": "lerna run schema:download --scope @code-reviewer/client --stream",
     "codegen:generate": "lerna run codegen:generate --scope @code-reviewer/client --stream",
     "test": "lerna run test --stream",
