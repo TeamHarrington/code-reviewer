@@ -17,7 +17,7 @@
     "codegen:generate": "lerna run codegen:generate --scope @code-reviewer/client --stream",
     "test": "lerna run test --stream",
     "lint": "gulp eslint",
-    "heroku-prebuild": "rm -rf ./packages/api"
+    "heroku-postbuild": "yarn storybook:build"
   },
   "repository": {
     "type": "git",
