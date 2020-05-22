@@ -16,7 +16,8 @@
     "schema:download": "lerna run schema:download --scope @code-reviewer/client --stream",
     "codegen:generate": "lerna run codegen:generate --scope @code-reviewer/client --stream",
     "test": "lerna run test --stream",
-    "lint": "gulp eslint"
+    "lint": "gulp eslint",
+    "heroku-postbuild": "yarn storybook:build"
   },
   "repository": {
     "type": "git",
