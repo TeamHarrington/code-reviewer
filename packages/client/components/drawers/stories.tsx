@@ -31,8 +31,6 @@ stories.add('mobile drawer', () => {
 })
 
 stories.add('left drawer', () => {
-  const closeButton = <Button color="primary">Button</Button>
-
   return (
     <StoryContainer>
       <LeftDrawer>content</LeftDrawer>
