@@ -26,17 +26,17 @@ const ChildContent = styled.div`
   height: 100%;
 `
 
-export interface SideDrawerProps {
+export interface RightDrawerProps {
   title: string
   children: React.ReactNode
   actionButton: React.ReactNode
 }
 
-export const SideDrawer = ({
+export const RightDrawer = ({
   title,
   children,
   actionButton
-}: SideDrawerProps) => {
+}: RightDrawerProps) => {
   // const [drawerWidth, setDrawerWidth] = useState('320px')
 
   return (
