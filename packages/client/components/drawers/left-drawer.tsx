@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import styled from 'styled-components'
 import units from 'design-units'
-import { MiniLogo } from '../icons'
+import { Logo } from '../icons'
 
 const Container = styled.div<{ drawerWidth: string }>`
   height: 100%;
@@ -36,7 +36,7 @@ export const LeftDrawer = ({ children }: LeftDrawerProps) => {
     <Container drawerWidth={'320px'}>
       <Grid>
         <Grid container justify="space-between" alignItems="center">
-          <MiniLogo />
+          <Logo />
         </Grid>
         <ChildContent>{children}</ChildContent>
       </Grid>
