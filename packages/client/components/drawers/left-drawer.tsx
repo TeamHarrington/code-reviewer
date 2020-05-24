@@ -21,6 +21,11 @@ const Container = styled.div<{ drawerWidth: string }>`
     })}
 `
 
+const LogoContainer = styled(Grid)`
+  padding-top: 8px;
+  padding-left: 8px;
+`
+
 const ChildContent = styled.div`
   overflow: auto;
   width: 100%;
@@ -35,9 +40,9 @@ export const LeftDrawer = ({ children }: LeftDrawerProps) => {
   return (
     <Container drawerWidth={'320px'}>
       <Grid>
-        <Grid container justify="space-between" alignItems="center">
+        <LogoContainer container justify="space-between" alignItems="center">
           <Logo />
-        </Grid>
+        </LogoContainer>
         <ChildContent>{children}</ChildContent>
       </Grid>
     </Container>

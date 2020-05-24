@@ -5,10 +5,10 @@ interface LogoProps {
   width?: number
 }
 
-export const Logo = ({ height = 115, width = 270 }: LogoProps) => {
+export const Logo = ({ height = 34, width = 80 }: LogoProps) => {
   return (
     <div>
-      <svg width="270px" height="114px" viewBox="0 0 270 114" version="1.1">
+      <svg width={width} height={height} viewBox="0 0 270 114" version="1.1">
         <title>Group 4</title>
         <desc>Created with Sketch.</desc>
         <defs>
