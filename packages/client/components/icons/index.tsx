@@ -1,4 +1,5 @@
 export { Logo } from './logo'
+export { LogoFull } from './logo-full'
 export { AnnotationIcon } from './annotation'
 export { AddAnnotationIcon } from './add-annotation'
 export { Star } from './star'

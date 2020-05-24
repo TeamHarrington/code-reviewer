@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react'
-import { Logo, AnnotationIcon, AddAnnotationIcon, Star } from '.'
+import { Logo, LogoFull, AnnotationIcon, AddAnnotationIcon, Star } from '.'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { GridList, Grid } from '@material-ui/core'
@@ -60,6 +60,10 @@ stories.add('default', () => {
       <GridList cellHeight={180}>
         <IconContainer title="logo">
           <Logo />
+        </IconContainer>
+
+        <IconContainer title="logo-full">
+          <LogoFull />
         </IconContainer>
 
         <IconContainer title="annotation">
