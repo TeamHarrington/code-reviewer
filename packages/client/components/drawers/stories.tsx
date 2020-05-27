@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react'
-import { MobileDrawer, SideDrawer, BottomDrawer } from '.'
+import { MobileDrawer, LeftDrawer, RightDrawer, BottomDrawer } from '.'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 import { Button } from '@material-ui/core'
@@ -30,14 +30,22 @@ stories.add('mobile drawer', () => {
   )
 })
 
-stories.add('side drawer', () => {
+stories.add('left drawer', () => {
+  return (
+    <StoryContainer>
+      <LeftDrawer>content</LeftDrawer>
+    </StoryContainer>
+  )
+})
+
+stories.add('right drawer', () => {
   const closeButton = <Button color="primary">Button</Button>
 
   return (
     <StoryContainer>
-      <SideDrawer title="Title" actionButton={closeButton}>
+      <RightDrawer title="Title" actionButton={closeButton}>
         content
-      </SideDrawer>
+      </RightDrawer>
     </StoryContainer>
   )
 })

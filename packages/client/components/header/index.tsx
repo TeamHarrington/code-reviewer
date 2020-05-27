@@ -11,7 +11,7 @@ import {
   DialogTitle
 } from '@material-ui/core'
 
-import { Logo } from '../icons/logo'
+import { MiniLogo } from '../icons'
 
 const Container = styled.div`
   height: 48px;
@@ -108,7 +108,7 @@ export const Header = ({
       {!backButtonOnClick && (
         <a href="app url, TBD">
           <LogoContainer>
-            <Logo height={24} width={24} />
+            <MiniLogo height={24} width={24} />
           </LogoContainer>
         </a>
       )}
