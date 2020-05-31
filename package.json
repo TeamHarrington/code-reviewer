@@ -27,6 +27,7 @@
   "bugs": "https://github.com/TeamHarrington/code-reviewer/issues",
   "homepage": "https://github.com/TeamHarrington/code-reviewer#readme",
   "devDependencies": {
+    "@babel/plugin-syntax-typescript": "^7.10.1",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "eslint": "^6.8.0",
