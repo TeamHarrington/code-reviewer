@@ -8,11 +8,7 @@
     "project": "tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "@typescript-eslint/tslint",
-    "eslint-plugin-import"
-  ],
+  "plugins": ["@typescript-eslint", "eslint-plugin-import"],
   "rules": {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/await-thenable": "error",
@@ -89,25 +85,6 @@
     "space-before-function-paren": "off",
     "space-in-parens": ["off", "never"],
     "spaced-comment": ["error", "always", { "markers": ["/"] }],
-    "use-isnan": "error",
-    "@typescript-eslint/tslint/config": [
-      "error",
-      {
-        "rules": {
-          "no-boolean-literal-compare": true,
-          "no-dynamic-delete": true,
-          "no-tautology-expression": true,
-          "no-unnecessary-callback-wrapper": true,
-          "whitespace": [
-            true,
-            "check-branch",
-            "check-decl",
-            "check-operator",
-            "check-separator",
-            "check-type"
-          ]
-        }
-      }
-    ]
+    "use-isnan": "error"
   }
 }
