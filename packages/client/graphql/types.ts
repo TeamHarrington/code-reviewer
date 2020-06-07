@@ -1,17 +1,25 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: TestQuery
+// GraphQL query operation: GetUsersQuery
 // ====================================================
 
-export interface TestQuery {
-  testQuery: string | null;
+export interface GetUsersQuery_getUser {
+  __typename: "User";
+  id: string;
+  firstName: string | null;
+}
+
+export interface GetUsersQuery {
+  getUser: GetUsersQuery_getUser;
 }
 
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 //==============================================================

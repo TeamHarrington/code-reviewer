@@ -7,7 +7,7 @@ import gql from 'graphql-tag'
 const PageContainer = styled.div``
 
 const getUserQuery = gql`
-  query {
+  query GetUsersQuery {
     getUser(id: 1) {
       id
       firstName
