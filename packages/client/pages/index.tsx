@@ -1,14 +1,15 @@
-import { Query } from '../components/apollo/query'
-import { TestQuery } from '@code-reviewer/client/graphql/types'
-import { testQuery } from '@code-reviewer/client/graphql/queries/testQuery'
+// import { Query } from '../components/apollo/query'
+// import { TestQuery } from '@code-reviewer/client/graphql/types'
+// import { testQuery } from '@code-reviewer/client/graphql/queries/testQuery'
 
 const HomePage = () => {
   return (
-    <Query<TestQuery> query={testQuery}>
-      {data => {
-        return <div>{data.testQuery}</div>
-      }}
-    </Query>
+    <div> home page</div>
+    // <Query<TestQuery> query={testQuery}>
+    //   {data => {
+    //     return <div>{data.testQuery}</div>
+    //   }}
+    // </Query>
   )
 }
 
