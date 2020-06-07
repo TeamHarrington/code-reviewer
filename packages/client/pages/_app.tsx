@@ -9,6 +9,8 @@ class MyApp extends App<AppContext> {
   public render() {
     const { Component, pageProps, apollo } = this.props as any
 
+    console.log('==== props', this.props)
+
     return (
       <ApolloProvider client={apollo}>
         <ThemeProvider theme={theme}>
