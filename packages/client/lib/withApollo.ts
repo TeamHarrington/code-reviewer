@@ -6,7 +6,8 @@ import config from '../config'
 
 export default withApollo(({ initialState }) => {
   return new ApolloClient<NormalizedCacheObject>({
-    uri: `${config.SERVER_DOMAIN}/${config.GRAPHQL_ENDPOINT}`,
+    // uri: `${config.SERVER_DOMAIN}/${config.GRAPHQL_ENDPOINT}`,
+    uri: 'http://localhost:4000/graphql',
     cache: new InMemoryCache().restore(initialState || {})
   })
 })
