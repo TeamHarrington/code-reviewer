@@ -12,7 +12,7 @@ export interface APIConfig {
 const config: Readonly<APIConfig> = Object.freeze({
   API: {
     DOMAIN: env.DOMAIN,
-    PORT: 4000,
+    PORT: env.PORT,
     GRAPHQL_ENDPOINT: env.GRAPHQL_ENDPOINT
   },
   ENV: env.ENV
