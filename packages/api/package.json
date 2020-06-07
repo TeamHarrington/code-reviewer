@@ -14,7 +14,7 @@
     "test-db": "ts-node --project tsconfig.json db/test-connection.ts",
     "check-tsc": "tsc --project tsconfig.prod.json",
     "test": "jest",
-    "dev": "nodemon"
+    "dev": "nodemon --port=4000"
   },
   "dependencies": {
     "apollo-server-express": "^2.10.1",
