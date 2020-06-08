@@ -22,7 +22,7 @@ const HomePage = () => {
       {loading && <p>Loading Assignments</p>}
       {!loading && <AssignmentSelection assignments={data.getAssignments} />}
       {/* TODO: this is for testing only */}
-      <Button onClick={() => addAssignment()}>add new assignment</Button>
+      <Button onClick={async () => addAssignment()}>add new assignment</Button>
       home Page
     </PageContainer>
   )
