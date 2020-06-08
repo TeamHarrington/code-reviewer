@@ -18,7 +18,7 @@
     "storybook": "start-storybook --port 2000",
     "storybook:build": "build-storybook -c .storybook -o .storybook.build",
     "test": "jest",
-    "schema:download": "apollo schema:download ./graphql/schema.json --endpoint=http://localhost:3000/graphql && echo $PORT",
+    "schema:download": "apollo schema:download ./graphql/schema.json --endpoint=http://localhost:3000/graphql",
     "codegen:generate": "apollo codegen:generate graphql/types.ts --localSchemaFile=./graphql/schema.json --includes=./graphql/queries/index.ts --target=typescript --outputFlat"
   },
   "dependencies": {
