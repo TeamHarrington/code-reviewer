@@ -69,7 +69,7 @@ const Types = gql`
       feedbackQuestions: [String!]
       groupSize: Int
       isActive: Boolean
-    ): Assignment!
+    ): [Assignment]!
 
     editAssignment(
       id: Int!
