@@ -1,18 +1,25 @@
 import { assignments } from '../mock-data'
 
 export interface IAddAssignment {
-  name: String
-  requiredFiles: String[]
-  peerReviewDeadline?: String
-  feedbackQuestions: String[]
-  groupSize: Number
-  isActive: Boolean
+  name: string
+  requiredFiles: string[]
+  peerReviewDeadline?: string
+  feedbackQuestions: string[]
+  groupSize: number
+  isActive: boolean
 }
 
 // add a new assignment
 export const addAssignment = (_: any, args: IAddAssignment) => {
-  console.log(args)
-  return null
+  assignments.push({
+    id: assignments.length,
+    name: args.name,
+    requiredFiles: [],
+    feedbackQuestions: [],
+    groupSize: 4,
+    isActive: true
+  })
+  return assignments
 }
 
 export interface IEditAssignment extends IAddAssignment {

@@ -1,10 +1,11 @@
-import { FunctionComponent } from 'react'
 // import { Query } from '../components/apollo/query'
-// import { TestQuery } from '@code-reviewer/client/graphql/types'
-// import { testQuery } from '@code-reviewer/client/graphql/queries/testQuery'
+// import { TestQuery } from '../graphql/types'
+// import { testQuery } from '../graphql/queries/testQuery'
 
-const HomePage: FunctionComponent = () => {
-  return <div>home page</div>
+const HomePage = () => {
+  return (
+    <div>root page</div>
+  )
 }
 
 export default HomePage

@@ -1,11 +1,12 @@
 import withApollo from 'next-with-apollo'
-import ApolloClient, { InMemoryCache } from 'apollo-boost'
-import config from '@code-reviewer/client/config'
+import ApolloClient from 'apollo-boost'
+import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory'
 
-export default withApollo(
-  ({ initialState }) =>
-    new ApolloClient({
-      uri: `${config.SERVER_DOMAIN}/${config.GRAPHQL_ENDPOINT}`,
-      cache: new InMemoryCache().restore(initialState || {})
-    })
-)
+import config from '../config'
+
+export default withApollo(({ initialState }) => {
+  return new ApolloClient<NormalizedCacheObject>({
+    uri: `${config.SERVER_DOMAIN}/${config.GRAPHQL_ENDPOINT}`,
+    cache: new InMemoryCache().restore(initialState || {})
+  })
+})
