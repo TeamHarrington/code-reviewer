@@ -9,6 +9,14 @@ export const GET_ASSIGNMENTS = gql`
   }
 `
 
+export const GET_SUBMISSIONS = gql`
+  query GetSubmissions {
+    getSubmissions {
+      id
+    }
+  }
+`
+
 // TODO: this is a test mutation
 export const ADD_ASSIGNMENT = gql`
   mutation AddAssignment {

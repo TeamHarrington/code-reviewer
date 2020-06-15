@@ -2,10 +2,24 @@ import { PeerTabs } from '../../components/peer-tabs'
 import { Header } from '../../components/header'
 import { SyntaxHighlight } from '../../components/syntax-highlight'
 import styled from 'styled-components'
+import { useQuery, useMutation } from '@apollo/react-hooks'
+import { GET_SUBMISSIONS } from '../../graphql/queries'
 
 const PageContainer = styled.div``
 
+// need to fetch
+// 1. code file
+// 2. annotations
+// 3. questions
+// 4. feedbacks
+
 const CodePage = () => {
+  const { data, loading } = useQuery(GET_SUBMISSIONS)
+
+  console.log('=== data', data)
+
+  console.log('=== loading', loading)
+
   const codeString = `def myfunc():
   result = ["str", True, 1, []]
   return result
