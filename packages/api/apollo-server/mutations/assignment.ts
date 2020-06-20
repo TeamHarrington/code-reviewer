@@ -12,7 +12,7 @@ export interface IAddAssignment {
 // add a new assignment
 export const addAssignment = (_: any, args: IAddAssignment) => {
   assignments.push({
-    id: assignments.length,
+    id: assignments.length.toString(),
     name: args.name,
     requiredFiles: [],
     feedbackQuestions: [],
@@ -23,7 +23,7 @@ export const addAssignment = (_: any, args: IAddAssignment) => {
 }
 
 export interface IEditAssignment extends IAddAssignment {
-  id: number
+  id: string
 }
 
 // edit an assignment given its id and the properties that

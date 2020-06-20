@@ -1,7 +1,7 @@
 import { submissions } from '../mock-data'
 
 export interface IGetSubmission {
-  id: number
+  id: string
 }
 
 // don't have a use case for this one yet, put it there just for testing
@@ -14,20 +14,29 @@ export const getSubmission = async (_: any, args: IGetSubmission) => {
 }
 
 export interface IGetSubmissions {
-  userID: number
+  userID: string
+  assignmentID: string
 }
 
-// get this user's all submissions as well as the submissions has this user
-// in reviewBy
-// do not include the submissions that has submissions.Assignment.isActive = false
-// this one should be called on the student and TA home page
+// return all submissions with given assignmentID where user is either
+// the author or a reviewer
 export const getSubmissions = async (_: any, args: IGetSubmissions) => {
-  console.log(args)
-  return submissions
+  const result = submissions.filter(submission => {
+    if (submission.id !== args.assignmentID) {
+      return false
+    }
+    if (submission.author.id === args.userID) {
+      return true
+    }
+    return submission.reviewBy.some(reviewer => {
+      return reviewer.id === args.userID
+    })
+  })
+  return result
 }
 
 export interface IGetFiles {
-  submissionID: number
+  submissionID: string
 }
 
 // get files by submissionID
@@ -36,7 +45,7 @@ export const getFiles = async (_: any, args: IGetFiles) => {
 }
 
 export interface IGetAnnotations {
-  fileID: number
+  fileID: string
 }
 
 // get annotations by fileID
