@@ -139,7 +139,6 @@ const Types = gql`
     assignment: Assignment!
     files: [File!]!
     reviewBy: [User!]!
-    feedbackAnswers: [String]!
   }
 
   type Annotation {
