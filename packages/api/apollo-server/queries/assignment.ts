@@ -4,9 +4,7 @@ export interface IGetAssignment {
   id: string
 }
 
-// get a single assignment based on ID
-// don't have a use case yet
-// may delete it if not needed
+// get metadata of an assignment
 export const getAssignment = async (_: any, args: IGetAssignment) => {
   const resultAssignment = assignments.find(
     assignment => assignment.id === args.id
