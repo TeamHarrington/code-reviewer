@@ -7,12 +7,6 @@ import { GET_SUBMISSIONS } from '../../graphql/queries'
 
 const PageContainer = styled.div``
 
-// need to fetch
-// 1. code file
-// 2. annotations
-// 3. questions
-// 4. feedbacks
-
 const CodePage = () => {
   const { data, loading } = useQuery(GET_SUBMISSIONS)
 
