@@ -11,8 +11,8 @@ const Types = gql`
     ): [User!]!
     getAssignment(id: Int!): Assignment!
     getAssignments: [Assignment!]!
-    getSubmission(id: Int): Submission!
-    getSubmissions(userID: ID, assignmentID: ID): [Submission!]!
+    getSubmission(assignmentID: ID!): Submission!
+    getSubmissions(assignmentID: ID!): [Submission!]!
     getFiles(submissionID: Int): [File!]!
     getAnnotations(fileID: Int): [Annotation!]!
   }

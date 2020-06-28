@@ -1,38 +1,37 @@
 import { submissions } from '../mock-data'
 
-export interface IGetSubmission {
-  id: string
-}
-
-// don't have a use case for this one yet, put it there just for testing
-// probabl going to remove it in near future
-export const getSubmission = async (_: any, args: IGetSubmission) => {
-  const resultSubmission = submissions.find(
-    submission => submission.id === args.id
-  )
-  return resultSubmission
-}
-
 export interface IGetSubmissions {
-  userID: string
   assignmentID: string
 }
 
-// return all submissions with given assignmentID where user is either
-// the author or a reviewer
-export const getSubmissions = async (_: any, args: IGetSubmissions) => {
-  const result = submissions.filter(submission => {
-    if (submission.id !== args.assignmentID) {
-      return false
-    }
-    if (submission.author.id === args.userID) {
-      return true
-    }
-    return submission.reviewBy.some(reviewer => {
-      return reviewer.id === args.userID
-    })
+// return the submission with given assignmentID where user is the author
+export const getSubmission = async (
+  _: any,
+  args: IGetSubmissions,
+  context: any
+) => {
+  return submissions.find(sub => {
+    const isAuthor = sub.author.id === context.userID
+    const isAssignment = sub.assignment.id === args.assignmentID
+    const result = isAuthor && isAssignment
+    return result
   })
-  return result
+}
+
+// return all submissions with given assignmentID where user is a reviewer
+export const getSubmissions = async (
+  _: any,
+  args: IGetSubmissions,
+  context: any
+) => {
+  // TODO: find a better to retrieve userID from headers
+  const userID = context.userID
+
+  return submissions.filter(sub => {
+    const isReviewer = sub.reviewBy.find(reviewer => reviewer.id === userID)
+    const isAssignment = sub.assignment.id === args.assignmentID
+    return isReviewer && isAssignment
+  })
 }
 
 export interface IGetFiles {
