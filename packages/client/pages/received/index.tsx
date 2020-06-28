@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_SUBMISSIONS } from '../../graphql/queries'
 
-// reviews and feedbacks given to peers
+// reviers and feedbacks received from users
 const PageContainer = styled.div``
 
 const CodePage = () => {

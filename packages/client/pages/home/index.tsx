@@ -8,12 +8,13 @@ import { AssignmentSelection } from '../../components/assignment-selections'
 const PageContainer = styled.div``
 
 const HomePage = () => {
+  // get all assignments
   const { data, loading } = useQuery(GET_ASSIGNMENTS)
 
+  // this is for testing only, will be removed later
   const [addAssignment, { data: newAssignmentData }] = useMutation(
     ADD_ASSIGNMENT
   )
-
   console.log('response of add new ssignment', newAssignmentData)
 
   return (
