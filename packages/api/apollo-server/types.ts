@@ -13,7 +13,7 @@ const Types = gql`
     getAssignments: [Assignment!]!
     getSubmission(assignmentID: ID!): Submission!
     getSubmissions(assignmentID: ID!): [Submission!]!
-    getFiles(submissionID: Int): [File!]!
+    getFiles(ids: [ID!]): [File!]!
     getAnnotations(fileID: Int): [Annotation!]!
   }
 
@@ -129,7 +129,7 @@ const Types = gql`
   type File {
     id: ID!
     name: String!
-    path: String!
+    content: String!
     annotations: [Annotation!]!
   }
 

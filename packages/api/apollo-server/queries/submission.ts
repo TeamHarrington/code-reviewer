@@ -34,15 +34,6 @@ export const getSubmissions = async (
   })
 }
 
-export interface IGetFiles {
-  submissionID: string
-}
-
-// get files by submissionID
-export const getFiles = async (_: any, args: IGetFiles) => {
-  return args
-}
-
 export interface IGetAnnotations {
   fileID: string
 }
