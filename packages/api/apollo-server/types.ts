@@ -9,7 +9,7 @@ const Types = gql`
       userType: UserType
       isActive: Boolean
     ): [User!]!
-    getAssignment(id: Int!): Assignment!
+    getAssignment(id: ID!): Assignment!
     getAssignments: [Assignment!]!
     getSubmission(assignmentID: ID!): Submission!
     getSubmissions(assignmentID: ID!): [Submission!]!
