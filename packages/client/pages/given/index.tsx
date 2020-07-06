@@ -2,7 +2,7 @@ import { PeerTabs } from '../../components/peer-tabs'
 import { Header } from '../../components/header'
 import { SyntaxHighlight } from '../../components/syntax-highlight'
 import styled from 'styled-components'
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/react-hooks'
 import { GET_SUBMISSIONS } from '../../graphql/queries'
 
 // reviews and feedbacks given to peers
