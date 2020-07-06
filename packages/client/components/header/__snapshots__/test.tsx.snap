@@ -8,7 +8,7 @@ exports[`Header Component 1`] = `
     href="app url, TBD"
   >
     <div
-      className="header__LogoContainer-sc-1vegvik-3 kaxtma"
+      className="header__LogoContainer-sc-1vegvik-3 fDrKtj"
     >
       <svg
         height={24}
@@ -52,14 +52,14 @@ exports[`Header Component 1`] = `
     </div>
   </a>
   <div
-    className="header__Title-sc-1vegvik-4 iPhvBd"
+    className="header__Title-sc-1vegvik-4 fFqmux"
   >
     
   </div>
   <div
     aria-haspopup="menu"
     aria-label="Hello . Click to open user menu."
-    className="header__UserContainer-sc-1vegvik-5 YvjaL"
+    className="header__UserContainer-sc-1vegvik-5 hwJtvu"
     onClick={[Function]}
     role="button"
     tabIndex={0}
