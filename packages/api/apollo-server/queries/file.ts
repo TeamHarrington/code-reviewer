@@ -7,6 +7,7 @@ export interface IGetFiles {
 export const getFiles = async (_: any, args: IGetFiles) => {
   const result = [] as any[]
   args.ids.forEach(fileID => {
+    // eslint-disable-next-line
     const file = files.find(file => file.id === fileID)
     // TODO: consider throwing error if a args.ids are invalid
     if (file) {
