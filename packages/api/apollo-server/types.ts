@@ -9,11 +9,11 @@ const Types = gql`
       userType: UserType
       isActive: Boolean
     ): [User!]!
-    getAssignment(id: Int!): Assignment!
+    getAssignment(id: ID!): Assignment!
     getAssignments: [Assignment!]!
-    getSubmission(id: Int): Submission!
-    getSubmissions(userID: Int): [Submission!]!
-    getFiles(submissionID: Int): [File!]!
+    getSubmission(assignmentID: ID!): Submission!
+    getSubmissions(assignmentID: ID!): [Submission!]!
+    getFiles(ids: [ID!]): [File!]!
     getAnnotations(fileID: Int): [Annotation!]!
   }
 
@@ -129,7 +129,7 @@ const Types = gql`
   type File {
     id: ID!
     name: String!
-    path: String!
+    content: String!
     annotations: [Annotation!]!
   }
 
@@ -139,7 +139,6 @@ const Types = gql`
     assignment: Assignment!
     files: [File!]!
     reviewBy: [User!]!
-    feedbackAnswers: [String]!
   }
 
   type Annotation {

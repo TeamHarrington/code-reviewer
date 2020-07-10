@@ -40,24 +40,24 @@ const BackArrowContainer = styled.div`
 `
 
 const LogoContainer = styled.div`
-  width: 48px;
+  width: 150px;
   height: 48px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  padding-left: 8px;
 `
 
 const Title = styled.div`
   font-size: 16px;
-  position: absolute;
-  margin-left: 38%;
 `
 
 const UserContainer = styled.div`
-  max-width: 30%;
+  width: 150px;
   margin-right: 0;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 100%;
 `
 

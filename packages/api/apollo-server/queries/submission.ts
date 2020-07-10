@@ -1,42 +1,41 @@
 import { submissions } from '../mock-data'
 
-export interface IGetSubmission {
-  id: number
-}
-
-// don't have a use case for this one yet, put it there just for testing
-// probabl going to remove it in near future
-export const getSubmission = async (_: any, args: IGetSubmission) => {
-  const resultSubmission = submissions.find(
-    submission => submission.id === args.id
-  )
-  return resultSubmission
-}
-
 export interface IGetSubmissions {
-  userID: number
+  assignmentID: string
 }
 
-// get this user's all submissions as well as the submissions has this user
-// in reviewBy
-// do not include the submissions that has submissions.Assignment.isActive = false
-// this one should be called on the student and TA home page
-export const getSubmissions = async (_: any, args: IGetSubmissions) => {
-  console.log(args)
-  return submissions
+// return the submission with given assignmentID where user is the author
+export const getSubmission = async (
+  _: any,
+  args: IGetSubmissions,
+  context: any
+) => {
+  return submissions.find(sub => {
+    const isAuthor = sub.author.id === context.userID
+    const isAssignment = sub.assignment.id === args.assignmentID
+    const result = isAuthor && isAssignment
+    return result
+  })
 }
 
-export interface IGetFiles {
-  submissionID: number
-}
+// return all submissions with given assignmentID where user is a reviewer
+export const getSubmissions = async (
+  _: any,
+  args: IGetSubmissions,
+  context: any
+) => {
+  // TODO: find a better to retrieve userID from headers
+  const userID = context.userID
 
-// get files by submissionID
-export const getFiles = async (_: any, args: IGetFiles) => {
-  return args
+  return submissions.filter(sub => {
+    const isReviewer = sub.reviewBy.find(reviewer => reviewer.id === userID)
+    const isAssignment = sub.assignment.id === args.assignmentID
+    return isReviewer && isAssignment
+  })
 }
 
 export interface IGetAnnotations {
-  fileID: number
+  fileID: string
 }
 
 // get annotations by fileID

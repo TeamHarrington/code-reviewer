@@ -1,12 +1,10 @@
 import { assignments } from '../mock-data'
 
 export interface IGetAssignment {
-  id: number
+  id: string
 }
 
-// get a single assignment based on ID
-// don't have a use case yet
-// may delete it if not needed
+// get metadata of an assignment
 export const getAssignment = async (_: any, args: IGetAssignment) => {
   const resultAssignment = assignments.find(
     assignment => assignment.id === args.id
@@ -14,7 +12,8 @@ export const getAssignment = async (_: any, args: IGetAssignment) => {
   return resultAssignment
 }
 
-// return all assignments, probably only instructors need to use this
+// Student/TA - get all active assignments
+// Instructor - get all assignments
 export const getAssignments = async () => {
   return assignments
 }
