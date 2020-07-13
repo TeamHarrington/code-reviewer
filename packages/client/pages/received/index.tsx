@@ -3,13 +3,13 @@ import { Header } from '../../components/header'
 import { SyntaxHighlight } from '../../components/syntax-highlight'
 import styled from 'styled-components'
 import { useQuery } from '@apollo/react-hooks'
-import { GET_SUBMISSIONS } from '../../graphql/queries'
+import { GET_SUBMISSION } from '../../graphql/queries'
 
 // reviews and feedbacks received from users
 const PageContainer = styled.div``
 
 const CodePage = () => {
-  const { data, loading } = useQuery(GET_SUBMISSIONS)
+  const { data, loading } = useQuery(GET_SUBMISSION)
 
   console.log('=== data', data)
 

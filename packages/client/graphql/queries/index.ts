@@ -9,6 +9,18 @@ export const GET_ASSIGNMENTS = gql`
   }
 `
 
+export const GET_SUBMISSION = gql`
+  query {
+    getSubmission(assignmentID: 1) {
+      id
+      author {
+        firstName
+        lastName
+      }
+    }
+  }
+`
+
 export const GET_SUBMISSIONS = gql`
   query GetSubmissions {
     getSubmissions {
