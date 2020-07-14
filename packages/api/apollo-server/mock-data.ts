@@ -91,28 +91,28 @@ export const submissions = [
     id: '1',
     author: users[0],
     assignment: assignments[0],
-    files: files[0],
+    files: [files[0]],
     reviewBy: [users[1], users[2], users[3]]
   },
   {
     id: '2',
     author: users[1],
     assignment: assignments[0],
-    files: files[1],
+    files: [files[1]],
     reviewBy: [users[0], users[2], users[3]]
   },
   {
     id: '3',
     author: users[2],
     assignment: assignments[0],
-    files: files[2],
+    files: [files[2]],
     reviewBy: [users[0], users[1], users[3]]
   },
   {
     id: '4',
     author: users[3],
     assignment: assignments[0],
-    files: files[3],
+    files: [files[3]],
     reviewBy: [users[0], users[1], users[2]]
   }
 ]

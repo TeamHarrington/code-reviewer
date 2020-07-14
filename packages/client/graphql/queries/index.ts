@@ -17,6 +17,14 @@ export const GET_SUBMISSION = gql`
         firstName
         lastName
       }
+      reviewBy {
+        firstName
+      }
+      files {
+        id
+        name
+        content
+      }
     }
   }
 `

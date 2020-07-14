@@ -10,8 +10,13 @@ const PageContainer = styled.div``
 
 const CodePage = () => {
   const { data, loading } = useQuery(GET_SUBMISSION)
+  if (loading) {
+    return <div>loading ...</div>
+  }
 
-  console.log('=== data', data)
+  const submission = data.getSubmission
+
+  console.log('=== submission', submission)
 
   console.log('=== loading', loading)
 
@@ -42,12 +47,17 @@ const CodePage = () => {
 
   `
 
-  const peer1 = <SyntaxHighlight editable codeString={codeString} />
+  const peer1 = (
+    <SyntaxHighlight codeString={submission.files[0].content} editable />
+  )
   const peer2 = <SyntaxHighlight codeString={codeString} />
+  const peer3 = (
+    <SyntaxHighlight codeString={submission.files[0].content} editable />
+  )
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />
-      <PeerTabs contents={[peer1, peer2, 'Peer 3']} />
+      <PeerTabs contents={[peer1, peer2, peer3]} />
     </PageContainer>
   )
 }
