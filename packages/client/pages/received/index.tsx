@@ -15,45 +15,11 @@ const CodePage = () => {
   }
 
   const submission = data.getSubmission
-
   console.log('=== submission', submission)
 
-  console.log('=== loading', loading)
-
-  const codeString = `def myfunc():
-  result = ["str", True, 1, []]
-  return result
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  `
-
-  const peer1 = (
-    <SyntaxHighlight codeString={submission.files[0].content} editable />
-  )
-  const peer2 = <SyntaxHighlight codeString={codeString} />
-  const peer3 = (
-    <SyntaxHighlight codeString={submission.files[0].content} editable />
-  )
+  const peer1 = <SyntaxHighlight files={submission.files} editable />
+  const peer2 = <SyntaxHighlight files={submission.files} />
+  const peer3 = <SyntaxHighlight files={submission.files} editable />
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />
