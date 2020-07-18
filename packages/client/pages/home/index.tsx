@@ -1,30 +1,23 @@
 import { Header } from '../../components/header'
 import styled from 'styled-components'
-import { useQuery, useMutation } from '@apollo/react-hooks'
-import { GET_ASSIGNMENTS, ADD_ASSIGNMENT } from '../../graphql/queries'
-import { Button } from '@material-ui/core'
+import { useQuery } from '@apollo/react-hooks'
+import { GET_ASSIGNMENTS } from '../../graphql/queries'
 import { AssignmentSelection } from '../../components/assignment-selections'
 
 const PageContainer = styled.div``
 
 const HomePage = () => {
   // get all assignments
-  const { data, loading } = useQuery(GET_ASSIGNMENTS)
-
-  // this is for testing only, will be removed later
-  const [addAssignment, { data: newAssignmentData }] = useMutation(
-    ADD_ASSIGNMENT
-  )
-  console.log('response of add new ssignment', newAssignmentData)
+  const { data: assignmentData, loading } = useQuery(GET_ASSIGNMENTS)
+  console.log('data', assignmentData)
 
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />
       {loading && <p>Loading Assignments</p>}
-      {!loading && <AssignmentSelection assignments={data.getAssignments} />}
-      {/* TODO: this is for testing only */}
-      <Button onClick={async () => addAssignment()}>add new assignment</Button>
-      home Page
+      {!loading && (
+        <AssignmentSelection assignments={assignmentData.getAssignments} />
+      )}
     </PageContainer>
   )
 }
