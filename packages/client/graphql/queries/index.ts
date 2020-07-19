@@ -5,6 +5,8 @@ export const GET_ASSIGNMENTS = gql`
     getAssignments {
       id
       name
+      peerReviewDeadline
+      rateFeedbackDeadline
     }
   }
 `

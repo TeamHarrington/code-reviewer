@@ -9,6 +9,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { parse, format } from 'date-fns'
 
 const TitleText = styled.div`
   font-size: 20px;
@@ -43,12 +44,14 @@ const AssignmentButton = ({
   date = '',
   href = ''
 }: AssignmentButtonProps) => {
+  const parsedDate = parse(date, 't', new Date())
+  const readableDate = format(parsedDate, 'PPPPp')
   return (
     <Link href={href}>
       <StyledButton>
         <Grid container direction="column" alignItems="flex-start">
           <div>{title}</div>
-          <div>{`Due date: ${date}`}</div>
+          <div>{`Due date: ${readableDate}`}</div>
         </Grid>
       </StyledButton>
     </Link>
@@ -57,16 +60,16 @@ const AssignmentButton = ({
 
 export interface AssignmentPanelProps {
   name: string
-  reviewDueDate?: string
-  feedbackDueDate?: string
+  peerReviewDeadline?: string
+  rateFeedbackDeadline?: string
   givenLink?: string
   receivedLink?: string
 }
 
 export const AssignmentPanel = ({
   name = '',
-  reviewDueDate = '',
-  feedbackDueDate = '',
+  peerReviewDeadline = '',
+  rateFeedbackDeadline = '',
   givenLink = '',
   receivedLink = ''
 }: AssignmentPanelProps) => (
@@ -78,12 +81,12 @@ export const AssignmentPanel = ({
       <Grid container direction="column">
         <AssignmentButton
           title={'Review Given'}
-          date={reviewDueDate}
+          date={peerReviewDeadline}
           href={givenLink}
         />
         <AssignmentButton
           title={'Review Received'}
-          date={feedbackDueDate}
+          date={rateFeedbackDeadline}
           href={receivedLink}
         />
       </Grid>

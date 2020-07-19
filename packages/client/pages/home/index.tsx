@@ -14,15 +14,6 @@ const HomePage = () => {
   )
   console.log('===== assignment data', assignmentData)
 
-  const date = new Date()
-  console.log('==== date', date.getTime())
-  console.log(format(date, 'PPPPp')) // Sunday, July 19th, 2020 at 2:51 AM
-  console.log(format(date, 't')) // 1595141491
-  const parsedDate = parse('1595541491', 't', new Date())
-  console.log(parsedDate)
-  console.log(format(parsedDate, 't'))
-  console.log(format(parsedDate, 'PPPPp'))
-
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />
