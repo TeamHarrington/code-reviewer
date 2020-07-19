@@ -4,6 +4,7 @@ export interface IAddAssignment {
   name: string
   requiredFiles: string[]
   peerReviewDeadline?: string
+  rateFeedbackDeadline?: string
   feedbackQuestions: string[]
   groupSize: number
   isActive: boolean
@@ -17,7 +18,9 @@ export const addAssignment = (_: any, args: IAddAssignment) => {
     requiredFiles: [],
     feedbackQuestions: [],
     groupSize: 4,
-    isActive: true
+    isActive: true,
+    peerReviewDeadline: '',
+    rateFeedbackDeadline: ''
   })
   return assignments
 }

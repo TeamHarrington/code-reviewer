@@ -121,6 +121,7 @@ const Types = gql`
     name: String!
     requiredFiles: [String!]!
     peerReviewDeadline: String
+    rateFeedbackDeadline: String
     feedbackQuestions: [String!]!
     groupSize: Int!
     isActive: Boolean!

@@ -44,7 +44,9 @@ export const assignments = [
     requiredFiles: ['a1.py'],
     feedbackQuestions: [],
     groupSize: 4,
-    isActive: true
+    isActive: true,
+    peerReviewDeadline: '1595541491',
+    rateFeedbackDeadline: '1595641491'
   },
   {
     id: '2',
@@ -52,7 +54,9 @@ export const assignments = [
     requiredFiles: [],
     feedbackQuestions: ['a2.py', 'testing.py'],
     groupSize: 4,
-    isActive: true
+    isActive: true,
+    peerReviewDeadline: '1595541491',
+    rateFeedbackDeadline: '1595641491'
   }
 ]
 
