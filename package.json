@@ -9,6 +9,7 @@
     "dev:api": "lerna run dev --scope @code-reviewer/api --stream",
     "dev:client": "lerna run dev --scope @code-reviewer/client --stream",
     "build:client": "lerna run build --scope @code-reviewer/client --stream",
+    "check-all": "yarn check-tsc && yarn test && yarn lint",
     "check-tsc": "lerna run check-tsc --stream",
     "sb": "lerna run storybook --scope @code-reviewer/client --stream -- --quiet",
     "storybook": "lerna run storybook --scope @code-reviewer/client --stream -- --quiet",

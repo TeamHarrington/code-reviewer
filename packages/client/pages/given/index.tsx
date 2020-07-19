@@ -12,38 +12,10 @@ const CodePage = () => {
   const { data, loading } = useQuery(GET_SUBMISSIONS)
 
   console.log('=== data', data)
-
   console.log('=== loading', loading)
 
-  const codeString = `def myfunc():
-  result = ["str", True, 1, []]
-  return result
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  `
-
-  const peer1 = <SyntaxHighlight editable codeString={codeString} />
-  const peer2 = <SyntaxHighlight codeString={codeString} />
+  const peer1 = <SyntaxHighlight files={[]} editable />
+  const peer2 = <SyntaxHighlight files={[]} />
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />

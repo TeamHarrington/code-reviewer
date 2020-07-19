@@ -12,11 +12,24 @@ stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 const TabContainer = styled.div``
 
 stories.add('default', () => {
-  const codeString = `def myfunc():
-  result = ["str", True, 1, []]
-  return result
-
-  `
+  const files = [
+    {
+      id: '1',
+      name: 'a1-main.py',
+      content: `def myfunc():
+    result = ["str", True, 1, []]
+    return result
+    `
+    },
+    {
+      id: '2',
+      name: 'a1.code.py',
+      content: `def myfunc():
+    result = ["str", True, 1, []]
+    return result
+    `
+    }
+  ]
 
   const annotations = {
     1: 'Use better variable name',
@@ -25,11 +38,7 @@ stories.add('default', () => {
 
   const peer1 = (
     <TabContainer>
-      <SyntaxHighlight
-        editable
-        annotations={annotations}
-        codeString={codeString}
-      />
+      <SyntaxHighlight editable annotations={annotations} files={files} />
     </TabContainer>
   )
 
