@@ -8,10 +8,24 @@ const stories = storiesOf('Syntax Highlight', module)
 stories.addParameters({ info: { inline: true } }).addDecorator(withKnobs)
 
 stories.add('default', () => {
-  const codeString = `def myfunc():
-  result = ["str", True, 1, []]
-  return result
-  `
+  const files = [
+    {
+      id: '1',
+      name: 'a1-main.py',
+      content: `def myfunc():
+    result = ["str", True, 1, []]
+    return result
+    `
+    },
+    {
+      id: '2',
+      name: 'a1.code.py',
+      content: `def myfunc():
+    result = ["str", True, 1, []]
+    return result
+    `
+    }
+  ]
 
   const colorThemeOptions = {
     ...colorThemes
@@ -33,7 +47,7 @@ stories.add('default', () => {
       <SyntaxHighlight
         language={text('language', 'python')}
         colorTheme={colorTheme}
-        codeString={codeString}
+        files={files}
         annotations={annotations}
         editable={boolean('editable', true)}
       />

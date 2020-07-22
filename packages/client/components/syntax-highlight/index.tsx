@@ -9,6 +9,7 @@ import { useOnHover } from '../../hooks/hover.hook'
 import { AddAnnotationIcon, AnnotationIcon } from '../icons'
 import { FeedbackDrawer } from '../feedback'
 import { AnnotationDrawer } from '../annotation'
+import { FileChips } from '../file-chips'
 
 const Container = styled.div`
   min-height: 80vh;
@@ -78,7 +79,7 @@ const Row = ({
 }
 
 export interface SyntaxHighlightProps {
-  codeString: string
+  files: any
   colorTheme?: any
   language?: string
   editable?: boolean
@@ -86,13 +87,15 @@ export interface SyntaxHighlightProps {
 }
 
 export const SyntaxHighlight = ({
-  codeString,
+  files,
   colorTheme = vs2015,
   language = 'python',
   editable = false,
   annotations = {}
 }: SyntaxHighlightProps) => {
+  console.log(files)
   const [selectedLineNum, setSelectedLineNum] = useState(-1)
+  const [selectedFileIndex, setSelectedFileIndex] = useState(0)
 
   const renderRow = (_someOpts: {}) => {
     return ({ rows, stylesheet, useInlineStyles }: any) => {
@@ -117,6 +120,7 @@ export const SyntaxHighlight = ({
 
   return (
     <Container>
+      <FileChips onClick={setSelectedFileIndex} files={files}></FileChips>
       <SyntaxHighlighter
         style={colorTheme}
         wrapLines
@@ -130,7 +134,7 @@ export const SyntaxHighlight = ({
           }
           return { style } as React.DOMAttributes<HTMLElement>
         }}>
-        {codeString}
+        {files[selectedFileIndex] ? files[selectedFileIndex].content : ''}
       </SyntaxHighlighter>
 
       <FeedbackDrawer

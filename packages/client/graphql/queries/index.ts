@@ -5,6 +5,28 @@ export const GET_ASSIGNMENTS = gql`
     getAssignments {
       id
       name
+      peerReviewDeadline
+      rateFeedbackDeadline
+    }
+  }
+`
+
+export const GET_SUBMISSION = gql`
+  query {
+    getSubmission(assignmentID: 1) {
+      id
+      author {
+        firstName
+        lastName
+      }
+      reviewBy {
+        firstName
+      }
+      files {
+        id
+        name
+        content
+      }
     }
   }
 `

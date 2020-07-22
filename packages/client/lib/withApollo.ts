@@ -7,6 +7,9 @@ import config from '../config'
 export default withApollo(({ initialState }) => {
   return new ApolloClient<NormalizedCacheObject>({
     uri: `${config.SERVER_DOMAIN}/${config.GRAPHQL_ENDPOINT}`,
-    cache: new InMemoryCache().restore(initialState || {})
+    cache: new InMemoryCache().restore(initialState || {}),
+    headers: {
+      authorization: '1'
+    }
   })
 })

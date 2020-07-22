@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Chip from '@material-ui/core/Chip'
 import styled from 'styled-components'
 
@@ -15,18 +15,26 @@ const StyledChip = styled(Chip)`
 `
 
 interface FileChip {
-  fileName: string
+  name: string
 }
 
 interface FileChips {
   files: FileChip[]
+  onClick?: (i: number) => void
+  selectedChipIndex?: number
 }
 
-export const FileChips = ({ files = [] }: FileChips) => {
-  const [selectedChipIndex, setSelectedChipIndex] = useState(0)
+export const FileChips = ({
+  files = [],
+  onClick = () => null,
+  selectedChipIndex = 0
+}: FileChips) => {
+  const handChipOnClick = (index: number) => () => {
+    onClick(index)
+  }
 
-  const handChipOnClick = (_: any, index: number) => () => {
-    setSelectedChipIndex(index)
+  if (files.length === 1) {
+    return null
   }
 
   return (
@@ -36,11 +44,12 @@ export const FileChips = ({ files = [] }: FileChips) => {
 
         return (
           <StyledChip
+            key={file.name}
             color={'default'}
             variant="outlined"
             disabled={isSelected}
-            label={file.fileName}
-            onClick={handChipOnClick(file, index)}
+            label={file.name}
+            onClick={handChipOnClick(index)}
           />
         )
       })}

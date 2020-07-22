@@ -3,51 +3,27 @@ import { Header } from '../../components/header'
 import { SyntaxHighlight } from '../../components/syntax-highlight'
 import styled from 'styled-components'
 import { useQuery } from '@apollo/react-hooks'
-import { GET_SUBMISSIONS } from '../../graphql/queries'
+import { GET_SUBMISSION } from '../../graphql/queries'
 
 // reviews and feedbacks received from users
 const PageContainer = styled.div``
 
 const CodePage = () => {
-  const { data, loading } = useQuery(GET_SUBMISSIONS)
+  const { data, loading } = useQuery(GET_SUBMISSION)
+  if (loading) {
+    return <div>loading ...</div>
+  }
 
-  console.log('=== data', data)
+  const submission = data.getSubmission
+  console.log('=== submission', submission)
 
-  console.log('=== loading', loading)
-
-  const codeString = `def myfunc():
-  result = ["str", True, 1, []]
-  return result
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  `
-
-  const peer1 = <SyntaxHighlight editable codeString={codeString} />
-  const peer2 = <SyntaxHighlight codeString={codeString} />
+  const peer1 = <SyntaxHighlight files={submission.files} editable />
+  const peer2 = <SyntaxHighlight files={submission.files} />
+  const peer3 = <SyntaxHighlight files={submission.files} editable />
   return (
     <PageContainer>
       <Header title={'CSCA20'} userName={'Kenny'} />
-      <PeerTabs contents={[peer1, peer2, 'Peer 3']} />
+      <PeerTabs contents={[peer1, peer2, peer3]} />
     </PageContainer>
   )
 }

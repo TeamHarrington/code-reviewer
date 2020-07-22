@@ -20,13 +20,13 @@ const StoryContainer = styled.div`
 const assignmentsData = [
   {
     name: 'Assignment 0',
-    reviewDueDate: 'Oct 14, 2019',
-    feedbackDueDate: 'Oct 28, 2019'
+    peerReviewDeadline: '1595541491',
+    rateFeedbackDeadline: '1595641491'
   },
   {
     name: text('title', 'Assignment 1'),
-    reviewDueDate: 'Dec 21, 2019',
-    feedbackDueDate: 'Dec 30, 2019'
+    peerReviewDeadline: '1595541491',
+    rateFeedbackDeadline: '1595641491'
   }
 ]
 
